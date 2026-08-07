@@ -1,0 +1,10 @@
+# Los PNG originales de las fotografías: 29 MB que el sitio no usa.
+# Se conservan en el disco como respaldo, no en el repositorio.
+_originales-fotos/
+
+# Hojas de contacto de revisión.
+_revision/
+
+# Ruido del sistema.
+.DS_Store
+Thumbs.db

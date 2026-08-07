@@ -1,0 +1,15 @@
+# Rutas antiguas o variantes que la gente podría escribir a mano.
+/inicio               /                        301
+/about                /michelle                301
+/sobre-mi             /michelle                301
+/conoce-a-michelle    /michelle                301
+/speaking             /conferencias            301
+/shop                 /tienda                  301
+/store                /tienda                  301
+/lbyn                 /la-biblia-y-nosotras    301
+/biblia               /la-biblia-y-nosotras    301
+/imagemethod          /image-method            301
+/privacidad           /aviso-de-privacidad     301
+
+# Slug corregido: el origen de los pompones no estaba confirmado.
+/tienda/pompones-oaxaca  /tienda/pompones-artesanales  301

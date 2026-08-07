@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Directorio oficial de enlaces de Michelle Ruiz, La Biblia y Nosotras, Iglesia RÍO, podcast, libro y redes sociales."
+  />
+  <title>Redes y enlaces oficiales — Michelle Ruiz</title>
+  <link rel="stylesheet" href="assets/michelle.css">
+  <link rel="preload" href="fonts/LibreBaskerville-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/AloeveraDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    :root{
+      /* Paleta de Michelle Ruiz. Los nombres se conservan para no
+         tocar las 200 reglas que cuelgan de ellos; lo que cambia es
+         el color. */
+      --bg:#FFFCF7;          /* marfil */
+      --paper:#FFFFFF;
+      --ink:#1A1210;         /* negro cálido */
+      --muted:#6E5A54;
+      --line:#EFD9DE;
+      --rose:#FFA1C2;        /* rosa principal */
+      --rose-soft:#FFD6DE;   /* ballet slipper */
+      --wine:#AA0003;        /* chilli */
+      --gold:#AA0003;
+      --lemon:#FFF3B2;
+      --shadow:0 20px 60px rgba(26,18,16,.10);
+      --radius:14px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:"Libre Baskerville", Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255,161,194,.30), transparent 31%),
+        radial-gradient(circle at 95% 18%, rgba(255,243,178,.42), transparent 28%),
+        var(--bg);
+      line-height:1.65;
+    }
+
+    a{color:inherit}
+    button{font:inherit}
+
+    .container{
+      width:min(calc(100% - 40px), var(--max));
+      margin:auto;
+    }
+
+    .hero{
+      padding:100px 0 72px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      margin:0 0 18px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--wine);
+    }
+
+    h1,h2,h3{
+      margin:0;
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+
+    h1{
+      max-width:900px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:clamp(54px,8vw,104px);
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:28px 0 0;
+      font-size:clamp(18px,2vw,23px);
+      color:var(--muted);
+    }
+
+    .notice{
+      margin-top:34px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 16px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,253,249,.7);
+      font-size:14px;
+      font-weight:800;
+    }
+
+    main{padding:80px 0 120px}
+
+    .section{
+      margin-top:90px;
+    }
+
+    .section:first-child{margin-top:0}
+
+    .section-head{
+      display:grid;
+      grid-template-columns:.7fr 1.3fr;
+      gap:34px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+
+    .section-head h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:clamp(38px,5vw,62px);
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      min-height:260px;
+      padding:28px;
+      border:1px solid rgba(24,21,18,.09);
+      border-radius:var(--radius);
+      background:rgba(255,253,249,.82);
+      box-shadow:0 12px 38px rgba(34,24,18,.05);
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+      background:var(--paper);
+    }
+
+    .card::after{
+      content:attr(data-platform);
+      position:absolute;
+      right:-6px;
+      bottom:-28px;
+      font-size:70px;
+      font-weight:950;
+      letter-spacing:-.07em;
+      color:rgba(24,21,18,.035);
+      pointer-events:none;
+      white-space:nowrap;
+    }
+
+    .platform{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:22px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:var(--rose-soft);
+      color:var(--wine);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+    }
+
+    .card h3{
+      max-width:620px;
+      margin-bottom:13px;
+      font-size:29px;
+    }
+
+    .card p{
+      margin:0;
+      max-width:640px;
+      color:var(--muted);
+    }
+
+    .url{
+      position:relative;
+      z-index:1;
+      margin-top:22px;
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#f5f0ea;
+      color:#514a44;
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:12px;
+      word-break:break-all;
+    }
+
+    .actions{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .button{
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:11px 16px;
+      background:var(--paper);
+      color:var(--ink);
+      text-decoration:none;
+      cursor:pointer;
+      font-weight:850;
+      transition:.2s ease;
+    }
+
+    .button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 9px 22px rgba(34,24,18,.08);
+    }
+
+    .button.primary{
+      border-color:var(--ink);
+      background:var(--ink);
+      color:white;
+    }
+
+    .config{
+      margin-top:90px;
+      padding:34px;
+      border-radius:28px;
+      background:#141210;
+      color:white;
+      box-shadow:var(--shadow);
+    }
+
+    .config h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:42px;
+    }
+
+    .config p{
+      color:rgba(255,255,255,.68);
+    }
+
+    pre{
+      margin:26px 0 0;
+      padding:22px;
+      overflow:auto;
+      border-radius:18px;
+      background:#090807;
+      color:#efe8de;
+      font-size:13px;
+      line-height:1.65;
+      white-space:pre;
+    }
+
+    footer{
+      padding:44px 0 60px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .toast{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:100;
+      padding:13px 17px;
+      border-radius:999px;
+      background:var(--ink);
+      color:white;
+      box-shadow:var(--shadow);
+      opacity:0;
+      transform:translateY(15px);
+      pointer-events:none;
+      transition:.25s ease;
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:820px){
+      .section-head,
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:70px;
+      }
+    }
+
+    @media(max-width:540px){
+      .container{
+        width:min(calc(100% - 26px), var(--max));
+      }
+
+      .card{
+        padding:22px;
+      }
+
+      h1{
+        font-size:52px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+
+      .button{
+        width:100%;
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Archivo central de enlaces</p>
+      <h1>Redes y plataformas oficiales de Michelle Ruiz</h1>
+      <p>
+        Este documento organiza los enlaces que Claude deberá utilizar en la página oficial.
+        No debe inventar URLs ni repetirlas manualmente en distintos componentes.
+      </p>
+      <div class="notice">Guardar como: <strong>redes.html</strong></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Libros y recomendaciones</p>
+            <h2>Contenido editorial y tienda</h2>
+          </div>
+          <p>
+            Enlaces relacionados con el libro matrimonial y la selección de productos recomendados por Michelle.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card" data-platform="LIBRO">
+            <span class="platform">Libro</span>
+            <h3>Amor a prueba de todo</h3>
+            <p>
+              Página de producto del libro matrimonial. Debe utilizarse dentro de las secciones
+              Matrimonio, Libros y Recursos.
+            </p>
+            <div class="url" id="url-libro">https://www.espanolwh.com/product/amor-a-prueba-de-todo/?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnSepkFxQmspszxhvMaceptef0Bw-FXoJwdOtXIspYby-KezMciYB1bbQebEE_aem_8MJyT3M0LRJ9moA-7BUH-g</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.espanolwh.com/product/amor-a-prueba-de-todo/?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnSepkFxQmspszxhvMaceptef0Bw-FXoJwdOtXIspYby-KezMciYB1bbQebEE_aem_8MJyT3M0LRJ9moA-7BUH-g" target="_blank" rel="noopener noreferrer">Abrir libro</a>
+              <button class="button" data-copy="url-libro">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="AMAZON">
+            <span class="platform">Amazon</span>
+            <h3>Selección de Michelle Ruiz</h3>
+            <p>
+              Lista de productos recomendados en Amazon. Puede integrarse en una sección de recomendaciones,
+              favoritos o recursos.
+            </p>
+            <div class="url" id="url-amazon">https://www.amazon.com/shop/mrsmichelleruiz/list/181ZKQRC8KUD4?linkCode=spc&amp;tag=bymichellerui-20&amp;domainId=influencer&amp;asc_contentid=amzn1.ideas.181ZKQRC8KUD4&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn8PDCjOAbkRa4nrnXAaCYVIXG8KXUxrYBZiuu8G2fr77N7y-LoFclspqJ01k_aem_WlKF49LQGFSUlrqR3JV4Fw&amp;ccs_id=3e9fe70c-7297-4e2f-a7a5-9be0cde5f1be</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.amazon.com/shop/mrsmichelleruiz/list/181ZKQRC8KUD4?linkCode=spc&amp;tag=bymichellerui-20&amp;domainId=influencer&amp;asc_contentid=amzn1.ideas.181ZKQRC8KUD4&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn8PDCjOAbkRa4nrnXAaCYVIXG8KXUxrYBZiuu8G2fr77N7y-LoFclspqJ01k_aem_WlKF49LQGFSUlrqR3JV4Fw&amp;ccs_id=3e9fe70c-7297-4e2f-a7a5-9be0cde5f1be" target="_blank" rel="noopener noreferrer">Abrir Amazon</a>
+              <button class="button" data-copy="url-amazon">Copiar enlace</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Podcast matrimonial</p>
+            <h2>YouTube y Spotify</h2>
+          </div>
+          <p>
+            Plataformas oficiales del podcast con Efrén y Michelle Ruiz. Deben integrarse en la sección
+            Matrimonios y en la página de Podcast.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card" data-platform="YOUTUBE">
+            <span class="platform">YouTube</span>
+            <h3>Podcast con Efrén y Michelle Ruiz</h3>
+            <p>
+              Canal oficial para episodios en video, temporadas anteriores, clips y contenido matrimonial.
+            </p>
+            <div class="url" id="url-youtube">https://www.youtube.com/@PodcastconEfr%C3%A9nyMichelleruiz</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.youtube.com/@PodcastconEfr%C3%A9nyMichelleruiz" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+              <button class="button" data-copy="url-youtube">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="SPOTIFY">
+            <span class="platform">Spotify</span>
+            <h3>Podcast con Efrén y Michelle Ruiz</h3>
+            <p>
+              Programa oficial en formato de audio. Debe mostrarse junto con YouTube y las temporadas del podcast.
+            </p>
+            <div class="url" id="url-spotify">https://open.spotify.com/show/70hlwnOcW5YdF2736PB0zb?si=Icw03JXcTU63qrhQmzDt8w&amp;utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnFl4k71P0PHO9GY5AYEaxAnIM_oAjZ3lR0Lxf0bkd1V0NpsT-8Fmjud7vX6w_aem_dp-9DZ81L0TCAPvsz0OKwA&amp;nd=1&amp;dlsi=fe42e2135dda4aa3</div>
+            <div class="actions">
+              <a class="button primary" href="https://open.spotify.com/show/70hlwnOcW5YdF2736PB0zb?si=Icw03JXcTU63qrhQmzDt8w&amp;utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnFl4k71P0PHO9GY5AYEaxAnIM_oAjZ3lR0Lxf0bkd1V0NpsT-8Fmjud7vX6w_aem_dp-9DZ81L0TCAPvsz0OKwA&amp;nd=1&amp;dlsi=fe42e2135dda4aa3" target="_blank" rel="noopener noreferrer">Escuchar en Spotify</a>
+              <button class="button" data-copy="url-spotify">Copiar enlace</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Red personal</p>
+            <h2>Michelle Ruiz</h2>
+          </div>
+          <p>
+            Perfiles oficiales que deben utilizarse en la biografía, portada, footer y llamadas a seguir su contenido.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card" data-platform="INSTAGRAM">
+            <span class="platform">Instagram</span>
+            <h3>@mrsmichelleruiz</h3>
+            <p>Cuenta principal de Michelle Ruiz.</p>
+            <div class="url" id="url-instagram-michelle">https://www.instagram.com/mrsmichelleruiz</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.instagram.com/mrsmichelleruiz" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+              <button class="button" data-copy="url-instagram-michelle">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="FACEBOOK">
+            <span class="platform">Facebook</span>
+            <h3>By Michelle Ruiz</h3>
+            <p>Página oficial de Michelle Ruiz en Facebook.</p>
+            <div class="url" id="url-facebook">https://www.facebook.com/bymichelleruiz</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.facebook.com/bymichelleruiz" target="_blank" rel="noopener noreferrer">Abrir Facebook</a>
+              <button class="button" data-copy="url-facebook">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="TIKTOK">
+            <span class="platform">TikTok</span>
+            <h3>@mrsmichelleruiz</h3>
+            <p>Cuenta oficial de Michelle Ruiz en TikTok.</p>
+            <div class="url" id="url-tiktok">https://www.tiktok.com/@mrsmichelleruiz</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.tiktok.com/@mrsmichelleruiz" target="_blank" rel="noopener noreferrer">Abrir TikTok</a>
+              <button class="button" data-copy="url-tiktok">Copiar enlace</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Proyectos y ministerios</p>
+            <h2>Comunidades oficiales</h2>
+          </div>
+          <p>
+            Perfiles que deberán conectarse desde las secciones La Biblia y Nosotras, Iglesia RÍO y sus sedes.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card" data-platform="LBYN">
+            <span class="platform">Instagram</span>
+            <h3>La Biblia y Nosotras</h3>
+            <p>Cuenta oficial del proyecto La Biblia y Nosotras.</p>
+            <div class="url" id="url-lbyn">https://www.instagram.com/labibliaynosotras</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.instagram.com/labibliaynosotras" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+              <button class="button" data-copy="url-lbyn">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="RÍO MX">
+            <span class="platform">Instagram</span>
+            <h3>Iglesia RÍO México</h3>
+            <p>Cuenta oficial de Iglesia RÍO en México.</p>
+            <div class="url" id="url-rio-mx">https://www.instagram.com/riomxoficial/</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.instagram.com/riomxoficial/" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+              <button class="button" data-copy="url-rio-mx">Copiar enlace</button>
+            </div>
+          </article>
+
+          <article class="card" data-platform="RÍO SD">
+            <span class="platform">Instagram</span>
+            <h3>RÍO San Diego</h3>
+            <p>Cuenta oficial de la comunidad RÍO en San Diego, Estados Unidos.</p>
+            <div class="url" id="url-rio-san-diego">https://www.instagram.com/riosandiego.usa</div>
+            <div class="actions">
+              <a class="button primary" href="https://www.instagram.com/riosandiego.usa" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+              <button class="button" data-copy="url-rio-san-diego">Copiar enlace</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="config">
+        <h2>Configuración central para Claude</h2>
+        <p>
+          Claude deberá tomar estos enlaces desde un solo archivo de configuración.
+          No debe escribirlos repetidamente dentro de cada componente.
+        </p>
+
+<pre><code>export const officialLinks = {
+  book: {
+    amorAPruebaDeTodo:
+      "https://www.espanolwh.com/product/amor-a-prueba-de-todo/?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnSepkFxQmspszxhvMaceptef0Bw-FXoJwdOtXIspYby-KezMciYB1bbQebEE_aem_8MJyT3M0LRJ9moA-7BUH-g"
+  },
+
+  podcast: {
+    youtube:
+      "https://www.youtube.com/@PodcastconEfr%C3%A9nyMichelleruiz",
+
+    spotify:
+      "https://open.spotify.com/show/70hlwnOcW5YdF2736PB0zb?si=Icw03JXcTU63qrhQmzDt8w&amp;utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnFl4k71P0PHO9GY5AYEaxAnIM_oAjZ3lR0Lxf0bkd1V0NpsT-8Fmjud7vX6w_aem_dp-9DZ81L0TCAPvsz0OKwA&amp;nd=1&amp;dlsi=fe42e2135dda4aa3"
+  },
+
+  amazon: {
+    recommendations:
+      "https://www.amazon.com/shop/mrsmichelleruiz/list/181ZKQRC8KUD4?linkCode=spc&amp;tag=bymichellerui-20&amp;domainId=influencer&amp;asc_contentid=amzn1.ideas.181ZKQRC8KUD4&amp;fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGn8PDCjOAbkRa4nrnXAaCYVIXG8KXUxrYBZiuu8G2fr77N7y-LoFclspqJ01k_aem_WlKF49LQGFSUlrqR3JV4Fw&amp;ccs_id=3e9fe70c-7297-4e2f-a7a5-9be0cde5f1be"
+  },
+
+  michelle: {
+    instagram:
+      "https://www.instagram.com/mrsmichelleruiz",
+
+    facebook:
+      "https://www.facebook.com/bymichelleruiz",
+
+    tiktok:
+      "https://www.tiktok.com/@mrsmichelleruiz"
+  },
+
+  ministries: {
+    laBibliaYNosotras:
+      "https://www.instagram.com/labibliaynosotras",
+
+    rioMexico:
+      "https://www.instagram.com/riomxoficial/",
+
+    rioSanDiego:
+      "https://www.instagram.com/riosandiego.usa"
+  }
+};</code></pre>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <strong>Archivo de enlaces oficiales</strong>
+      <span>No inventar ni sustituir URLs sin autorización.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Enlace copiado</div>
+
+  <script>
+    const toast = document.getElementById("toast");
+
+    function showToast(message){
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1800);
+    }
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.copy);
+        const text = target.textContent.trim();
+
+        try{
+          await navigator.clipboard.writeText(text);
+          showToast("Enlace copiado");
+        }catch(error){
+          showToast("No fue posible copiar");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

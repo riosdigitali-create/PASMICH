@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /carrito
+Disallow: /checkout
+
+# El dominio definitivo aún no está confirmado.
+# Al confirmarlo, sustituir por la URL absoluta del sitemap.
+Sitemap: /sitemap-index.xml

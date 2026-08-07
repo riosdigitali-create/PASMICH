@@ -1,0 +1,121 @@
+════════════════════════════════════════════════════════
+  MICHELLE RUIZ · michelleruiz.org
+  Rediseño editorial · 6 de agosto de 2026
+════════════════════════════════════════════════════════
+
+CÓMO VERLA
+  Doble clic en  index.html
+  No hace falta internet ni instalar nada: todas las rutas
+  son relativas.
+
+
+QUÉ CAMBIÓ EN ESTE REDISEÑO
+──────────────────────────────────────────────────────
+
+  SISTEMA VISUAL   assets/michelle.css
+  Se carga después de la hoja de Astro y trabaja sobre ella.
+  No se tocó ni una de sus 1019 reglas: como todo cuelga de
+  variables, cambiando las variables se re-viste el sitio
+  entero de una vez.
+
+  PALETA
+    Chilli   #AA0003   botones, CTAs, títulos de impacto
+    Rosa     #FFA1C2   fondos destacados, subrayados, tarjetas
+    Ballet   #FFD6DE   fondos suaves, formularios
+    Lemon    #FFF3B2   etiquetas, lanzamientos, pendientes
+    Marfil   #FFFCF7   el fondo dominante
+    Tinta    #1A1210   negro cálido, para leer
+
+    Aviso: el chilli sobre el rosa da 4.11:1. Pasa AA sólo en
+    texto grande. Por eso sobre rosa el texto pequeño va en
+    tinta y el chilli se reserva para titulares.
+
+  TIPOGRAFÍA — tres familias, ni una más
+    Libre Baskerville   editorial: titulares, cuerpo, citas
+    Aloevera Display    interfaz: menú, botones, fechas
+    Caveat              manuscrita: firmas y notas, y nada más
+
+    Prata, Playfair, DM Serif y Architects Daughter siguen en
+    fonts/ pero ya no se usan. Las dos fuentes de La Biblia y
+    Nosotras se convirtieron a woff2 (15 KB y 42 KB).
+
+  LOS HUECOS
+    El vacío que se veía en «Invítala» tenía tres causas
+    sumadas, y las tres están corregidas:
+      · portadas con altura mínima forzada de hasta 900 px
+      · videos verticales de 9:16 que a 340 px de ancho miden
+        604 de alto y estiraban la fila entera
+      · rejillas de dos columnas alineadas al fondo con una
+        mitad corta
+    Además, los huecos entre columnas bajaron de 96 a 48 px y
+    el relleno de sección de 176 a 120 px como máximo.
+
+
+LO QUE SE RETIRÓ POR REPETIDO
+──────────────────────────────────────────────────────
+  · «El recorrido» del inicio — repetía el menú de arriba.
+  · «Quédate cerca» aparecía tres veces en el inicio.
+  · La ficha del libro estaba dos veces en Matrimonio.
+  · La misma cita de Michelle, dos veces en su página.
+  · Los tres niveles de Image Method, completos en el inicio
+    y otra vez en su página. En el inicio queda la
+    presentación breve.
+
+
+LO QUE SE AÑADIÓ
+──────────────────────────────────────────────────────
+  · Podcast reordenado: «Te lo diré aquí» → teaser →
+    Temporada 1 → «Ver todos los episodios» → Temporada 2 →
+    Temporada 3 en amarillo mantequilla.
+  · Matrimonio: programa «Diez días juntos» con formulario,
+    ancla propia para el QR (#diez-dias) y espacio para la
+    foto de Michelle y Efrén.
+  · Pop-up de bienvenida del boletín en las 38 páginas.
+    No sale de entrada: espera a un tercio de la página o 25
+    segundos. Una sola vez. Se cierra con Escape, con el
+    fondo, con la ✕ y con «No, gracias».
+  · «Quédate cerca» también arriba del inicio.
+  · Conferencias: cinco categorías, trayectoria en México,
+    Estados Unidos, Chile y España, y «Mírala en acción» en
+    rosa con cursiva y sólo predicaciones.
+  · Blog: espacio para el video de lanzamiento del sitio.
+
+
+LO QUE FALTA, Y ESTÁ MARCADO EN AMARILLO
+──────────────────────────────────────────────────────
+  Cada hueco pendiente se ve en pantalla con su etiqueta.
+  No hay nada inventado.
+
+  · Biografía definitiva de Michelle
+  · Fotografía familiar (Michelle, Efrén y sus tres hijos)
+  · Fotografía de Michelle y Efrén para el libro
+  · Fotografía ejecutiva para The Image Method
+  · Foto recortada sin fondo para el pop-up
+  · Video teaser del podcast
+  · Predicación completa para Conferencias
+  · Video de lanzamiento del sitio, para el blog
+  · Nombre y fecha finales del programa de diez días
+  · Código QR (se genera con el dominio decidido)
+  · Regalo de bienvenida del boletín
+  · Dirección definitiva de The Image Method
+  · Precios, inventario, envíos y pagos de la tienda
+  · Canal de predicaciones de RÍO
+  · Logo y tipografía oficiales de La Biblia y Nosotras
+
+
+ESTADO TÉCNICO
+──────────────────────────────────────────────────────
+  38 páginas · 0 HTML mal cerrado · 0 recursos rotos ·
+  0 anclas rotas · todas las imágenes con texto alternativo ·
+  un solo <h1> por página · zoom permitido en todas ·
+  13 comprobaciones de contraste AA, todas en verde.
+
+  El botón «Conoce La Biblia y Nosotras» lleva a
+  https://labibliaynosotras.com
+
+
+⚠️  Esta carpeta es una copia para revisar. Lo que se sube a
+    internet es  web/dist/  (rutas absolutas). Los cambios de
+    este rediseño están hechos sobre el HTML compilado: si se
+    vuelve a generar el sitio desde el proyecto de Astro,
+    habrá que trasladarlos.

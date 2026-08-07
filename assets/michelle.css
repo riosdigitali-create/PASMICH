@@ -1,0 +1,1458 @@
+@charset "UTF-8";
+/* ═══════════════════════════════════════════════════════════════════
+   MICHELLE RUIZ · SISTEMA VISUAL
+   ───────────────────────────────────────────────────────────────────
+   Se carga DESPUÉS de _astro/style.*.css y trabaja sobre él.
+
+   Por qué así y no reescribiendo el otro archivo: el CSS de Astro tiene
+   1019 reglas con selectores propios (`data-astro-cid-…`). Está bien
+   construido y todo cuelga de variables. Cambiando las variables desde
+   aquí se re-viste el sitio entero de una vez, sin tocar ni romper una
+   sola de esas reglas. Lo que sigue después son correcciones de
+   composición y la capa editorial, que sí son nuevas.
+
+   Orden del archivo
+     1 · Tipografías
+     2 · Paleta y variables
+     3 · Ritmo y retícula
+     4 · Jerarquía tipográfica
+     5 · Capa editorial (papel, collage, marcas)
+     6 · Componentes
+     7 · Responsive
+     8 · Accesibilidad y movimiento
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ═══ 1 · TIPOGRAFÍAS ══════════════════════════════════════════════
+   Tres familias visibles, ni una más:
+
+     Libre Baskerville   editorial — titulares, cuerpo, citas
+     Aloevera Display    funcional — navegación, botones, fechas
+     Caveat              manuscrita — firmas y notas, muy de vez en cuando
+
+   Prata, Playfair, DM Serif y Architects Daughter siguen en la carpeta
+   pero ya no se usan: sus variables apuntan ahora a Baskerville. */
+
+@font-face{
+  font-family:"Libre Baskerville";
+  src:url("../fonts/LibreBaskerville-Bold.woff2") format("woff2");
+  font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Aloevera Display";
+  src:url("../fonts/AloeveraDisplay-Medium.woff2") format("woff2");
+  font-weight:500; font-style:normal; font-display:swap;
+}
+
+
+/* ═══ 2 · PALETA Y VARIABLES ═══════════════════════════════════════
+
+   Chilli   #AA0003  botones, CTAs, títulos de impacto
+   Rosa     #FFA1C2  fondos destacados, subrayados, tarjetas
+   Ballet   #FFD6DE  fondos suaves, formularios, lectura
+   Lemon    #FFF3B2  acentos puntuales, etiquetas, lanzamientos
+   Marfil   #FFFCF7  el fondo dominante
+   Tinta    #1A1210  negro cálido para leer
+
+   Una advertencia que vale la pena dejar escrita: el chilli sobre el
+   rosa da 4.11:1. Pasa AA solo en texto grande. Por eso sobre rosa el
+   texto pequeño va en tinta, y el chilli se reserva para titulares. */
+
+:root{
+  /* — la paleta, con su nombre — */
+  --chilli:#AA0003;
+  --chilli-hondo:#8A0002;      /* hover y presionado */
+  --rosa:#FFA1C2;
+  --rosa-humo:#FFB9D2;
+  --ballet:#FFD6DE;
+  --ballet-claro:#FFE9EE;
+  --lemon:#FFF3B2;
+  --lemon-borde:#E8D68A;       /* el mismo amarillo, un tono más hondo */
+  --marfil:#FFFCF7;
+  --crema:#FDF6EE;
+  --tinta:#1A1210;
+  --cafe:#2B1A16;
+  --humo:#6E5A54;
+  --niebla:#A2908A;
+
+  /* — el sistema anterior, redirigido — */
+  --ivory:var(--marfil);
+  --paper:var(--crema);
+  --linen:var(--ballet-claro);
+  --petal:var(--ballet);
+  --blush:var(--rosa);
+  --rose:var(--rosa);
+  --rose-ink:var(--chilli);
+  --ink:var(--tinta);
+  --deep:var(--cafe);
+  --night:#150E0C;
+  --warm-gray:var(--humo);
+  --silver:var(--niebla);
+  --gilt:var(--chilli);
+  --hairline:rgba(26,18,16,.16);
+  --hairline-soft:rgba(26,18,16,.08);
+
+  --bg:var(--marfil);
+  --fg:var(--tinta);
+  --muted:var(--humo);
+  --rule:var(--hairline);
+  --accent:var(--chilli);
+
+  /* — tipografías — */
+  --font-display:"Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-quote:"Libre Baskerville", Georgia, serif;
+  --font-read:"Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-ui:"Aloevera Display", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-geometric:"Aloevera Display", ui-sans-serif, system-ui, sans-serif;
+  --font-hand:"Caveat", "Segoe Script", cursive;
+
+  /* — escala tipográfica —
+     Baskerville tiene una x-height grande: pide un cuerpo algo menor
+     que una sans al mismo tamaño nominal. La escala baja un punto en
+     el cuerpo y sube en los titulares, que es donde debe notarse. */
+  --step--2:clamp(.70rem, .68rem + .10vw, .76rem);
+  --step--1:clamp(.79rem, .76rem + .16vw, .89rem);
+  --step-0 :clamp(.97rem, .94rem + .18vw, 1.08rem);
+  --step-1 :clamp(1.12rem, 1.06rem + .30vw, 1.32rem);
+  --step-2 :clamp(1.32rem, 1.20rem + .58vw, 1.70rem);
+  --step-3 :clamp(1.58rem, 1.36rem + 1.05vw, 2.20rem);
+  --step-4 :clamp(1.90rem, 1.55rem + 1.68vw, 2.90rem);
+  --step-5 :clamp(2.24rem, 1.72rem + 2.50vw, 3.70rem);
+  --step-6 :clamp(2.62rem, 1.84rem + 3.75vw, 4.80rem);
+  --step-7 :clamp(3.00rem, 1.86rem + 5.50vw, 6.20rem);
+
+  /* — aire —
+     El valor viejo llegaba a 11rem: 176 px de relleno por sección, y
+     por eso Podcast y Conferencias se sentían vacías. Aquí el aire
+     sigue siendo generoso pero deja de ser un hueco. */
+  --space-3xs:.25rem;
+  --space-2xs:.5rem;
+  --space-xs:.75rem;
+  --space-s:1rem;
+  --space-m:1.5rem;
+  --space-l:2.25rem;
+  --space-xl:3rem;
+  --space-2xl:4rem;
+  --space-3xl:5.5rem;
+  --space-4xl:clamp(3.5rem, 6.5vw, 7.5rem);
+
+  /* — retícula —
+     1440 px daba líneas larguísimas y la sensación de contenido
+     recargado hacia un lado. 1180 es un pliego de revista. */
+  --page:1180px;
+  --page-ancha:1440px;
+  --measure:60ch;
+  --measure-narrow:44ch;
+  --gutter:clamp(1.25rem, 5vw, 3.5rem);
+
+  --radius-none:0;
+  --radius-s:2px;
+  --radius:3px;
+  --header-h:66px;
+
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+}
+
+/* Fondos de sección. El marfil manda; el resto son excepciones. */
+.is-paper { --bg:var(--crema);  background:var(--bg) }
+.is-petal { --bg:var(--ballet); background:var(--bg) }
+.is-linen { --bg:var(--ballet-claro); background:var(--bg) }
+
+.is-dark{
+  --bg:var(--night);
+  --fg:#FBF3EF;
+  --muted:#C3ADA6;
+  --rule:rgba(255,255,255,.18);
+  --accent:var(--rosa);
+  color:var(--fg); background:var(--bg);
+}
+
+/* Image Method conserva su identidad propia —negro, blanco y olivo—
+   porque es una marca aparte. Solo se le ajusta la tipografía. */
+.is-im{
+  --bg:var(--im-black);
+  --fg:var(--im-white);
+  --muted:var(--im-silver);
+  --rule:rgba(255,255,255,.22);
+  --accent:var(--im-moss);
+  color:var(--fg); background:var(--bg);
+}
+
+/* Rosa fuerte. El texto pequeño va en tinta: sobre rosa, el chilli
+   solo aguanta en tamaño grande. */
+.es-rosa{
+  --bg:var(--rosa); --fg:var(--tinta);
+  --muted:#5A3B44; --rule:rgba(26,18,16,.22); --accent:var(--chilli);
+  color:var(--fg); background:var(--bg);
+}
+.es-lemon{
+  --bg:var(--lemon); --fg:var(--tinta);
+  --muted:#6B5A2A; --rule:rgba(26,18,16,.20); --accent:var(--chilli);
+  color:var(--fg); background:var(--bg);
+}
+
+
+/* ═══ 3 · RITMO Y RETÍCULA ═════════════════════════════════════════ */
+
+html{ scroll-behavior:smooth }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto } }
+
+body{
+  background:var(--marfil);
+  color:var(--tinta);
+  font-family:var(--font-read);
+  font-size:var(--step-0);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+:root .shell{ width:min(100% - var(--gutter) * 2, var(--page)); margin-inline:auto }
+.shell-wide{ width:min(100% - var(--gutter) * 2, var(--page-ancha)); margin-inline:auto }
+
+/* Un pliego estrecho, para texto que se lee de corrido. */
+.pliego{ width:min(100% - var(--gutter) * 2, 760px); margin-inline:auto }
+
+.section{ padding-block:var(--space-4xl) }
+.section--tight{ padding-block:clamp(2.5rem, 4.5vw, 4rem) }
+
+/* Dos secciones seguidas del mismo color no necesitan doble relleno:
+   ahí es donde nacían los huecos enormes. */
+.section + .section:not(.is-dark):not(.is-paper):not(.is-petal):not(.is-im){
+  padding-top:clamp(2rem, 3.5vw, 3.25rem);
+}
+
+.prose{ max-width:var(--measure) }
+.narrow{ max-width:var(--measure-narrow) }
+.lede{ max-width:46ch }
+
+
+/* ═══ 4 · JERARQUÍA TIPOGRÁFICA ════════════════════════════════════
+
+   Titulares    Baskerville 700, apretados y con salto intencional
+   Destacados   Baskerville cursiva
+   Cuerpo       Baskerville 400
+   Interfaz     Aloevera, versalitas discretas y bien espaciadas
+   Firma        Caveat, solo eso                                      */
+
+h1, h2, h3, :root .hero__title, :root .hero__line, [class*="__title"], [class*="__h"]{
+  font-family:var(--font-display);
+  font-weight:700;
+  line-height:1.06;
+  letter-spacing:-.018em;
+  text-wrap:balance;                 /* evita el título roto por accidente */
+  hyphens:none;
+}
+
+h1, :root .hero__title{ line-height:1.02; letter-spacing:-.028em }
+h2{ line-height:1.08; letter-spacing:-.022em }
+h3{ line-height:1.16; letter-spacing:-.012em; font-size:var(--step-1) }
+
+/* Ningún titular debe cruzar la página de lado a lado. */
+h1{ max-width:17ch }
+h2{ max-width:20ch }
+:root .hero__title{ max-width:14ch }
+
+p, li, dd, blockquote{ text-wrap:pretty }
+p{ max-width:var(--measure) }
+
+/* Cursiva expresiva: frases destacadas, citas y remates. */
+em, i, .cursiva, .lede em, blockquote{
+  font-family:var(--font-quote);
+  font-style:italic;
+}
+blockquote{
+  font-size:var(--step-2);
+  line-height:1.42;
+  letter-spacing:-.012em;
+  max-width:28ch;
+}
+
+/* Interfaz: Aloevera. Mayúsculas discretas y con aire entre letras. */
+.kicker, .eyebrow, :root .btn, :root .hd__link, :root .hd__name, .tag, .chip, .label, .badge, .pill, :root .meta, time, .date, .fecha, .nav__link, nav a, :root button:not(.hd__brand), .sf__tab, .cta, [class*="__kicker"], [class*="__eyebrow"], [class*="__label"], [class*="__meta"], [class*="__tag"], [class*="__cat"]{
+  font-family:var(--font-ui);
+  font-weight:500;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-size:var(--step--1);
+  line-height:1.35;
+}
+
+/* Las etiquetas de sección respiran y se separan del titular. */
+.kicker, .eyebrow, [class*="__kicker"], [class*="__eyebrow"]{
+  display:block;
+  color:var(--chilli);
+  letter-spacing:.2em;
+  font-size:var(--step--2);
+  margin-bottom:var(--space-s);
+}
+:root .is-dark .kicker, .is-dark .eyebrow, .is-dark [class*="__kicker"], .is-dark [class*="__eyebrow"]{ color:var(--rosa) }
+:root .is-im .kicker, .is-im .eyebrow, .is-im [class*="__kicker"], .is-im [class*="__eyebrow"]{ color:var(--im-moss) }
+
+/* Manuscrita: firmas y notas cortas. Nunca párrafos. */
+.firma, .nota-mano, .hand, [class*="__firma"]{
+  font-family:var(--font-hand);
+  font-size:var(--step-2);
+  font-weight:600;
+  letter-spacing:0;
+  text-transform:none;
+  line-height:1.2;
+  color:var(--chilli);
+}
+
+
+/* ═══ 5 · CAPA EDITORIAL ═══════════════════════════════════════════
+   El lenguaje de revista: papel, collage y marcas hechas a mano.
+   Todo en CSS, sin una sola imagen extra que descargar.            */
+
+/* Grano de papel impreso. Se posa sobre cualquier fondo. */
+.grano{ position:relative; isolation:isolate }
+.grano::after{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  opacity:.5; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='.32'/%3E%3C/svg%3E");
+}
+.is-dark .grano::after{ mix-blend-mode:screen; opacity:.22 }
+
+/* El acanalado del papel de color. */
+.tela{
+  background-image:repeating-linear-gradient(
+    100deg, rgba(26,18,16,.030) 0 1px, transparent 1px 7px);
+}
+
+/* Bordes de papel rasgado. Los puntos son irregulares a propósito:
+   una línea recta no parece rota. */
+.rasgado-arriba{
+  clip-path:polygon(0 12px, 4% 4px, 9% 14px, 15% 3px, 22% 12px, 29% 5px,
+    36% 15px, 43% 4px, 51% 13px, 58% 3px, 65% 12px, 72% 6px, 79% 14px,
+    86% 4px, 93% 12px, 100% 5px, 100% 100%, 0 100%);
+}
+.rasgado-abajo{
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 6px), 93% calc(100% - 13px),
+    86% calc(100% - 4px), 79% calc(100% - 14px), 72% calc(100% - 5px),
+    65% calc(100% - 13px), 58% calc(100% - 3px), 51% calc(100% - 12px),
+    43% calc(100% - 5px), 36% calc(100% - 14px), 29% calc(100% - 4px),
+    22% calc(100% - 13px), 15% calc(100% - 3px), 9% calc(100% - 12px),
+    4% calc(100% - 5px), 0 calc(100% - 13px));
+}
+.rasgado{ /* los dos bordes */
+  clip-path:polygon(0 11px, 6% 3px, 13% 13px, 21% 4px, 29% 12px, 38% 3px,
+    47% 13px, 56% 4px, 64% 12px, 73% 3px, 81% 13px, 89% 4px, 96% 12px, 100% 5px,
+    100% calc(100% - 5px), 96% calc(100% - 12px), 89% calc(100% - 4px),
+    81% calc(100% - 13px), 73% calc(100% - 3px), 64% calc(100% - 12px),
+    56% calc(100% - 4px), 47% calc(100% - 13px), 38% calc(100% - 3px),
+    29% calc(100% - 12px), 21% calc(100% - 4px), 13% calc(100% - 13px),
+    6% calc(100% - 3px), 0 calc(100% - 11px));
+}
+
+/* Fotografías con vida: ligeramente giradas, como pegadas a mano.
+   Solo en pantallas anchas; en móvil estorban. */
+@media (min-width:900px){
+  .girada    { rotate:-1.6deg }
+  .girada-der{ rotate:1.4deg }
+  .girada-mas{ rotate:-2.8deg }
+  .girada, .girada-der, .girada-mas{
+    transition:rotate .6s var(--ease-out);
+  }
+  .girada:hover, .girada-der:hover, .girada-mas:hover{ rotate:0deg }
+}
+
+/* Cinta de papel que sujeta una pieza. */
+.cinta{ position:relative }
+.cinta::before{
+  content:""; position:absolute; z-index:3;
+  inline-size:132px; block-size:34px;
+  inset-block-start:-17px; inset-inline-start:50%;
+  translate:-50% 0; rotate:-3.5deg;
+  background:rgba(255,241,178,.82);
+  box-shadow:0 1px 5px rgba(26,18,16,.14);
+}
+.cinta--esquina::before{ inset-inline-start:12%; rotate:-19deg }
+
+/* Marcas editoriales. Se dibujan al entrar en pantalla. */
+.subrayado{
+  background-image:linear-gradient(transparent 62%, var(--rosa) 62%);
+  background-repeat:no-repeat;
+  background-size:0% 100%;
+  padding-inline:.06em;
+  transition:background-size .8s var(--ease-out) .1s;
+}
+.subrayado.a-la-vista{ background-size:100% 100% }
+
+.subrayado-fino{
+  text-decoration:none;
+  background-image:linear-gradient(var(--chilli), var(--chilli));
+  background-repeat:no-repeat;
+  background-position:0 92%;
+  background-size:100% 1.5px;
+  transition:background-size .3s var(--ease-out);
+}
+.subrayado-fino:hover{ background-size:100% 3px }
+
+.circulado{ position:relative; display:inline-block }
+.circulado::after{
+  content:""; position:absolute; inset:-.30em -.52em -.26em -.52em;
+  border:2.5px solid var(--chilli);
+  border-radius:52% 48% 49% 51% / 60% 40% 60% 40%;
+  rotate:-2deg;
+  opacity:0; scale:.86;
+  transition:opacity .55s var(--ease-out), scale .55s var(--ease-out);
+  pointer-events:none;
+}
+.circulado.a-la-vista::after{ opacity:1; scale:1 }
+
+.tachado{ position:relative; color:var(--humo) }
+.tachado::after{
+  content:""; position:absolute; inset-block-start:52%; inset-inline:-.14em;
+  block-size:2px; background:var(--chilli); rotate:-1.4deg;
+  scale:0 1; transform-origin:left;
+  transition:scale .5s var(--ease-out);
+}
+.tachado.a-la-vista::after{ scale:1 1 }
+
+/* Anotación al margen, como en un cuaderno. */
+.nota-margen{
+  font-family:var(--font-hand);
+  font-size:var(--step-1);
+  line-height:1.28;
+  color:var(--chilli);
+  text-transform:none;
+  letter-spacing:0;
+  rotate:-1.6deg;
+  max-width:22ch;
+}
+.is-dark .nota-margen{ color:var(--rosa) }
+
+/* Palabra enorme al fondo. Decorativa: no se lee, se siente. */
+.fragmento{
+  position:absolute; z-index:0; pointer-events:none; user-select:none;
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(7rem, 22vw, 20rem); line-height:.78;
+  color:var(--chilli); opacity:.055; letter-spacing:-.05em;
+}
+
+/* Sello: el isotipo o una marca de agua. */
+.sello{ position:absolute; z-index:0; opacity:.09; pointer-events:none }
+
+/* Número de pliego, como en una revista. */
+.folio{
+  font-family:var(--font-ui);
+  font-size:var(--step--2);
+  letter-spacing:.28em;
+  color:var(--chilli);
+  text-transform:uppercase;
+}
+.is-dark .folio{ color:var(--rosa) }
+
+/* Filete que abre sección. */
+.filete{
+  border:0; block-size:1px; background:var(--rule);
+  margin-block:var(--space-xl);
+}
+.filete--corto{ inline-size:74px; block-size:2.5px; background:var(--chilli); border:0 }
+
+
+/* ═══ 6 · COMPONENTES ══════════════════════════════════════════════ */
+
+/* — Cabecera ————————————————————————————————— */
+.site-header{
+  background:color-mix(in srgb, var(--marfil) 88%, transparent);
+  backdrop-filter:saturate(150%) blur(14px);
+  -webkit-backdrop-filter:saturate(150%) blur(14px);
+  border-bottom:1px solid var(--hairline-soft);
+}
+:root .hd__name{
+  font-family:var(--font-display);
+  font-weight:700;
+  text-transform:none;
+  letter-spacing:-.02em;
+  font-size:var(--step-1);
+}
+:root .hd__link{
+  font-size:var(--step--2);
+  letter-spacing:.16em;
+  color:var(--tinta);
+  opacity:.72;
+  transition:opacity .2s var(--ease-out), color .2s var(--ease-out);
+}
+:root .hd__link:hover, :root .hd__link:focus-visible{ opacity:1; color:var(--chilli) }
+:root .hd__link[aria-current="page"]{
+  opacity:1; color:var(--chilli);
+  background-image:linear-gradient(var(--chilli), var(--chilli));
+  background-repeat:no-repeat; background-position:0 100%; background-size:100% 2px;
+}
+
+/* — Botones ————————————————————————————————— */
+.btn{
+  font-family:var(--font-ui);
+  font-weight:500;
+  font-size:var(--step--1);
+  letter-spacing:.12em;
+  border-radius:var(--radius);
+  padding:.92em 1.75em;
+  min-height:48px;
+}
+:root .btn:not(.btn--ghost):not(.btn--light):not(.btn--im){
+  --btn-bg:var(--chilli);
+  --btn-fg:var(--marfil);
+  border-color:var(--chilli);
+}
+:root .btn:not(.btn--ghost):not(.btn--light):not(.btn--im):hover{
+  --btn-bg:var(--chilli-hondo);
+  border-color:var(--chilli-hondo);
+  translate:0 -2px;
+}
+.btn--ghost{
+  --btn-bg:transparent; --btn-fg:var(--fg);
+  border-color:color-mix(in srgb, currentColor 34%, transparent);
+}
+.btn--ghost:hover{ --btn-fg:var(--chilli); border-color:var(--chilli) }
+.is-dark .btn--ghost:hover{ --btn-fg:var(--rosa); border-color:var(--rosa) }
+.btn--light{ --btn-bg:var(--marfil); --btn-fg:var(--chilli); border-color:var(--marfil) }
+.btn--light:hover{ --btn-bg:var(--lemon); border-color:var(--lemon) }
+:root .btn:focus-visible{ outline:3px solid var(--chilli); outline-offset:3px }
+:root .is-dark .btn:focus-visible{ outline-color:var(--rosa) }
+
+/* — Tarjetas ————————————————————————————————— */
+.card, [class*="__card"]{
+  background:var(--marfil);
+  border:1px solid var(--hairline-soft);
+  border-radius:var(--radius);
+  overflow:clip;
+  transition:translate .35s var(--ease-out), box-shadow .35s var(--ease-out),
+             border-color .35s var(--ease-out);
+}
+:root .card:hover, [class*="__card"]:hover{
+  translate:0 -3px;
+  border-color:var(--rosa);
+  box-shadow:0 14px 40px -22px rgba(26,18,16,.45);
+}
+:root .is-dark .card, .is-dark [class*="__card"]{
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.14);
+}
+
+/* — Formularios ————————————————————————————— */
+input, textarea, select{
+  font-family:var(--font-read);
+  font-size:16px;                     /* iOS no hace zoom a partir de 16 */
+  background:var(--marfil);
+  color:var(--tinta);
+  border:1px solid var(--hairline);
+  border-radius:var(--radius);
+  padding:.85em 1em;
+  min-height:50px;
+  inline-size:100%;
+  transition:border-color .2s var(--ease-out), box-shadow .2s var(--ease-out);
+}
+textarea{ min-height:130px; line-height:1.6 }
+input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:none;
+  border-color:var(--chilli);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--rosa) 55%, transparent);
+}
+label{
+  font-family:var(--font-ui);
+  font-size:var(--step--2);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--humo);
+}
+.is-dark input, .is-dark textarea, .is-dark select{
+  background:rgba(255,255,255,.06);
+  color:#FBF3EF;
+  border-color:rgba(255,255,255,.22);
+}
+.is-dark label{ color:#C3ADA6 }
+
+::placeholder{ color:var(--niebla); opacity:1 }
+
+/* — Enlaces de texto ——————————————————————————— */
+.prose a, :root p a:not(.btn):not([class*="__card"]){
+  color:inherit;
+  text-decoration:none;
+  background-image:linear-gradient(var(--chilli), var(--chilli));
+  background-repeat:no-repeat;
+  background-position:0 92%;
+  background-size:100% 1.4px;
+  transition:background-size .25s var(--ease-out), color .25s var(--ease-out);
+}
+.prose a:hover, :root p a:not(.btn):not([class*="__card"]):hover{
+  color:var(--chilli); background-size:100% 3px;
+}
+.is-dark .prose a, :root .is-dark p a:not(.btn){
+  background-image:linear-gradient(var(--rosa), var(--rosa));
+}
+.is-dark .prose a:hover{ color:var(--rosa) }
+
+/* — Estado pendiente ——————————————————————————
+   Lo que sigue en demo o por confirmar tiene que verse de lejos. */
+.pendiente, .por-confirmar, [data-pendiente]{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--font-ui);
+  font-size:var(--step--2);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#6B5A2A;
+  background:var(--lemon);
+  border:1px solid var(--lemon-borde);
+  border-radius:2px;
+  padding:.34em .7em;
+  line-height:1.3;
+}
+.pendiente::before, .por-confirmar::before, [data-pendiente]::before{
+  content:""; inline-size:6px; block-size:6px; border-radius:50%;
+  background:var(--chilli); flex:none;
+}
+
+/* — Hueco de contenido por llegar ————————————————
+   Un espacio que se ve deliberado, no un error de maquetación. */
+.hueco{
+  display:grid; place-items:center; gap:var(--space-xs);
+  min-block-size:clamp(180px, 26vw, 320px);
+  background:
+    repeating-linear-gradient(-45deg,
+      color-mix(in srgb, var(--rosa) 26%, transparent) 0 9px,
+      transparent 9px 18px),
+    var(--ballet-claro);
+  border:1.5px dashed var(--rosa);
+  border-radius:var(--radius);
+  text-align:center;
+  padding:var(--space-l);
+  color:#5A3B44;
+}
+.hueco__que{
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.hueco__nota{
+  font-family:var(--font-read); font-size:var(--step--1);
+  letter-spacing:0; text-transform:none; color:#6E4A52; max-width:34ch;
+}
+
+/* — Piezas de medios ——————————————————————————
+   Ningún iframe suelto ni miniatura borrosa: todo va dentro de una
+   tarjeta con proporción fija, portada nítida y carga diferida.    */
+.pieza{
+  position:relative; display:block;
+  background:var(--cafe);
+  border-radius:var(--radius);
+  overflow:clip;
+  aspect-ratio:16 / 9;
+  isolation:isolate;
+}
+.pieza--retrato{ aspect-ratio:4 / 5 }
+.pieza--vertical{ aspect-ratio:9 / 16 }
+.pieza--cuadro{ aspect-ratio:1 }
+.pieza img, .pieza video, .pieza iframe{
+  inline-size:100%; block-size:100%;
+  object-fit:cover; display:block; border:0;
+}
+.pieza__velo{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(to top,
+    rgba(21,14,12,.72) 0%, rgba(21,14,12,.18) 42%, transparent 72%);
+}
+.pieza__pie{
+  position:absolute; inset-inline:0; inset-block-end:0; z-index:2;
+  padding:clamp(.9rem, 2vw, 1.4rem);
+  color:#FFF;
+}
+.pieza__tit{
+  font-family:var(--font-display); font-weight:700;
+  font-size:var(--step-1); line-height:1.14; letter-spacing:-.015em;
+  max-width:22ch;
+}
+.pieza__meta{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; text-transform:uppercase;
+  color:#FFD6DE; margin-top:.35em;
+}
+/* Botón de reproducción */
+.pieza__play{
+  position:absolute; inset-block-start:50%; inset-inline-start:50%;
+  translate:-50% -50%; z-index:2;
+  inline-size:64px; block-size:64px; border-radius:50%;
+  display:grid; place-items:center;
+  background:color-mix(in srgb, var(--chilli) 92%, transparent);
+  color:#FFF; border:0; cursor:pointer;
+  transition:scale .3s var(--ease-out), background .3s var(--ease-out);
+}
+.pieza__play::before{
+  content:""; inline-size:0; block-size:0;
+  border-block:11px solid transparent;
+  border-inline-start:18px solid currentColor;
+  margin-inline-start:5px;
+}
+.pieza:hover .pieza__play{ scale:1.08; background:var(--chilli) }
+.pieza__play:focus-visible{ outline:3px solid var(--lemon); outline-offset:4px }
+
+/* Si la plataforma externa falla, queda la portada local: nunca un
+   cuadro roto. */
+.pieza__caida{
+  position:absolute; inset:0; z-index:1;
+  display:grid; place-items:center; gap:.5rem;
+  background:var(--ballet); color:#5A3B44; text-align:center;
+  padding:var(--space-m);
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.14em; text-transform:uppercase;
+}
+
+/* — Pie como contraportada ————————————————————— */
+.site-footer, footer[class*="foot"], .ft{
+  background:var(--night);
+  color:#FBF3EF;
+  --fg:#FBF3EF; --muted:#C3ADA6; --rule:rgba(255,255,255,.18);
+  position:relative;
+}
+
+
+/* ═══ 7 · RESPONSIVE ═══════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width:1023px){
+  :root{ --page:100%; --space-4xl:clamp(3rem, 6vw, 4.5rem) }
+  h1{ max-width:15ch } h2{ max-width:18ch }
+}
+
+/* Móvil */
+@media (max-width:719px){
+  :root{
+    --gutter:1.15rem;
+    --space-4xl:2.75rem;
+    --space-3xl:2.5rem;
+    --space-2xl:2rem;
+    --step-7:clamp(2.5rem, 12vw, 3.4rem);
+    --step-6:clamp(2.2rem, 10.5vw, 3rem);
+    --step-5:clamp(1.95rem, 9vw, 2.5rem);
+  }
+  h1, h2, h3, :root .hero__title{ max-width:none }
+  .fragmento{ display:none }
+  .cinta::before{ inline-size:96px; block-size:26px; inset-block-start:-13px }
+  .nota-margen{ rotate:0deg; max-width:none }
+  /* Nada girado en móvil: se sale de la pantalla. */
+  .girada, .girada-der, .girada-mas{ rotate:0deg }
+  blockquote{ max-width:none; font-size:var(--step-1) }
+  :root .btn{ inline-size:100%; justify-content:center }
+  .btn--auto{ inline-size:auto }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width:359px){
+  :root{ --gutter:.9rem; --step-0:.95rem }
+  :root .btn{ padding:.85em 1.1em; font-size:var(--step--2) }
+}
+
+/* Nada se sale nunca de la pantalla. */
+img, video, iframe, svg, table, pre{ max-inline-size:100% }
+body{ overflow-x:clip }
+
+
+/* ═══ 8 · ACCESIBILIDAD Y MOVIMIENTO ═══════════════════════════════ */
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible{
+  outline:3px solid var(--chilli);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.is-dark :where(a, button, input, textarea, select):focus-visible, .is-im  :where(a, button, input, textarea, select):focus-visible{
+  outline-color:var(--rosa);
+}
+
+.saltar, .skip{
+  position:absolute; inset-inline-start:-9999px;
+  background:var(--chilli); color:var(--marfil);
+  padding:.85rem 1.25rem; z-index:9999;
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.12em; text-transform:uppercase;
+}
+.saltar:focus, .skip:focus{ inset-inline-start:1rem; inset-block-start:1rem }
+
+/* Entrada suave de las piezas. Sin desplazamiento lateral. */
+.entra{ opacity:0; translate:0 18px; transition:opacity .7s var(--ease-out), translate .7s var(--ease-out) }
+.entra.a-la-vista{ opacity:1; translate:0 0 }
+
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .entra{ opacity:1; translate:none }
+  .subrayado{ background-size:100% 100% }
+  .circulado::after{ opacity:1; scale:1 }
+  .tachado::after{ scale:1 1 }
+  .girada, .girada-der, .girada-mas{ rotate:0deg }
+}
+
+@media print{
+  :root .site-header, :root .site-footer, :root .btn, .pieza__play{ display:none }
+  body{ background:#fff; color:#000 }
+}
+
+
+/* ═══ 9 · COMPOSICIÓN POR PÁGINA ═══════════════════════════════════
+   Lo de arriba es el sistema. Lo que sigue son decisiones de página:
+   dónde cae cada cosa y cuánto pesa.                                */
+
+/* — INICIO · portada ————————————————————————————
+   El nombre en dos líneas, deliberadamente. No es un título que se
+   parte solo: cada línea está escrita aparte. */
+.portada__titulo{
+  display:grid;
+  gap:0;
+  line-height:.86;
+  letter-spacing:-.045em;
+  font-size:clamp(3.2rem, 14vw, 9rem);
+  max-width:none;
+}
+.portada__l2{ padding-inline-start:.42em }         /* la segunda, desplazada */
+
+.portada__frase{
+  font-family:var(--font-quote);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(1.3rem, 3.2vw, 2.1rem);
+  letter-spacing:-.01em;
+  margin-top:.5em;
+}
+.portada__punto{ color:var(--rosa); font-style:normal }
+
+.portada__firma{
+  position:absolute;
+  inset-block-end:clamp(1.5rem, 4vh, 3rem);
+  inset-inline-end:clamp(1.25rem, 5vw, 4rem);
+  z-index:3;
+  color:var(--marfil);
+  opacity:.9;
+  font-size:clamp(1.6rem, 3.4vw, 2.6rem);
+  rotate:-6deg;
+  pointer-events:none;
+}
+.portada__fondo{
+  inset-block-end:-.12em;
+  inset-inline-start:-.04em;
+  color:var(--marfil);
+  opacity:.10;
+  z-index:1;
+}
+@media (max-width:719px){
+  .portada__l2{ padding-inline-start:.22em }
+  .portada__firma{ font-size:1.4rem; inset-block-end:5.5rem }
+}
+
+
+/* — PODCAST ————————————————————————————————————
+   Seis piezas en este orden: título, adelanto, T1, botón, T2, T3.
+   La página tenía huecos enormes entre bloques idénticos; aquí el
+   ritmo es corto y cada pieza cambia de peso. */
+
+.pod-abre{ position:relative; padding-block:clamp(3rem, 8vw, 6.5rem) var(--space-3xl); overflow:clip }
+.pod-abre__fondo{ inset-block-start:-.06em; inset-inline-end:-.03em; opacity:.06 }
+.pod-abre__grid{
+  position:relative; z-index:2;
+  display:grid; gap:clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items:center;
+}
+.pod-abre__h{
+  display:grid; gap:0; line-height:.88;
+  font-size:clamp(2.9rem, 10vw, 6.4rem);
+  letter-spacing:-.045em; max-width:none;
+}
+.pod-abre__l2{ padding-inline-start:1.4em; color:var(--chilli) }
+.pod-abre__lede{ margin-top:var(--space-m); font-size:var(--step-1); max-width:34ch }
+.pod-abre__nota{ margin-top:var(--space-m) }
+.pod-abre__portada{ display:grid; place-items:center }
+
+.pod-teaser__cab{ margin-bottom:var(--space-l) }
+.pod-teaser__marco{ background:var(--ballet-claro) }
+.pod-teaser__marco .hueco{
+  position:absolute; inset:0; border:0; border-radius:0;
+  min-block-size:0;
+}
+
+/* Las temporadas: filas, :root no tarjetas sueltas flotando. */
+.pod-temps .shell{ display:grid; gap:0 }
+.temp{
+  display:grid; gap:var(--space-s);
+  padding-block:clamp(2rem, 4vw, 3rem);
+  border-top:1px solid var(--rule);
+}
+.temp:first-of-type{ border-top:2px solid var(--tinta) }
+.temp__cab{ display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--space-m) }
+.temp__h{ font-size:var(--step-3); max-width:22ch; margin:0 }
+.temp__body{ max-width:52ch; color:var(--humo) }
+.temp__cta{ margin-top:var(--space-2xs) }
+.temp__estado{ margin:0 }
+
+.pod-todos{
+  display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-m);
+  padding-block:clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top:1px solid var(--rule);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--ballet) 55%, transparent), transparent 62%);
+  padding-inline:clamp(1rem, 2.5vw, 2rem);
+  margin-inline:calc(clamp(1rem, 2.5vw, 2rem) * -1);
+}
+.pod-todos__nota{ margin:0; color:var(--humo); font-size:var(--step--1) }
+
+/* Temporada 3: la pieza que debe verse desde lejos. */
+.pod-t3{
+  position:relative; overflow:clip;
+  padding-block:clamp(3.5rem, 8vw, 6.5rem);
+  margin-block:clamp(2rem, 4vw, 3.5rem);
+}
+.pod-t3__fondo{
+  inset-block-start:50%; inset-inline-end:2%; translate:0 -50%;
+  font-size:clamp(12rem, 34vw, 30rem); opacity:.13; color:var(--chilli);
+}
+.pod-t3__grid{ position:relative; z-index:2; display:grid; gap:var(--space-m); justify-items:start }
+.pod-t3__folio{ margin:0 }
+.pod-t3__h{
+  display:grid; gap:0; margin:0;
+  font-size:clamp(2.6rem, 9vw, 5.4rem); line-height:.9; letter-spacing:-.04em;
+  max-width:none;
+}
+.pod-t3__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic }
+.pod-t3__lede{ font-size:var(--step-2); max-width:26ch; margin:0 }
+.pod-t3__datos{ display:grid; gap:var(--space-xs); margin:var(--space-s) 0 0; padding:0; list-style:none }
+.pod-t3__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-s) }
+.pod-t3__et{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.18em; text-transform:uppercase; color:#6B5A2A;
+  min-inline-size:6.5em;
+}
+.pod-t3__val{ font-weight:700 }
+.pod-t3__firma{ margin-top:var(--space-s) }
+.pod-t3 .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }
+
+.pod-rio__grid{
+  display:grid; gap:clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items:start;
+}
+.pod-rio__h{ font-size:var(--step-2); margin:0 }
+.pod-rio__texto p{ max-width:56ch }
+.pod-rio__enlaces{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.75rem;
+  margin-top:var(--space-s);
+}
+
+@media (max-width:899px){
+  .pod-abre__grid, .pod-rio__grid{ grid-template-columns:1fr }
+  .pod-abre__portada{ order:-1 }
+  .pod-abre__l2{ padding-inline-start:.7em }
+  .pod-t3__l2{ padding-inline-start:.4em }
+  .temp__h{ max-width:none }
+}
+@media (max-width:719px){
+  .pod-todos{ margin-inline:0; padding-inline:0; background:none }
+  .pod-t3__et{ min-inline-size:0 }
+  .pod-abre{ padding-block:2rem 3rem }
+}
+
+
+/* — CONFERENCIAS ————————————————————————————————
+   El encabezado dejaba media pantalla en blanco antes de la foto, y
+   en móvil era peor. Aquí el titular y la entradilla van juntos. */
+
+.conf-abre{ padding-block:clamp(2.5rem, 6vw, 4.5rem) 0; position:relative }
+.conf-abre .hero__inner{ padding-block:0 clamp(1.75rem, 4vw, 3rem) }
+.conf-abre__h{
+  display:grid; gap:0; max-width:none;
+  font-size:clamp(2.8rem, 11vw, 6.6rem); line-height:.88; letter-spacing:-.045em;
+  margin-block:.1em .35em;
+}
+.conf-abre__l2{ padding-inline-start:1.1em; color:var(--rosa); font-style:italic }
+:root .conf-abre .hero__grid{
+  display:grid; gap:clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items:end;
+}
+:root .conf-abre .hero__lead{ max-width:46ch; margin:0 }
+:root .conf-abre .hero__strip{ margin-top:clamp(1.5rem, 4vw, 2.75rem) }
+
+/* Mírala en acción: rosa fuerte, cursiva y una sola pieza principal. */
+.conf-accion__h{ font-style:normal }
+.conf-accion__h em{ color:var(--chilli); font-style:italic }
+.conf-accion__lede{ max-width:52ch; margin-block:var(--space-s) var(--space-l) }
+.conf-accion__principal{ background:var(--ballet-claro); margin-bottom:var(--space-xl) }
+.conf-accion__principal .hueco{
+  position:absolute; inset:0; border:0; border-radius:0; min-block-size:0;
+  background:
+    repeating-linear-gradient(-45deg, rgba(170,0,3,.16) 0 9px, transparent 9px 18px),
+    var(--ballet-claro);
+}
+.conf-accion__sub{ margin-block:0 var(--space-m) }
+:root .conf-accion .vid__cap{ color:#5A3B44 }
+.conf-paises{
+  display:inline-block; font-family:var(--font-ui);
+  font-size:var(--step--2); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--chilli); margin-bottom:.4em;
+}
+
+@media (max-width:899px){
+  :root .conf-abre .hero__grid{ grid-template-columns:1fr }
+  .conf-abre__l2{ padding-inline-start:.5em }
+}
+@media (max-width:719px){
+  .conf-abre{ padding-block:1.5rem 0 }
+  .conf-abre__h{ margin-block:.05em .3em }
+  :root .conf-abre .hero__strip figure{ --ratio:16 / 10 !important }
+}
+
+
+/* ═══ 10 · NINGUNA MITAD VACÍA ═════════════════════════════════════
+   El hueco que se veía en «Invítala» —media pantalla en negro— y en
+   varias secciones más tenía tres causas sumadas:
+
+     · portadas con altura mínima forzada de hasta 900 px
+     · videos verticales de 9:16 que a 340 px de ancho miden 604 de alto
+     · rejillas de dos columnas alineadas al fondo, con una mitad corta
+
+   Se corrigen las tres. Los selectores llevan «:root» delante porque
+   las reglas de Astro van con atributo de ámbito y pesan más que una
+   clase suelta: así quedan iguales y gana ésta, que se carga después.  */
+
+/* 1 · Las portadas dejan de imponer una altura que luego hay que
+       rellenar con aire. */
+:root .hero[data-astro-cid-j7pv25f6]{ min-height:clamp(420px, 62svh, 640px) }
+:root .hero[data-astro-cid-2vg4cjqq]{ min-height:clamp(400px, 58svh, 600px) }
+:root .lbyn__video{ min-height:clamp(340px, 46svh, 520px) }
+:root .hero__body[data-astro-cid-j7pv25f6]{ padding-block:var(--space-2xl) clamp(2rem, 5vh, 3.5rem) }
+:root .hero__body[data-astro-cid-2vg4cjqq]{ padding-block:var(--space-2xl) clamp(1.75rem, 4vh, 3rem) }
+
+/* 2 · Techo para los medios verticales. El encuadre sube porque la
+       cara está siempre en el tercio superior. */
+.vid--feature .vid__frame{ max-block-size:min(58vh, 460px) }
+.vid--feature .vid__el,
+.vid--feature .vid__fallback img{ object-position:50% 30% }
+
+/* 3 · Ninguna columna alineada al fondo cuando la de al lado es más
+       alta: eso es exactamente lo que abría el hueco. */
+:root .speak__grid, :root .close__grid, :root .hero__grid,
+:root .story__grid, :root .marriage__grid, :root .im__grid,
+:root .shop__grid, :root .about__grid, :root .pro__grid,
+:root .events__grid, :root .ask__grid, :root .church__grid,
+:root .end__grid, :root .open__grid, :root .book__grid,
+:root .bio__grid, :root .family__grid, :root .quick__grid,
+:root .community__grid, :root .event__grid, :root .why__grid,
+:root .rack__grid, :root .seasons__grid, :root .about__grid{
+  align-items:center;
+}
+
+/* Los encabezados de dos piezas sí van abajo: ahí la línea base
+   compartida es lo que se busca. Pero sin estirar la fila. */
+:root .sf__head, :root .promo__head, :root .topics__head,
+:root .eps__head, :root .team__head, :root .kits__head,
+:root .shop__head, :root .tk__head{
+  align-items:end; row-gap:var(--space-s);
+}
+
+/* 4 · Huecos entre columnas de 80–96 px. Demasiado: se quedan en 48. */
+:root .story__grid, :root .im__grid, :root .bio__grid,
+:root .marriage__grid, :root .book__grid, :root .pieces__grid,
+:root .shop__grid, :root .close__grid, :root .pro__grid,
+:root .form__grid, :root .end__grid, :root .main__grid,
+:root .why__grid, :root .diag__grid, :root .rack__grid,
+:root .community__grid, :root .ship__grid, :root .event__grid,
+:root .collab__grid, :root .open__grid, :root .ask__grid,
+:root .family__grid, :root .quick__grid, :root .church__grid,
+:root .about__grid, :root .pdp__grid, :root .seasons__grid,
+:root .nf__grid, :root .legal__grid, :root .art__body,
+:root .hero__grid{
+  gap:clamp(1.5rem, 3.2vw, 3rem);
+}
+
+/* 5 · «Invítala» del inicio: el titular pasó a vivir dentro de la
+       columna izquierda, así que las dos mitades tienen contenido. */
+:root .speak__title{ font-size:clamp(2.6rem, 7vw, 5rem); margin-bottom:var(--space-m) }
+:root .lbyn__title, :root .open__title{ font-size:clamp(2.4rem, 6.4vw, 4.6rem) }
+:root .speak__grid{
+  grid-template-columns:minmax(0, 1fr) minmax(0, 300px);
+  align-items:center;
+}
+.speak__col{ display:grid; align-content:center }
+:root .speak__evidence{ max-inline-size:300px; margin-inline-start:auto }
+
+@media (max-width:899px){
+  :root .speak__grid{ grid-template-columns:1fr }
+  :root .speak__evidence{ margin-inline:0; max-inline-size:min(300px, 100%) }
+  .vid--feature .vid__frame{ max-block-size:min(52vh, 400px) }
+  :root .hero[data-astro-cid-j7pv25f6],
+  :root .hero[data-astro-cid-2vg4cjqq]{ min-height:0 }
+}
+
+
+/* — MICHELLE · «Su historia» ————————————————————— */
+.hist-foto{ margin:var(--space-l) 0 0; min-block-size:clamp(200px, 24vw, 300px) }
+.hist-aviso{ margin-top:var(--space-s) }
+
+/* — MATRIMONIO ———————————————————————————————— */
+.mat-foto{ margin:0 0 var(--space-l); min-block-size:clamp(190px, 22vw, 280px) }
+
+/* Los diez días: la pieza que se anuncia con el QR. */
+.diez{ position:relative; overflow:clip }
+.diez__fondo{
+  inset-block-start:50%; inset-inline-end:1%; translate:0 -50%;
+  font-size:clamp(11rem, 30vw, 26rem); opacity:.12; color:var(--chilli);
+}
+.diez__grid{
+  position:relative; z-index:2;
+  display:grid; gap:clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items:start;
+}
+.diez__h{
+  display:grid; gap:0; margin:0 0 var(--space-m);
+  font-size:clamp(2.4rem, 8vw, 4.8rem); line-height:.9; letter-spacing:-.04em;
+  max-width:none;
+}
+.diez__l2{ padding-inline-start:1.1em; color:var(--chilli); font-style:italic }
+.diez__lede{ font-size:var(--step-1); max-width:44ch }
+.diez__datos{ display:grid; gap:var(--space-xs); margin:var(--space-l) 0 0; padding:0; list-style:none }
+.diez__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem var(--space-s) }
+.diez__et{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.18em; text-transform:uppercase; color:#6B5A2A;
+  min-inline-size:6em;
+}
+.diez__val{ font-weight:700 }
+.diez__nota{ margin-top:var(--space-m) }
+.diez .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }
+
+.diez__lado{ display:grid; gap:var(--space-l) }
+.diez__form{
+  display:grid; gap:var(--space-s);
+  background:var(--marfil);
+  border:1px solid rgba(26,18,16,.14);
+  border-radius:var(--radius);
+  padding:clamp(1.25rem, 3vw, 2rem);
+}
+.diez__form-h{
+  font-family:var(--font-display); font-weight:700;
+  font-size:var(--step-2); line-height:1.1; margin:0 0 var(--space-2xs);
+}
+.diez__form .field{ display:grid; gap:.35rem }
+.diez__legal{ color:var(--humo); margin:0 }
+.diez__qr{ margin:0; display:grid; gap:.5rem }
+.hueco--qr{ min-block-size:0; aspect-ratio:1; max-inline-size:230px }
+
+@media (max-width:899px){
+  .diez__grid{ grid-template-columns:1fr }
+  .diez__l2{ padding-inline-start:.4em }
+  .diez__et{ min-inline-size:0 }
+}
+
+
+/* — TIENDA · lo que sigue en demostración ————————————
+   Los estados ya estaban marcados, pero en gris y del tamaño de una
+   nota al pie: se perdían. Ahora son amarillo mantequilla con punto
+   rojo, imposibles de confundir con un dato en firme. */
+
+:root .soon{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.14em; text-transform:uppercase;
+  color:#6B5A2A; background:var(--lemon);
+  border:1px solid var(--lemon-borde); border-radius:2px;
+  padding:.3em .65em; line-height:1.3;
+}
+:root .soon__mark{
+  inline-size:6px; block-size:6px; border-radius:50%;
+  background:var(--chilli); opacity:1; translate:0 0;
+}
+:root .is-dark .soon, :root .is-im .soon{
+  background:rgba(255,243,178,.14); color:var(--lemon);
+  border-color:rgba(255,243,178,.4);
+}
+
+/* El aviso de que la tienda es una demostración. */
+:root .demo{
+  background:var(--ballet-claro);
+  border:1px solid var(--rosa);
+  border-left:4px solid var(--chilli);
+  border-radius:var(--radius);
+  padding:clamp(.9rem, 2vw, 1.35rem);
+  color:#5A3B44;
+}
+:root .demo strong, :root .demo b{ color:var(--chilli) }
+
+/* Precio simulado: que se lea como simulado. */
+:root .pdp__price, :root .price, [class*="__price"]{
+  font-family:var(--font-display); font-weight:700;
+  color:var(--tinta);
+}
+
+
+/* — BLOG · portadas homologadas ————————————————————
+   Cada artículo con la misma proporción, el mismo tratamiento de
+   papel y el mismo peso tipográfico. */
+
+:root .post__media, :root .art__media, .blog-portada{
+  aspect-ratio:3 / 2; overflow:clip; background:var(--ballet-claro);
+  border-radius:var(--radius);
+}
+:root .post__media img, :root .art__media img, .blog-portada img{
+  inline-size:100%; block-size:100%; object-fit:cover;
+}
+.blog-video{ margin-block:var(--space-xl) }
+
+
+/* — IMAGE METHOD ————————————————————————————————
+   Marca aparte: negro, blanco y olivo. Sólo se le presta la
+   tipografía y los huecos marcados, para que se note que es de la
+   misma casa sin dejar de ser otra cosa. */
+.im-foto{
+  margin:0 0 var(--space-xl);
+  min-block-size:clamp(200px, 26vw, 340px);
+  background:
+    repeating-linear-gradient(-45deg, rgba(130,135,62,.22) 0 9px, transparent 9px 18px),
+    rgba(255,255,255,.04);
+  border-color:var(--im-moss);
+  color:#D8DCC0;
+}
+.im-foto .hueco__que{ color:#E8EBD8 }
+.im-foto .hueco__nota{ color:#B9BE9C }
+.im-url{ margin-top:var(--space-s) }
+:root .is-im .pendiente{
+  background:rgba(255,243,178,.12); color:var(--lemon);
+  border-color:rgba(255,243,178,.42);
+}
+:root .im__nota{ margin-top:var(--space-s); color:var(--im-silver); max-width:44ch }
+
+
+/* ═══ 11 · LAS FOTOGRAFÍAS NUEVAS ══════════════════════════════════ */
+
+/* Matrimonio · el retrato de los dos, sujeto con cinta. */
+.mat-retrato{ position:relative; margin:0 0 var(--space-xl) }
+.mat-retrato .pic{ border-radius:var(--radius); overflow:clip }
+.mat-retrato__pie{ margin-top:var(--space-s); color:var(--humo); max-width:34ch }
+
+/* Conferencias · el escenario lleno, a todo lo ancho del pliego. */
+.conf-escena{ margin:0 0 var(--space-xl) }
+.conf-escena .pic{ border-radius:var(--radius); overflow:clip }
+.conf-escena__pie{
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:var(--space-s) var(--space-m); margin-top:var(--space-s);
+}
+.conf-escena__nota{ color:#5A3B44; font-size:var(--step--1) }
+
+/* Podcast · el set de grabación. */
+.pod-set{ margin:0 }
+.pod-set .pic{ border-radius:var(--radius); overflow:clip }
+.pod-set__pie{
+  display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-s);
+  margin-top:var(--space-s); color:var(--humo); font-size:var(--step--1);
+}
+
+/* La Biblia y Nosotras · Michelle con su Biblia, girada sobre el texto. */
+.lbyn-retrato{
+  position:relative; float:inline-end;
+  inline-size:min(38%, 340px); margin:0 0 var(--space-l) var(--space-xl);
+}
+.lbyn-retrato .pic{ border-radius:var(--radius); overflow:clip }
+
+/* Image Method · retrato provisional, con su nota. */
+.im-retrato{ margin:0 0 var(--space-xl) }
+.im-retrato .pic{ border-radius:var(--radius); overflow:clip }
+.im-retrato__pie{ margin-top:var(--space-s); color:var(--im-silver) }
+
+@media (max-width:719px){
+  .lbyn-retrato{ float:none; inline-size:100%; margin:0 0 var(--space-l) }
+  .conf-escena, .mat-retrato, .im-retrato{ margin-bottom:var(--space-l) }
+}
+
+
+/* ═══ 12 · EL BOLETÍN ══════════════════════════════════════════════
+   Antes había hasta tres llamadas en la misma página —la franja de
+   arriba, la sección de cierre y el pie— y las tres decían lo mismo.
+   Ahora es una sola: este bloque rosa. El pie sólo apunta aquí, y el
+   pop-up de bienvenida es la misma invitación, dicha al entrar.
+
+   El copy dejó de ser genérico. No dice «suscríbete»: dice qué va a
+   llegar y quién lo escribe.                                        */
+
+.boletin{
+  position:relative; overflow:clip;
+  padding-block:clamp(3rem, 7vw, 5.5rem);
+  margin-block-start:clamp(2rem, 4vw, 3.5rem);
+}
+.boletin__fondo{
+  inset-block-end:-.18em; inset-inline-start:-.02em;
+  font-size:clamp(9rem, 26vw, 22rem); opacity:.13; color:var(--chilli);
+}
+.boletin__grid{
+  position:relative; z-index:2;
+  display:grid; gap:clamp(2rem, 4.5vw, 4rem);
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items:center;
+}
+.boletin__h{
+  display:grid; gap:0; margin:0 0 var(--space-m); max-width:none;
+  font-size:clamp(2.4rem, 8vw, 4.6rem); line-height:.9; letter-spacing:-.042em;
+}
+.boletin__l2{ padding-inline-start:1.05em; color:var(--chilli); font-style:italic }
+.boletin__lede{ font-size:var(--step-1); max-width:38ch; margin:0 }
+
+/* Los tres motivos, numerados como en una revista. */
+.boletin__que{
+  display:grid; gap:.55rem; margin:var(--space-l) 0 0; padding:0; list-style:none;
+}
+.boletin__que li{
+  display:flex; align-items:baseline; gap:.85rem;
+  font-size:var(--step-0); line-height:1.45;
+  padding-block:.45rem;
+  border-top:1px solid rgba(26,18,16,.2);
+}
+.boletin__que li:last-child{ border-bottom:1px solid rgba(26,18,16,.2) }
+.boletin__n{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; color:var(--chilli); flex:none;
+}
+
+.boletin__lado{ display:grid; gap:var(--space-m); justify-items:start }
+.boletin__form{
+  display:grid; gap:.65rem; inline-size:100%;
+  background:var(--marfil);
+  border-radius:var(--radius);
+  padding:clamp(1.15rem, 2.6vw, 1.75rem);
+  box-shadow:0 18px 50px -30px rgba(26,18,16,.5);
+}
+.boletin__form input{ min-height:50px }
+.boletin__form .btn{ inline-size:100%; justify-content:center }
+.boletin__msg{ margin:0; min-block-size:1.1em; color:var(--chilli) }
+.boletin__legal{ margin:0; color:var(--humo); font-size:var(--step--2) }
+.boletin__firma{ font-size:var(--step-2); margin:0 }
+
+@media (max-width:899px){
+  .boletin__grid{ grid-template-columns:1fr }
+  .boletin__l2{ padding-inline-start:.4em }
+  .boletin__lado{ justify-items:stretch }
+}
+
+/* El pie ya no lleva formulario: sólo apunta al bloque. Así deja de
+   competir con «Una misma convicción», que es la firma de cierre. */
+:root .ft__apunta{ display:grid; gap:.6rem; justify-items:start; align-content:center }
+.ft__apunta-t{
+  font-family:var(--font-display); font-weight:700;
+  font-size:var(--step-2); line-height:1.1; margin:0;
+}
+.ft__apunta-c{ margin:0; color:#C3ADA6; max-width:34ch; font-size:var(--step--1) }
+:root .ft__apunta .btn{ margin-top:.35rem }
+
+
+/* ═══ 13 · LA BIENVENIDA ═══════════════════════════════════════════
+   La misma invitación, dicha al entrar. Rosa, con la fotografía a un
+   lado. No es un banner: es una tarjeta. */
+
+.bienve{
+  position:fixed; inset:0; z-index:999;
+  display:grid; place-items:center;
+  padding:clamp(1rem, 3vw, 2.5rem);
+  background:rgba(26,18,16,.42);
+  opacity:0; visibility:hidden;
+  transition:opacity .45s var(--ease-out), visibility .45s;
+}
+.bienve[data-abierto]{ opacity:1; visibility:visible }
+
+.bienve__caja{
+  position:relative;
+  inline-size:min(100%, 700px);
+  max-block-size:calc(100dvh - 2rem);
+  overflow:auto;
+  display:grid; grid-template-columns:minmax(0, .78fr) minmax(0, 1.22fr);
+  background:var(--rosa);
+  color:var(--tinta);
+  border-radius:var(--radius);
+  box-shadow:0 34px 100px -34px rgba(26,18,16,.7);
+  translate:0 20px; scale:.98;
+  transition:translate .5s var(--ease-out), scale .5s var(--ease-out);
+}
+.bienve[data-abierto] .bienve__caja{ translate:0 0; scale:1 }
+
+/* El lado de la fotografía, con una mancha de tinta detrás. */
+.bienve__foto{
+  position:relative; overflow:clip;
+  background:linear-gradient(160deg, var(--ballet), var(--rosa) 70%);
+  display:grid; place-items:center; padding:var(--space-s);
+  min-block-size:180px;
+}
+.bienve__mancha{
+  position:absolute; inset-block-end:-22%; inset-inline-start:-18%;
+  inline-size:150%; aspect-ratio:1;
+  background:var(--chilli); opacity:.14;
+  border-radius:48% 52% 42% 58% / 55% 45% 55% 45%;
+}
+.bienve__hueco{
+  position:relative; z-index:1;
+  background:none; border:1.5px dashed rgba(170,0,3,.55);
+  min-block-size:0; block-size:100%; inline-size:100%;
+  color:#5A3B44;
+}
+
+.bienve__texto{
+  padding:clamp(1.4rem, 3.4vw, 2.25rem);
+  display:grid; align-content:center; gap:.7rem;
+}
+.bienve__et{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.2em; text-transform:uppercase; color:var(--chilli); margin:0;
+}
+.bienve__h{
+  display:grid; gap:0; margin:0; max-width:none;
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(1.7rem, 4.4vw, 2.6rem); line-height:.94; letter-spacing:-.032em;
+}
+.bienve__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic }
+.bienve__copy{ margin:0; font-size:var(--step--1); max-width:32ch }
+
+.bienve__que{ display:grid; gap:.3rem; margin:.3rem 0 .2rem; padding:0; list-style:none }
+.bienve__que li{
+  position:relative; padding-inline-start:1.15em;
+  font-size:var(--step--1); line-height:1.45;
+}
+.bienve__que li::before{
+  content:""; position:absolute; inset-block-start:.62em; inset-inline-start:0;
+  inline-size:6px; block-size:6px; border-radius:50%; background:var(--chilli);
+}
+
+.bienve__form{ display:grid; gap:.5rem; margin-top:.35rem }
+.bienve__form input{ min-height:48px; background:var(--marfil) }
+.bienve__form .btn{ justify-content:center }
+.bienve__msg{ margin:0; min-block-size:1.1em; font-size:var(--step--2); color:var(--chilli) }
+
+.bienve__pie{
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  justify-content:space-between; gap:.6rem;
+}
+.bienve__no{
+  background:none; border:0; padding:.25rem 0; cursor:pointer;
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.13em; text-transform:uppercase; color:#5A3B44;
+  text-decoration:underline; text-underline-offset:3px;
+}
+.bienve__no:hover{ color:var(--chilli) }
+.bienve__firma{ margin:0; font-size:var(--step-1) }
+
+.bienve__cerrar{
+  position:absolute; inset-block-start:.55rem; inset-inline-end:.55rem; z-index:3;
+  inline-size:38px; block-size:38px; border-radius:50%;
+  display:grid; place-items:center;
+  background:var(--marfil); color:var(--tinta);
+  border:1px solid rgba(26,18,16,.16); cursor:pointer;
+  font-size:1.15rem; line-height:1;
+}
+.bienve__cerrar:hover{ background:var(--chilli); color:var(--marfil); border-color:var(--chilli) }
+
+@media (max-width:720px){
+  .bienve__caja{ grid-template-columns:1fr }
+  .bienve__foto{ min-block-size:120px }
+  .bienve__l2{ padding-inline-start:.35em }
+}
+@media (prefers-reduced-motion:reduce){
+  .bienve, .bienve__caja{ transition:none }
+}

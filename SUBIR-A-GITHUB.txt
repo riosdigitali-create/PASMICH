@@ -1,0 +1,145 @@
+════════════════════════════════════════════════════════════
+  QUÉ SUBIR A GITHUB — Michelle Ruiz
+  Rediseño editorial · 6 de agosto de 2026
+════════════════════════════════════════════════════════════
+
+Repositorio de la landing: el mismo desde el que publicas hoy.
+Todo lo de abajo va en la MISMA estructura de carpetas que tiene
+esta carpeta. Si arrastras la carpeta completa, listo. Si prefieres
+ir archivo por archivo, aquí está el detalle.
+
+
+━━ 1 · ARCHIVOS NUEVOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Sin estos dos, el sitio se ve como antes:
+
+    assets/michelle.css              50 KB   ← el rediseño entero
+    assets/bienvenida.js             4 KB   ← el pop-up del boletín
+
+  Las dos tipografías, convertidas a woff2:
+
+    fonts/AloeveraDisplay-Medium.woff2   15 KB
+    fonts/LibreBaskerville-Bold.woff2    42 KB
+
+  Las fotografías nuevas — 71 archivos, 4282 KB en total.
+  Todas van en  images/  :
+
+    efren-michelle-abrazo          4 archivos   253 KB
+    efren-michelle-espaldas        4 archivos   168 KB
+    efren-michelle-frente          4 archivos   240 KB
+    efren-michelle-mar             4 archivos   262 KB
+    efren-michelle-ola             4 archivos   269 KB
+    efren-michelle-orilla          4 archivos   232 KB
+    efren-michelle-rocas           5 archivos   469 KB
+    evento-risa                    5 archivos   421 KB
+    evento-sostenedoras            5 archivos   448 KB
+    michelle-atril                 4 archivos   134 KB
+    michelle-biblia-pompones       4 archivos   269 KB
+    michelle-playa                 5 archivos   265 KB
+    michelle-podcast               5 archivos   286 KB
+    michelle-predica-cafe          5 archivos   134 KB
+    michelle-predica-coral         4 archivos   148 KB
+    michelle-predica-floral        5 archivos   277 KB
+
+    (de cada foto hay varias anchuras en .webp, un .jpg de respaldo
+     y una miniatura -lqip.jpg para que no parpadee al cargar)
+
+
+━━ 2 · PÁGINAS MODIFICADAS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Las 39 páginas cambiaron: todas cargan la hoja nueva y el
+  pop-up. Hay que subirlas todas.
+
+    404.html
+    aviso-de-privacidad/index.html
+    blog/categoria/biblia/index.html
+    blog/categoria/familia/index.html
+    blog/categoria/fe/index.html
+    blog/categoria/imagen/index.html
+    blog/categoria/la-biblia-y-nosotras/index.html
+    blog/categoria/liderazgo/index.html
+    blog/categoria/matrimonio/index.html
+    blog/categoria/mujeres/index.html
+    blog/categoria/reflexiones/index.html
+    blog/corona-o-carcoma/index.html
+    blog/index.html
+    blog/la-maleta/index.html
+    carrito/index.html
+    checkout/index.html
+    conferencias/index.html
+    contacto/index.html
+    image-method/index.html
+    index.html
+    la-biblia-y-nosotras/index.html
+    matrimonio/index.html
+    michelle/index.html
+    podcast/index.html
+    redes_pastora_michelle.html
+    tienda/biblia-la-biblia-y-nosotras/index.html
+    tienda/bolsa-tote/index.html
+    tienda/chamarra-comunidad/index.html
+    tienda/descargable-guia-journaling/index.html
+    tienda/devocional-impreso/index.html
+    tienda/gorra-bordada/index.html
+    tienda/index.html
+    tienda/kit-completo-journaling/index.html
+    tienda/kit-esencial/index.html
+    tienda/plumones-set/index.html
+    tienda/pompones-artesanales/index.html
+    tienda/separador-con-amor-mexico/index.html
+    tienda/stickers-ilustrados/index.html
+    tienda/stickers-letras/index.html
+
+
+━━ 3 · ARCHIVOS QUE NO CAMBIARON ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  No hace falta volver a subirlos, pero tampoco estorba:
+
+    _astro/          el CSS y JS originales, intactos
+    video/           los videos, intactos
+    fonts/           las demás tipografías
+    images/          las fotos que ya estaban
+    _headers, _redirects, robots.txt, sitemap-*.xml, favicon.svg
+
+
+━━ 4 · LO QUE NO DEBES SUBIR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    _originales-fotos/    los PNG originales, 29 MB. Son tu respaldo,
+                          el sitio ya no los usa.
+    _revision/            hojas de contacto que armé para revisarlas.
+    LEEME.txt             opcional; es documentación interna.
+
+
+━━ 5 · CÓMO SUBIRLO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Por la web de GitHub
+    1. Entra al repositorio → botón «Add file» → «Upload files».
+    2. Arrastra la carpeta completa (menos las dos de arriba).
+    3. GitHub respeta las subcarpetas al arrastrar.
+    4. Escribe el mensaje: «Rediseño editorial» y confirma.
+    5. En 1–2 minutos está en vivo.
+
+  Por Git, si lo tienes instalado
+    git add -A
+    git commit -m "Rediseño editorial"
+    git push
+
+  Antes de subir, añade esto al .gitignore para no cargar los 29 MB:
+
+    _originales-fotos/
+    _revision/
+
+
+━━ 6 · OJO CON ESTO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Esta carpeta tiene las rutas en RELATIVO, para poder abrirla con
+  doble clic. Lo que publicas hoy en internet es  web/dist/ , que
+  las tiene en ABSOLUTO. Son dos cosas distintas.
+
+  Si tu repositorio publica esta misma carpeta, sube tal cual.
+  Si publica web/dist/, hay que trasladar los cambios allá:
+  es el mismo HTML, sólo cambian las rutas (./assets/ pasa a
+  /assets/). Dímelo y lo dejo hecho.
+
+  Y después de subir, abre el sitio con Ctrl+F5 la primera vez:
+  el navegador guarda el CSS viejo.

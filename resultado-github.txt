@@ -1,0 +1,7 @@
+============================================================ 
+  Rediseno editorial - Michelle Ruiz 
+  07/08/2026 13:45:22.87 
+============================================================ 
+git version 2.52.0.windows.1
+Initialized empty Git repository in C:/Users/ismar/Downloads/LBYN/La Biblia y Nosotras/Pas Mich1/.git/
+--- Preparando --- 

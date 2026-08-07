@@ -1,0 +1,1 @@
+import{D as o}from"./demo.C_3abj0K.js";const t=document.querySelector("[data-podcast-question]"),r=t?.querySelector(".ask__msg");t?.addEventListener("submit",n=>{n.preventDefault();const e=t.querySelector("#p-q");if(!(!e||!r)){if(!e.value.trim()){r.textContent="Escribe tu pregunta antes de enviarla.",e.focus();return}r.textContent=o,t.reset()}});

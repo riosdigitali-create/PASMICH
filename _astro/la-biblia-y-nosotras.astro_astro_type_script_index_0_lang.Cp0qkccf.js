@@ -1,0 +1,1 @@
+import{D as o}from"./demo.C_3abj0K.js";const t=document.querySelector("[data-intl-form]"),e=t?.querySelector(".ship__msg");t?.addEventListener("submit",r=>{if(r.preventDefault(),!!e){if(!t.checkValidity()){e.textContent="Faltan datos obligatorios.",t.querySelector(":invalid")?.focus();return}e.textContent=o,t.reset()}});
