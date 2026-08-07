@@ -32,10 +32,10 @@ git config --local user.email "riosdigitali@gmail.com" >> "%LOG%" 2>&1
 
 echo --- Preparando --- >> "%LOG%"
 git add -A >> "%LOG%" 2>&1
-git commit -m "Redisenyo editorial: hoja michelle.css, pop-up, fotos nuevas y .nojekyll" >> "%LOG%" 2>&1
+git commit -m "Actualizacion del sitio" >> "%LOG%" 2>&1
 git branch -M main >> "%LOG%" 2>&1
-git remote remove origin >nul 2>&1
-git remote add origin https://github.com/riosdigitali-create/PASMICH.git >> "%LOG%" 2>&1
+git remote add origin https://github.com/riosdigitali-create/PASMICH.git 2>nul
+git remote set-url origin https://github.com/riosdigitali-create/PASMICH.git >> "%LOG%" 2>&1
 
 echo. >> "%LOG%"
 echo --- Enviando a GitHub --- >> "%LOG%"

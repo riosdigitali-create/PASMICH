@@ -1,118 +1,53 @@
 ════════════════════════════════════════════════════════
-  CÓMO SUBIRLO  ·  Michelle Ruiz
+  YA ESTÁ TODO LISTO. FALTA UN COMANDO.
 ════════════════════════════════════════════════════════
 
-BUENA NOTICIA: esta carpeta YA ES tu repositorio.
+El commit ya está hecho. Sólo falta enviarlo a GitHub, y
+eso pide tu contraseña, que yo no tengo.
 
-  github.com/riosdigitali-create/PASMICH   ·   rama main
+Abre una terminal en esta carpeta y escribe:
 
-No hace falta arrastrar nada ni usar la carpeta PARA-GITHUB.
-Desde aquí mismo:
-
-    git add -A
-    git commit -m "Fotografías nuevas y collage editorial"
     git push
 
-Son 32 MB en 270 archivos. Ninguno se acerca al límite de
-100 MB de GitHub.
+Si te pide usuario y contraseña, la contraseña es un token
+de GitHub, no la de tu cuenta. Si no lo tienes a mano, la
+forma más fácil es abrir GitHub Desktop, que ya reconoce
+esta carpeta, y darle a «Push origin».
 
-
-LO QUE NO SUBE, Y ESTÁ BIEN ASÍ
-──────────────────────────────────────────────────────
-
-El .gitignore protege cuatro carpetas:
-
-  fotos pas mich/      1.5 GB de originales, con un video de
-                       720 MB. Si esto se subiera, GitHub
-                       rechazaría el push completo.
-  _originales-fotos/   PNG de una tanda anterior.
-  _revision/           hojas de contacto.
-  _contactos/          hojas de contacto.
-
-Todas se quedan en tu disco como respaldo. Lo que el sitio
-usa son las versiones optimizadas de images/ y video/.
+Son 32 MB en 271 archivos. Tarda un par de minutos.
 
 
 DESPUÉS DE SUBIR
 ──────────────────────────────────────────────────────
+Abre el sitio con Ctrl+F5 la primera vez, o verás el
+diseño viejo guardado en caché.
 
-Abre el sitio con Ctrl+F5 la primera vez. El navegador
-guarda el CSS viejo y si no lo fuerzas verás el diseño
-anterior.
+    https://riosdigitali-create.github.io/PASMICH/
 
 
-LAS FOTOGRAFÍAS, Y DÓNDE QUEDÓ CADA UNA
+QUÉ VA EN ESTE COMMIT
 ──────────────────────────────────────────────────────
 
-De 45 archivos de origen salieron 27 piezas colocadas.
-Cada una tiene un oficio y no se repite en otra sección.
+  · Las 27 fotografías nuevas, colocadas por sección.
 
-  INICIO — la portada NO se tocó.
-    Debajo, «Una mujer, varios llamados»: cinco piezas que
-    llevan a familia, Biblia, escenario, podcast y blog.
-    Un recorte de Michelle asoma en la esquina.
+  · LA CAUSA DE LOS TÍTULOS GIGANTES Y LOS HUECOS:
+    mis reglas de estilo perdían contra las originales
+    por un tema de peso de selectores. El titular de
+    Conferencias salía a 240 px en lugar de 105. Lo medí
+    en el sitio en vivo y lo corregí en las 478 reglas.
 
-  MICHELLE
-    Su historia      familia completa al atardecer
-    Biografía        retrato de blanco en el campo
-    El pilar         la familia saltando en la playa
-    Puente a LBYN    ella con su Biblia + recorte
+  · LOS DOS ESPACIOS VACÍOS que me señalaste:
+    en Matrimonio y en La Biblia y Nosotras yo había
+    metido una pieza de más dentro de una rejilla de dos
+    columnas, y eso descuadraba la fila entera. Ahora
+    cada una tiene su propio bloque. Encontré un tercer
+    caso igual en Image Method y también lo corregí.
 
-  MATRIMONIO
-    Sólo pareja, sin escenario. Se cambió la foto que se
-    repetía con el blog por una de los hijos.
+  · EL RECORTE QUE TAPABA EL TEXTO en «Invítala»:
+    retirado.
 
-  CONFERENCIAS
-    Encabezado       «Un corazón sano», a todo lo ancho
-    Mírala en acción el auditorio lleno
-    Galería          seis escenarios distintos
-    Recorte sobre el rosa
+  · Las palabras decorativas de fondo que caían encima
+    de los botones en Inicio y en Matrimonio: reubicadas.
 
-  PODCAST
-    Efrén y Michelle frente al micrófono, como pieza
-    principal, y una segunda junto a las temporadas.
-
-  LA BIBLIA Y NOSOTRAS
-    Collage de tres piezas —Biblia en el césped, journaling,
-    ella escribiendo— con un recorte encima.
-
-  IMAGE METHOD
-    Un solo retrato sobrio en la terraza. Sin escenario y
-    sin Biblia, como pide su identidad.
-
-  TIENDA
-    Banner amarillo con la gorra recortada y la bolsa. Sin
-    personas como producto.
-
-  BLOG
-    Una portada propia por artículo.
-
-  POP-UP DEL BOLETÍN
-    El recorte de Michelle tapándose con la Biblia.
-
-
-DECISIONES QUE CONVIENE QUE SEPAS
-──────────────────────────────────────────────────────
-
-· Los recortes transparentes venían con mucho lienzo vacío
-  —uno aprovechaba sólo el 15%—. Se recortaron a su
-  contenido para que sirvan como piezas de collage.
-
-· En móvil los recortes se ocultan: tapaban texto. La única
-  excepción es el del pop-up, que ahí sí cabe.
-
-· Los tres videos de la carpeta son los mismos que ya
-  estaban publicados. No hizo falta reprocesarlos.
-
-· Sigue pendiente y marcado en amarillo: el video teaser
-  del podcast, una predicación completa en video, el video
-  de lanzamiento del sitio y la foto ejecutiva de estudio
-  para Image Method.
-
-
-ESTADO
-──────────────────────────────────────────────────────
-  39 páginas · 0 HTML mal cerrado · 0 recursos rotos ·
-  0 anclas rotas · todas las imágenes con texto
-  alternativo y carga diferida · una sola imagen de carga
-  inmediata en el inicio.
+  Verificado: 39 páginas, 0 HTML mal cerrado, 0 recursos
+  rotos, 0 rejillas descuadradas.
