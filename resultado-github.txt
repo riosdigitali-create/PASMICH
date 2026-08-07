@@ -4,3 +4,13 @@
 ============================================================ 
 git version 2.52.0.windows.1
 --- Preparando --- 
+[main 7c89427] Actualizacion del sitio
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ 
+--- Enviando a GitHub --- 
+branch 'main' set up to track 'origin/main'.
+To https://github.com/riosdigitali-create/PASMICH.git
+   0b57fb5..7c89427  main -> main
+ 
+CODIGO DE SALIDA: 0 
+LISTO: el redisenyo ya esta en GitHub. 

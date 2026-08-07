@@ -1389,3 +1389,60 @@ html{ scroll-behavior:smooth }
 :root .im-banda .im-retrato{ margin-block:0 }
 :root .mat-banda .mat-retrato{ max-inline-size:min(100%, 760px) }
 :root .im-banda .im-retrato{ max-inline-size:min(100%, 820px) }
+
+
+/* ═══ 16 · EL TAMAÑO DE LAS FOTOGRAFÍAS ════════════════════════════
+   Medido en el sitio publicado: la rejilla de «Una mujer, varios
+   llamados» tenía filas de 569, 274 y 864 px. Casi una pantalla por
+   celda, y las que ocupaban seis columnas quedaban en tiras de 6:1
+   donde no se distinguía nada.
+
+   El error fue mío: le di a cada celda una proporción propia, pero
+   las celdas tienen anchos muy distintos según cuántas columnas
+   ocupen. Una proporción 4:3 en una celda de 1153 px de ancho son
+   865 px de alto.
+
+   La corrección: la rejilla manda la altura de la fila, no la foto.
+   Tres columnas iguales, filas de altura fija, y las imágenes
+   rellenan por recorte. Así todas las piezas se parecen y ninguna
+   se dispara.                                                       */
+
+:root .llamados__rejilla{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  grid-auto-rows:clamp(160px, 17vw, 240px);
+}
+:root .llamado--familia  { grid-column:span 1; grid-row:span 2 }
+:root .llamado--ensena,
+:root .llamado--escenario,
+:root .llamado--podcast,
+:root .llamado--escribe  { grid-column:span 1; grid-row:span 1 }
+
+:root .llamado__enlace{ block-size:100% }
+:root .llamado .pic{ block-size:100%; aspect-ratio:auto }
+:root .llamado .pic img{ block-size:100%; inline-size:100%; object-fit:cover }
+
+/* Techo general: ninguna fotografía puede comerse la pantalla.
+   Las portadas quedan fuera: ahí la altura es intencional. */
+:root figure.pic{ max-block-size:min(72vh, 620px) }
+:root .hero figure.pic,
+:root .hero__strip figure.pic,
+:root .open__media figure.pic{ max-block-size:none }
+
+/* La máscara de animación recortaba 7 px del titular de la portada:
+   se comía la base de «Ruiz». Un poco más de aire y desaparece. */
+:root [data-mask]{
+  overflow:clip; overflow-clip-margin:.5em;
+  padding-block-end:.26em; margin-block-end:-.26em;
+}
+
+@media (max-width:899px){
+  :root .llamados__rejilla{ grid-template-columns:repeat(2, minmax(0, 1fr)) }
+  :root .llamado--familia{ grid-row:span 2 }
+}
+@media (max-width:719px){
+  :root .llamados__rejilla{
+    grid-template-columns:1fr;
+    grid-auto-rows:clamp(180px, 46vw, 260px);
+  }
+  :root .llamado--familia{ grid-row:span 1 }
+}
