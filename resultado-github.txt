@@ -5,3 +5,317 @@
 git version 2.52.0.windows.1
 Initialized empty Git repository in C:/Users/ismar/Downloads/LBYN/La Biblia y Nosotras/Pas Mich1/.git/
 --- Preparando --- 
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '404.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'LEEME.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SUBIR-A-GITHUB.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SUBIR-A-GITHUB.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/SocialFeed.astro_astro_type_script_index_0_lang.C8DyapFi.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/_slug_.astro_astro_type_script_index_0_lang.CObbAU6T.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/carrito.astro_astro_type_script_index_0_lang.ChjliyJH.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/cart.C0UBeNHS.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/checkout.astro_astro_type_script_index_0_lang.BxbUe1Pc.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/conferencias.astro_astro_type_script_index_0_lang.BifkhoNs.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/contacto.astro_astro_type_script_index_0_lang.DgW4ra0f.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/demo.C_3abj0K.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/la-biblia-y-nosotras.astro_astro_type_script_index_0_lang.Cp0qkccf.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/matrimonio.astro_astro_type_script_index_0_lang.CZ8cpBU-.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/money.CSIjKgvQ.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/podcast.astro_astro_type_script_index_0_lang.D6nJK4UC.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_astro/style.tktpDY6d.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_headers', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '_redirects', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'assets/bienvenida.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'assets/michelle.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'aviso-de-privacidad/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/biblia/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/familia/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/fe/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/imagen/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/la-biblia-y-nosotras/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/liderazgo/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/matrimonio/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/mujeres/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/categoria/reflexiones/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/corona-o-carcoma/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'blog/la-maleta/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'carrito/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'checkout/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'conferencias/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'contacto/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'favicon.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'image-method/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'importado/LEEME.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'la-biblia-y-nosotras/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'matrimonio/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'michelle/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'podcast/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'redes_pastora_michelle.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'resultado-github.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'robots.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/biblia-la-biblia-y-nosotras/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/bolsa-tote/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/chamarra-comunidad/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/descargable-guia-journaling/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/devocional-impreso/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/gorra-bordada/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/kit-completo-journaling/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/kit-esencial/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/plumones-set/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/pompones-artesanales/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/separador-con-amor-mexico/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/stickers-ilustrados/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tienda/stickers-letras/index.html', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 79de17e] Redisenyo editorial: hoja michelle.css, pop-up, fotos nuevas y .nojekyll
+ 240 files changed, 7400 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .nojekyll
+ create mode 100644 404.html
+ create mode 100644 AloeveraDisplay-Medium (1).otf
+ create mode 100644 LEEME.txt
+ create mode 100644 LibreBaskerville-Bold (1).ttf
+ create mode 100644 SUBIR-A-GITHUB.bat
+ create mode 100644 SUBIR-A-GITHUB.txt
+ create mode 100644 _astro/SocialFeed.astro_astro_type_script_index_0_lang.C8DyapFi.js
+ create mode 100644 _astro/_slug_.astro_astro_type_script_index_0_lang.CObbAU6T.js
+ create mode 100644 _astro/carrito.astro_astro_type_script_index_0_lang.ChjliyJH.js
+ create mode 100644 _astro/cart.C0UBeNHS.js
+ create mode 100644 _astro/checkout.astro_astro_type_script_index_0_lang.BxbUe1Pc.js
+ create mode 100644 _astro/conferencias.astro_astro_type_script_index_0_lang.BifkhoNs.js
+ create mode 100644 _astro/contacto.astro_astro_type_script_index_0_lang.DgW4ra0f.js
+ create mode 100644 _astro/demo.C_3abj0K.js
+ create mode 100644 _astro/la-biblia-y-nosotras.astro_astro_type_script_index_0_lang.Cp0qkccf.js
+ create mode 100644 _astro/matrimonio.astro_astro_type_script_index_0_lang.CZ8cpBU-.js
+ create mode 100644 _astro/money.CSIjKgvQ.js
+ create mode 100644 _astro/podcast.astro_astro_type_script_index_0_lang.D6nJK4UC.js
+ create mode 100644 _astro/style.tktpDY6d.css
+ create mode 100644 _headers
+ create mode 100644 _redirects
+ create mode 100644 apple-touch-icon.png
+ create mode 100644 assets/bienvenida.js
+ create mode 100644 assets/michelle.css
+ create mode 100644 aviso-de-privacidad/index.html
+ create mode 100644 blog/categoria/biblia/index.html
+ create mode 100644 blog/categoria/familia/index.html
+ create mode 100644 blog/categoria/fe/index.html
+ create mode 100644 blog/categoria/imagen/index.html
+ create mode 100644 blog/categoria/la-biblia-y-nosotras/index.html
+ create mode 100644 blog/categoria/liderazgo/index.html
+ create mode 100644 blog/categoria/matrimonio/index.html
+ create mode 100644 blog/categoria/mujeres/index.html
+ create mode 100644 blog/categoria/reflexiones/index.html
+ create mode 100644 blog/corona-o-carcoma/index.html
+ create mode 100644 blog/index.html
+ create mode 100644 blog/la-maleta/index.html
+ create mode 100644 carrito/index.html
+ create mode 100644 checkout/index.html
+ create mode 100644 conferencias/index.html
+ create mode 100644 contacto/index.html
+ create mode 100644 favicon.svg
+ create mode 100644 fonts/AloeveraDisplay-Medium.woff2
+ create mode 100644 fonts/ArchitectsDaughter-Regular.woff2
+ create mode 100644 fonts/Caveat-SemiBold.woff2
+ create mode 100644 fonts/DMSerifDisplay-Regular.woff2
+ create mode 100644 fonts/LibreBaskerville-Bold.woff2
+ create mode 100644 fonts/LibreBaskerville-Italic.woff2
+ create mode 100644 fonts/LibreBaskerville-Regular.woff2
+ create mode 100644 fonts/PlayfairDisplay-Italic-var.woff2
+ create mode 100644 fonts/PlayfairDisplay-var.woff2
+ create mode 100644 fonts/Prata-Regular.woff2
+ create mode 100644 image-method/index.html
+ create mode 100644 images/biblia-journaling-1200.jpg
+ create mode 100644 images/biblia-journaling-1200.webp
+ create mode 100644 images/biblia-journaling-1800.webp
+ create mode 100644 images/biblia-journaling-2400.webp
+ create mode 100644 images/biblia-journaling-480.webp
+ create mode 100644 images/biblia-journaling-768.webp
+ create mode 100644 images/biblia-journaling-lqip.jpg
+ create mode 100644 images/biblia-pasto-1200.jpg
+ create mode 100644 images/biblia-pasto-1200.webp
+ create mode 100644 images/biblia-pasto-1800.webp
+ create mode 100644 images/biblia-pasto-2400.webp
+ create mode 100644 images/biblia-pasto-480.webp
+ create mode 100644 images/biblia-pasto-768.webp
+ create mode 100644 images/biblia-pasto-lqip.jpg
+ create mode 100644 images/efren-michelle-abrazo-1025.jpg
+ create mode 100644 images/efren-michelle-abrazo-480.webp
+ create mode 100644 images/efren-michelle-abrazo-768.webp
+ create mode 100644 images/efren-michelle-abrazo-lqip.jpg
+ create mode 100644 images/efren-michelle-espaldas-1090.jpg
+ create mode 100644 images/efren-michelle-espaldas-480.webp
+ create mode 100644 images/efren-michelle-espaldas-768.webp
+ create mode 100644 images/efren-michelle-espaldas-lqip.jpg
+ create mode 100644 images/efren-michelle-frente-1033.jpg
+ create mode 100644 images/efren-michelle-frente-480.webp
+ create mode 100644 images/efren-michelle-frente-768.webp
+ create mode 100644 images/efren-michelle-frente-lqip.jpg
+ create mode 100644 images/efren-michelle-mar-1073.jpg
+ create mode 100644 images/efren-michelle-mar-480.webp
+ create mode 100644 images/efren-michelle-mar-768.webp
+ create mode 100644 images/efren-michelle-mar-lqip.jpg
+ create mode 100644 images/efren-michelle-ola-1091.jpg
+ create mode 100644 images/efren-michelle-ola-480.webp
+ create mode 100644 images/efren-michelle-ola-768.webp
+ create mode 100644 images/efren-michelle-ola-lqip.jpg
+ create mode 100644 images/efren-michelle-orilla-1130.jpg
+ create mode 100644 images/efren-michelle-orilla-480.webp
+ create mode 100644 images/efren-michelle-orilla-768.webp
+ create mode 100644 images/efren-michelle-orilla-lqip.jpg
+ create mode 100644 images/efren-michelle-rocas-1193.jpg
+ create mode 100644 images/efren-michelle-rocas-1200.webp
+ create mode 100644 images/efren-michelle-rocas-480.webp
+ create mode 100644 images/efren-michelle-rocas-768.webp
+ create mode 100644 images/efren-michelle-rocas-lqip.jpg
+ create mode 100644 images/evento-risa-1200.jpg
+ create mode 100644 images/evento-risa-1200.webp
+ create mode 100644 images/evento-risa-480.webp
+ create mode 100644 images/evento-risa-768.webp
+ create mode 100644 images/evento-risa-lqip.jpg
+ create mode 100644 images/evento-sostenedoras-1200.jpg
+ create mode 100644 images/evento-sostenedoras-1200.webp
+ create mode 100644 images/evento-sostenedoras-480.webp
+ create mode 100644 images/evento-sostenedoras-768.webp
+ create mode 100644 images/evento-sostenedoras-lqip.jpg
+ create mode 100644 images/michelle-atril-1122.jpg
+ create mode 100644 images/michelle-atril-480.webp
+ create mode 100644 images/michelle-atril-768.webp
+ create mode 100644 images/michelle-atril-lqip.jpg
+ create mode 100644 images/michelle-bahia-1200.jpg
+ create mode 100644 images/michelle-bahia-1200.webp
+ create mode 100644 images/michelle-bahia-1800.webp
+ create mode 100644 images/michelle-bahia-2400.webp
+ create mode 100644 images/michelle-bahia-480.webp
+ create mode 100644 images/michelle-bahia-768.webp
+ create mode 100644 images/michelle-bahia-lqip.jpg
+ create mode 100644 images/michelle-banca-1200.jpg
+ create mode 100644 images/michelle-banca-1200.webp
+ create mode 100644 images/michelle-banca-1800.webp
+ create mode 100644 images/michelle-banca-2400.webp
+ create mode 100644 images/michelle-banca-480.webp
+ create mode 100644 images/michelle-banca-768.webp
+ create mode 100644 images/michelle-banca-lqip.jpg
+ create mode 100644 images/michelle-biblia-pompones-1158.jpg
+ create mode 100644 images/michelle-biblia-pompones-480.webp
+ create mode 100644 images/michelle-biblia-pompones-768.webp
+ create mode 100644 images/michelle-biblia-pompones-lqip.jpg
+ create mode 100644 images/michelle-cafe-1200.jpg
+ create mode 100644 images/michelle-cafe-1200.webp
+ create mode 100644 images/michelle-cafe-1800.webp
+ create mode 100644 images/michelle-cafe-2400.webp
+ create mode 100644 images/michelle-cafe-480.webp
+ create mode 100644 images/michelle-cafe-768.webp
+ create mode 100644 images/michelle-cafe-lqip.jpg
+ create mode 100644 images/michelle-pasto-1200.jpg
+ create mode 100644 images/michelle-pasto-1200.webp
+ create mode 100644 images/michelle-pasto-1800.webp
+ create mode 100644 images/michelle-pasto-2400.webp
+ create mode 100644 images/michelle-pasto-480.webp
+ create mode 100644 images/michelle-pasto-768.webp
+ create mode 100644 images/michelle-pasto-lqip.jpg
+ create mode 100644 images/michelle-playa-1200.jpg
+ create mode 100644 images/michelle-playa-1200.webp
+ create mode 100644 images/michelle-playa-480.webp
+ create mode 100644 images/michelle-playa-768.webp
+ create mode 100644 images/michelle-playa-lqip.jpg
+ create mode 100644 images/michelle-podcast-1200.jpg
+ create mode 100644 images/michelle-podcast-1200.webp
+ create mode 100644 images/michelle-podcast-480.webp
+ create mode 100644 images/michelle-podcast-768.webp
+ create mode 100644 images/michelle-podcast-lqip.jpg
+ create mode 100644 images/michelle-predica-cafe-1200.jpg
+ create mode 100644 images/michelle-predica-cafe-1200.webp
+ create mode 100644 images/michelle-predica-cafe-480.webp
+ create mode 100644 images/michelle-predica-cafe-768.webp
+ create mode 100644 images/michelle-predica-cafe-lqip.jpg
+ create mode 100644 images/michelle-predica-coral-1164.jpg
+ create mode 100644 images/michelle-predica-coral-480.webp
+ create mode 100644 images/michelle-predica-coral-768.webp
+ create mode 100644 images/michelle-predica-coral-lqip.jpg
+ create mode 100644 images/michelle-predica-floral-1186.jpg
+ create mode 100644 images/michelle-predica-floral-1200.webp
+ create mode 100644 images/michelle-predica-floral-480.webp
+ create mode 100644 images/michelle-predica-floral-768.webp
+ create mode 100644 images/michelle-predica-floral-lqip.jpg
+ create mode 100644 images/michelle-vertical-1200.jpg
+ create mode 100644 images/michelle-vertical-1200.webp
+ create mode 100644 images/michelle-vertical-1800.webp
+ create mode 100644 images/michelle-vertical-480.webp
+ create mode 100644 images/michelle-vertical-768.webp
+ create mode 100644 images/michelle-vertical-lqip.jpg
+ create mode 100644 images/social-bahia-400.webp
+ create mode 100644 images/social-bahia-800.webp
+ create mode 100644 images/social-banca-400.webp
+ create mode 100644 images/social-banca-800.webp
+ create mode 100644 images/social-cafe-400.webp
+ create mode 100644 images/social-cafe-800.webp
+ create mode 100644 images/social-flatlay-400.webp
+ create mode 100644 images/social-flatlay-800.webp
+ create mode 100644 images/social-gira-1-400.webp
+ create mode 100644 images/social-gira-1-800.webp
+ create mode 100644 images/social-gira-2-400.webp
+ create mode 100644 images/social-gira-2-800.webp
+ create mode 100644 images/social-gira-3-400.webp
+ create mode 100644 images/social-gira-3-800.webp
+ create mode 100644 images/social-journaling-400.webp
+ create mode 100644 images/social-journaling-800.webp
+ create mode 100644 images/social-lanzamiento-1-400.webp
+ create mode 100644 images/social-lanzamiento-1-800.webp
+ create mode 100644 images/social-lanzamiento-2-400.webp
+ create mode 100644 images/social-lanzamiento-2-800.webp
+ create mode 100644 images/social-lanzamiento-3-400.webp
+ create mode 100644 images/social-lanzamiento-3-800.webp
+ create mode 100644 images/social-pasto-400.webp
+ create mode 100644 images/social-pasto-800.webp
+ create mode 100644 images/social-vertical-400.webp
+ create mode 100644 images/social-vertical-800.webp
+ create mode 100644 importado/LEEME.md
+ create mode 100644 index.html
+ create mode 100644 la-biblia-y-nosotras/index.html
+ create mode 100644 matrimonio/index.html
+ create mode 100644 michelle/index.html
+ create mode 100644 og-default.jpg
+ create mode 100644 podcast/index.html
+ create mode 100644 redes_pastora_michelle.html
+ create mode 100644 resultado-github.txt
+ create mode 100644 robots.txt
+ create mode 100644 sitemap-0.xml
+ create mode 100644 sitemap-index.xml
+ create mode 100644 tienda/biblia-la-biblia-y-nosotras/index.html
+ create mode 100644 tienda/bolsa-tote/index.html
+ create mode 100644 tienda/chamarra-comunidad/index.html
+ create mode 100644 tienda/descargable-guia-journaling/index.html
+ create mode 100644 tienda/devocional-impreso/index.html
+ create mode 100644 tienda/gorra-bordada/index.html
+ create mode 100644 tienda/index.html
+ create mode 100644 tienda/kit-completo-journaling/index.html
+ create mode 100644 tienda/kit-esencial/index.html
+ create mode 100644 tienda/plumones-set/index.html
+ create mode 100644 tienda/pompones-artesanales/index.html
+ create mode 100644 tienda/separador-con-amor-mexico/index.html
+ create mode 100644 tienda/stickers-ilustrados/index.html
+ create mode 100644 tienda/stickers-letras/index.html
+ create mode 100644 video/clip-gira.mp4
+ create mode 100644 video/clip-lanzamiento.mp4
+ create mode 100644 video/lbyn-gira.mp4
+ create mode 100644 video/lbyn-hero.mp4
+ create mode 100644 video/lbyn-lanzamiento.mp4
+ create mode 100644 video/lbyn-oficial.mp4
+ create mode 100644 video/poster-gira.jpg
+ create mode 100644 video/poster-gira.webp
+ create mode 100644 video/poster-hero.jpg
+ create mode 100644 video/poster-hero.webp
+ create mode 100644 video/poster-lanzamiento.jpg
+ create mode 100644 video/poster-lanzamiento.webp
+ create mode 100644 video/poster-oficial.jpg
+ create mode 100644 video/poster-oficial.webp
+ 
+--- Enviando a GitHub --- 
+branch 'main' set up to track 'origin/main'.
+To https://github.com/riosdigitali-create/PASMICH.git
+ + af4371d...79de17e main -> main (forced update)
+ 
+CODIGO DE SALIDA: 0 
+LISTO: el redisenyo ya esta en GitHub. 

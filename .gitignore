@@ -1,9 +1,19 @@
-# Los PNG originales de las fotografías: 29 MB que el sitio no usa.
-# Se conservan en el disco como respaldo, no en el repositorio.
+# ══════════════════════════════════════════════════════════════
+#  Lo que NO sube a GitHub
+# ══════════════════════════════════════════════════════════════
+
+# Los originales de las fotografías: 1.5 GB, con videos de hasta
+# 720 MB. GitHub rechaza cualquier archivo de más de 100 MB, así
+# que esto tumbaría el push entero. Las versiones optimizadas ya
+# están en images/ y en video/, que sí suben.
+fotos pas mich/
+
+# PNG originales de una tanda anterior. 29 MB que el sitio no usa.
 _originales-fotos/
 
-# Hojas de contacto de revisión.
+# Hojas de contacto que se armaron sólo para revisar las fotos.
 _revision/
+_contactos/
 
 # Ruido del sistema.
 .DS_Store

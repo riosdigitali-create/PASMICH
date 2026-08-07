@@ -154,12 +154,7 @@
   --ease-in-out:cubic-bezier(.65,0,.35,1);
 }
 
-/* Fondos de sección. El marfil manda; el resto son excepciones. */
-.is-paper { --bg:var(--crema);  background:var(--bg) }
-.is-petal { --bg:var(--ballet); background:var(--bg) }
-.is-linen { --bg:var(--ballet-claro); background:var(--bg) }
-
-.is-dark{
+/* Fondos de sección. El marfil manda; el resto son excepciones. */ :root .is-paper{ --bg:var(--crema);  background:var(--bg) } :root .is-petal{ --bg:var(--ballet); background:var(--bg) } :root .is-linen{ --bg:var(--ballet-claro); background:var(--bg) }  :root .is-dark{
   --bg:var(--night);
   --fg:#FBF3EF;
   --muted:#C3ADA6;
@@ -169,8 +164,7 @@
 }
 
 /* Image Method conserva su identidad propia —negro, blanco y olivo—
-   porque es una marca aparte. Solo se le ajusta la tipografía. */
-.is-im{
+   porque es una marca aparte. Solo se le ajusta la tipografía. */ :root .is-im{
   --bg:var(--im-black);
   --fg:var(--im-white);
   --muted:var(--im-silver);
@@ -180,13 +174,11 @@
 }
 
 /* Rosa fuerte. El texto pequeño va en tinta: sobre rosa, el chilli
-   solo aguanta en tamaño grande. */
-.es-rosa{
+   solo aguanta en tamaño grande. */ :root .es-rosa{
   --bg:var(--rosa); --fg:var(--tinta);
   --muted:#5A3B44; --rule:rgba(26,18,16,.22); --accent:var(--chilli);
   color:var(--fg); background:var(--bg);
-}
-.es-lemon{
+} :root .es-lemon{
   --bg:var(--lemon); --fg:var(--tinta);
   --muted:#6B5A2A; --rule:rgba(26,18,16,.20); --accent:var(--chilli);
   color:var(--fg); background:var(--bg);
@@ -196,9 +188,7 @@
 /* ═══ 3 · RITMO Y RETÍCULA ═════════════════════════════════════════ */
 
 html{ scroll-behavior:smooth }
-@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto } }
-
-body{
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto } }  :root body{
   background:var(--marfil);
   color:var(--tinta);
   font-family:var(--font-read);
@@ -208,24 +198,14 @@ body{
   text-rendering:optimizeLegibility;
 }
 
-:root .shell{ width:min(100% - var(--gutter) * 2, var(--page)); margin-inline:auto }
-.shell-wide{ width:min(100% - var(--gutter) * 2, var(--page-ancha)); margin-inline:auto }
+:root .shell{ width:min(100% - var(--gutter) * 2, var(--page)); margin-inline:auto } :root .shell-wide{ width:min(100% - var(--gutter) * 2, var(--page-ancha)); margin-inline:auto }
 
-/* Un pliego estrecho, para texto que se lee de corrido. */
-.pliego{ width:min(100% - var(--gutter) * 2, 760px); margin-inline:auto }
-
-.section{ padding-block:var(--space-4xl) }
-.section--tight{ padding-block:clamp(2.5rem, 4.5vw, 4rem) }
+/* Un pliego estrecho, para texto que se lee de corrido. */ :root .pliego{ width:min(100% - var(--gutter) * 2, 760px); margin-inline:auto }  :root .section{ padding-block:var(--space-4xl) } :root .section--tight{ padding-block:clamp(2.5rem, 4.5vw, 4rem) }
 
 /* Dos secciones seguidas del mismo color no necesitan doble relleno:
-   ahí es donde nacían los huecos enormes. */
-.section + .section:not(.is-dark):not(.is-paper):not(.is-petal):not(.is-im){
+   ahí es donde nacían los huecos enormes. */ :root .section + .section:not(.is-dark):not(.is-paper):not(.is-petal):not(.is-im){
   padding-top:clamp(2rem, 3.5vw, 3.25rem);
-}
-
-.prose{ max-width:var(--measure) }
-.narrow{ max-width:var(--measure-narrow) }
-.lede{ max-width:46ch }
+}  :root .prose{ max-width:var(--measure) } :root .narrow{ max-width:var(--measure-narrow) } :root .lede{ max-width:46ch }
 
 
 /* ═══ 4 · JERARQUÍA TIPOGRÁFICA ════════════════════════════════════
@@ -234,43 +214,29 @@ body{
    Destacados   Baskerville cursiva
    Cuerpo       Baskerville 400
    Interfaz     Aloevera, versalitas discretas y bien espaciadas
-   Firma        Caveat, solo eso                                      */
-
-h1, h2, h3, :root .hero__title, :root .hero__line, [class*="__title"], [class*="__h"]{
+   Firma        Caveat, solo eso                                      */  :root h1, :root h2, :root h3, :root .hero__title, :root .hero__line, :root [class*="__title"], :root [class*="__h"]{
   font-family:var(--font-display);
   font-weight:700;
   line-height:1.06;
   letter-spacing:-.018em;
   text-wrap:balance;                 /* evita el título roto por accidente */
   hyphens:none;
-}
+}  :root h1, :root .hero__title{ line-height:1.02; letter-spacing:-.028em } :root h2{ line-height:1.08; letter-spacing:-.022em } :root h3{ line-height:1.16; letter-spacing:-.012em; font-size:var(--step-1) }
 
-h1, :root .hero__title{ line-height:1.02; letter-spacing:-.028em }
-h2{ line-height:1.08; letter-spacing:-.022em }
-h3{ line-height:1.16; letter-spacing:-.012em; font-size:var(--step-1) }
+/* Ningún titular debe cruzar la página de lado a lado. */ :root h1{ max-width:17ch } :root h2{ max-width:20ch }
+:root .hero__title{ max-width:14ch }  :root p, :root li, :root dd, :root blockquote{ text-wrap:pretty } :root p{ max-width:var(--measure) }
 
-/* Ningún titular debe cruzar la página de lado a lado. */
-h1{ max-width:17ch }
-h2{ max-width:20ch }
-:root .hero__title{ max-width:14ch }
-
-p, li, dd, blockquote{ text-wrap:pretty }
-p{ max-width:var(--measure) }
-
-/* Cursiva expresiva: frases destacadas, citas y remates. */
-em, i, .cursiva, .lede em, blockquote{
+/* Cursiva expresiva: frases destacadas, citas y remates. */ :root em, :root i, :root .cursiva, :root .lede em, :root blockquote{
   font-family:var(--font-quote);
   font-style:italic;
-}
-blockquote{
+} :root blockquote{
   font-size:var(--step-2);
   line-height:1.42;
   letter-spacing:-.012em;
   max-width:28ch;
 }
 
-/* Interfaz: Aloevera. Mayúsculas discretas y con aire entre letras. */
-.kicker, .eyebrow, :root .btn, :root .hd__link, :root .hd__name, .tag, .chip, .label, .badge, .pill, :root .meta, time, .date, .fecha, .nav__link, nav a, :root button:not(.hd__brand), .sf__tab, .cta, [class*="__kicker"], [class*="__eyebrow"], [class*="__label"], [class*="__meta"], [class*="__tag"], [class*="__cat"]{
+/* Interfaz: Aloevera. Mayúsculas discretas y con aire entre letras. */ :root .kicker, :root .eyebrow, :root .btn, :root .hd__link, :root .hd__name, :root .tag, :root .chip, :root .label, :root .badge, :root .pill, :root .meta, :root time, :root .date, :root .fecha, :root .nav__link, :root nav a, :root button:not(.hd__brand), :root .sf__tab, :root .cta, :root [class*="__kicker"], :root [class*="__eyebrow"], :root [class*="__label"], :root [class*="__meta"], :root [class*="__tag"], :root [class*="__cat"]{
   font-family:var(--font-ui);
   font-weight:500;
   letter-spacing:.13em;
@@ -279,19 +245,17 @@ blockquote{
   line-height:1.35;
 }
 
-/* Las etiquetas de sección respiran y se separan del titular. */
-.kicker, .eyebrow, [class*="__kicker"], [class*="__eyebrow"]{
+/* Las etiquetas de sección respiran y se separan del titular. */ :root .kicker, :root .eyebrow, :root [class*="__kicker"], :root [class*="__eyebrow"]{
   display:block;
   color:var(--chilli);
   letter-spacing:.2em;
   font-size:var(--step--2);
   margin-bottom:var(--space-s);
 }
-:root .is-dark .kicker, .is-dark .eyebrow, .is-dark [class*="__kicker"], .is-dark [class*="__eyebrow"]{ color:var(--rosa) }
-:root .is-im .kicker, .is-im .eyebrow, .is-im [class*="__kicker"], .is-im [class*="__eyebrow"]{ color:var(--im-moss) }
+:root .is-dark .kicker, :root .is-dark .eyebrow, :root .is-dark [class*="__kicker"], :root .is-dark [class*="__eyebrow"]{ color:var(--rosa) }
+:root .is-im .kicker, :root .is-im .eyebrow, :root .is-im [class*="__kicker"], :root .is-im [class*="__eyebrow"]{ color:var(--im-moss) }
 
-/* Manuscrita: firmas y notas cortas. Nunca párrafos. */
-.firma, .nota-mano, .hand, [class*="__firma"]{
+/* Manuscrita: firmas y notas cortas. Nunca párrafos. */ :root .firma, :root .nota-mano, :root .hand, :root [class*="__firma"]{
   font-family:var(--font-hand);
   font-size:var(--step-2);
   font-weight:600;
@@ -306,37 +270,30 @@ blockquote{
    El lenguaje de revista: papel, collage y marcas hechas a mano.
    Todo en CSS, sin una sola imagen extra que descargar.            */
 
-/* Grano de papel impreso. Se posa sobre cualquier fondo. */
-.grano{ position:relative; isolation:isolate }
-.grano::after{
+/* Grano de papel impreso. Se posa sobre cualquier fondo. */ :root .grano{ position:relative; isolation:isolate } :root .grano::after{
   content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
   opacity:.5; mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='.32'/%3E%3C/svg%3E");
-}
-.is-dark .grano::after{ mix-blend-mode:screen; opacity:.22 }
+} :root .is-dark .grano::after{ mix-blend-mode:screen; opacity:.22 }
 
-/* El acanalado del papel de color. */
-.tela{
+/* El acanalado del papel de color. */ :root .tela{
   background-image:repeating-linear-gradient(
     100deg, rgba(26,18,16,.030) 0 1px, transparent 1px 7px);
 }
 
 /* Bordes de papel rasgado. Los puntos son irregulares a propósito:
-   una línea recta no parece rota. */
-.rasgado-arriba{
+   una línea recta no parece rota. */ :root .rasgado-arriba{
   clip-path:polygon(0 12px, 4% 4px, 9% 14px, 15% 3px, 22% 12px, 29% 5px,
     36% 15px, 43% 4px, 51% 13px, 58% 3px, 65% 12px, 72% 6px, 79% 14px,
     86% 4px, 93% 12px, 100% 5px, 100% 100%, 0 100%);
-}
-.rasgado-abajo{
+} :root .rasgado-abajo{
   clip-path:polygon(0 0, 100% 0, 100% calc(100% - 6px), 93% calc(100% - 13px),
     86% calc(100% - 4px), 79% calc(100% - 14px), 72% calc(100% - 5px),
     65% calc(100% - 13px), 58% calc(100% - 3px), 51% calc(100% - 12px),
     43% calc(100% - 5px), 36% calc(100% - 14px), 29% calc(100% - 4px),
     22% calc(100% - 13px), 15% calc(100% - 3px), 9% calc(100% - 12px),
     4% calc(100% - 5px), 0 calc(100% - 13px));
-}
-.rasgado{ /* los dos bordes */
+} :root .rasgado{ /* los dos bordes */
   clip-path:polygon(0 11px, 6% 3px, 13% 13px, 21% 4px, 29% 12px, 38% 3px,
     47% 13px, 56% 4px, 64% 12px, 73% 3px, 81% 13px, 89% 4px, 96% 12px, 100% 5px,
     100% calc(100% - 5px), 96% calc(100% - 12px), 89% calc(100% - 4px),
@@ -348,50 +305,34 @@ blockquote{
 
 /* Fotografías con vida: ligeramente giradas, como pegadas a mano.
    Solo en pantallas anchas; en móvil estorban. */
-@media (min-width:900px){
-  .girada    { rotate:-1.6deg }
-  .girada-der{ rotate:1.4deg }
-  .girada-mas{ rotate:-2.8deg }
-  .girada, .girada-der, .girada-mas{
+@media (min-width:900px){   :root .girada{ rotate:-1.6deg }   :root .girada-der{ rotate:1.4deg }   :root .girada-mas{ rotate:-2.8deg }   :root .girada, :root .girada-der, :root .girada-mas{
     transition:rotate .6s var(--ease-out);
-  }
-  .girada:hover, .girada-der:hover, .girada-mas:hover{ rotate:0deg }
+  }   :root .girada:hover, :root .girada-der:hover, :root .girada-mas:hover{ rotate:0deg }
 }
 
-/* Cinta de papel que sujeta una pieza. */
-.cinta{ position:relative }
-.cinta::before{
+/* Cinta de papel que sujeta una pieza. */ :root .cinta{ position:relative } :root .cinta::before{
   content:""; position:absolute; z-index:3;
   inline-size:132px; block-size:34px;
   inset-block-start:-17px; inset-inline-start:50%;
   translate:-50% 0; rotate:-3.5deg;
   background:rgba(255,241,178,.82);
   box-shadow:0 1px 5px rgba(26,18,16,.14);
-}
-.cinta--esquina::before{ inset-inline-start:12%; rotate:-19deg }
+} :root .cinta--esquina::before{ inset-inline-start:12%; rotate:-19deg }
 
-/* Marcas editoriales. Se dibujan al entrar en pantalla. */
-.subrayado{
+/* Marcas editoriales. Se dibujan al entrar en pantalla. */ :root .subrayado{
   background-image:linear-gradient(transparent 62%, var(--rosa) 62%);
   background-repeat:no-repeat;
   background-size:0% 100%;
   padding-inline:.06em;
   transition:background-size .8s var(--ease-out) .1s;
-}
-.subrayado.a-la-vista{ background-size:100% 100% }
-
-.subrayado-fino{
+} :root .subrayado.a-la-vista{ background-size:100% 100% }  :root .subrayado-fino{
   text-decoration:none;
   background-image:linear-gradient(var(--chilli), var(--chilli));
   background-repeat:no-repeat;
   background-position:0 92%;
   background-size:100% 1.5px;
   transition:background-size .3s var(--ease-out);
-}
-.subrayado-fino:hover{ background-size:100% 3px }
-
-.circulado{ position:relative; display:inline-block }
-.circulado::after{
+} :root .subrayado-fino:hover{ background-size:100% 3px }  :root .circulado{ position:relative; display:inline-block } :root .circulado::after{
   content:""; position:absolute; inset:-.30em -.52em -.26em -.52em;
   border:2.5px solid var(--chilli);
   border-radius:52% 48% 49% 51% / 60% 40% 60% 40%;
@@ -399,20 +340,14 @@ blockquote{
   opacity:0; scale:.86;
   transition:opacity .55s var(--ease-out), scale .55s var(--ease-out);
   pointer-events:none;
-}
-.circulado.a-la-vista::after{ opacity:1; scale:1 }
-
-.tachado{ position:relative; color:var(--humo) }
-.tachado::after{
+} :root .circulado.a-la-vista::after{ opacity:1; scale:1 }  :root .tachado{ position:relative; color:var(--humo) } :root .tachado::after{
   content:""; position:absolute; inset-block-start:52%; inset-inline:-.14em;
   block-size:2px; background:var(--chilli); rotate:-1.4deg;
   scale:0 1; transform-origin:left;
   transition:scale .5s var(--ease-out);
-}
-.tachado.a-la-vista::after{ scale:1 1 }
+} :root .tachado.a-la-vista::after{ scale:1 1 }
 
-/* Anotación al margen, como en un cuaderno. */
-.nota-margen{
+/* Anotación al margen, como en un cuaderno. */ :root .nota-margen{
   font-family:var(--font-hand);
   font-size:var(--step-1);
   line-height:1.28;
@@ -421,42 +356,34 @@ blockquote{
   letter-spacing:0;
   rotate:-1.6deg;
   max-width:22ch;
-}
-.is-dark .nota-margen{ color:var(--rosa) }
+} :root .is-dark .nota-margen{ color:var(--rosa) }
 
-/* Palabra enorme al fondo. Decorativa: no se lee, se siente. */
-.fragmento{
+/* Palabra enorme al fondo. Decorativa: no se lee, se siente. */ :root .fragmento{
   position:absolute; z-index:0; pointer-events:none; user-select:none;
   font-family:var(--font-display); font-weight:700;
   font-size:clamp(7rem, 22vw, 20rem); line-height:.78;
   color:var(--chilli); opacity:.055; letter-spacing:-.05em;
 }
 
-/* Sello: el isotipo o una marca de agua. */
-.sello{ position:absolute; z-index:0; opacity:.09; pointer-events:none }
+/* Sello: el isotipo o una marca de agua. */ :root .sello{ position:absolute; z-index:0; opacity:.09; pointer-events:none }
 
-/* Número de pliego, como en una revista. */
-.folio{
+/* Número de pliego, como en una revista. */ :root .folio{
   font-family:var(--font-ui);
   font-size:var(--step--2);
   letter-spacing:.28em;
   color:var(--chilli);
   text-transform:uppercase;
-}
-.is-dark .folio{ color:var(--rosa) }
+} :root .is-dark .folio{ color:var(--rosa) }
 
-/* Filete que abre sección. */
-.filete{
+/* Filete que abre sección. */ :root .filete{
   border:0; block-size:1px; background:var(--rule);
   margin-block:var(--space-xl);
-}
-.filete--corto{ inline-size:74px; block-size:2.5px; background:var(--chilli); border:0 }
+} :root .filete--corto{ inline-size:74px; block-size:2.5px; background:var(--chilli); border:0 }
 
 
 /* ═══ 6 · COMPONENTES ══════════════════════════════════════════════ */
 
-/* — Cabecera ————————————————————————————————— */
-.site-header{
+/* — Cabecera ————————————————————————————————— */ :root .site-header{
   background:color-mix(in srgb, var(--marfil) 88%, transparent);
   backdrop-filter:saturate(150%) blur(14px);
   -webkit-backdrop-filter:saturate(150%) blur(14px);
@@ -483,8 +410,7 @@ blockquote{
   background-repeat:no-repeat; background-position:0 100%; background-size:100% 2px;
 }
 
-/* — Botones ————————————————————————————————— */
-.btn{
+/* — Botones ————————————————————————————————— */ :root .btn{
   font-family:var(--font-ui);
   font-weight:500;
   font-size:var(--step--1);
@@ -502,20 +428,14 @@ blockquote{
   --btn-bg:var(--chilli-hondo);
   border-color:var(--chilli-hondo);
   translate:0 -2px;
-}
-.btn--ghost{
+} :root .btn--ghost{
   --btn-bg:transparent; --btn-fg:var(--fg);
   border-color:color-mix(in srgb, currentColor 34%, transparent);
-}
-.btn--ghost:hover{ --btn-fg:var(--chilli); border-color:var(--chilli) }
-.is-dark .btn--ghost:hover{ --btn-fg:var(--rosa); border-color:var(--rosa) }
-.btn--light{ --btn-bg:var(--marfil); --btn-fg:var(--chilli); border-color:var(--marfil) }
-.btn--light:hover{ --btn-bg:var(--lemon); border-color:var(--lemon) }
+} :root .btn--ghost:hover{ --btn-fg:var(--chilli); border-color:var(--chilli) } :root .is-dark .btn--ghost:hover{ --btn-fg:var(--rosa); border-color:var(--rosa) } :root .btn--light{ --btn-bg:var(--marfil); --btn-fg:var(--chilli); border-color:var(--marfil) } :root .btn--light:hover{ --btn-bg:var(--lemon); border-color:var(--lemon) }
 :root .btn:focus-visible{ outline:3px solid var(--chilli); outline-offset:3px }
 :root .is-dark .btn:focus-visible{ outline-color:var(--rosa) }
 
-/* — Tarjetas ————————————————————————————————— */
-.card, [class*="__card"]{
+/* — Tarjetas ————————————————————————————————— */ :root .card, :root [class*="__card"]{
   background:var(--marfil);
   border:1px solid var(--hairline-soft);
   border-radius:var(--radius);
@@ -523,18 +443,17 @@ blockquote{
   transition:translate .35s var(--ease-out), box-shadow .35s var(--ease-out),
              border-color .35s var(--ease-out);
 }
-:root .card:hover, [class*="__card"]:hover{
+:root .card:hover, :root [class*="__card"]:hover{
   translate:0 -3px;
   border-color:var(--rosa);
   box-shadow:0 14px 40px -22px rgba(26,18,16,.45);
 }
-:root .is-dark .card, .is-dark [class*="__card"]{
+:root .is-dark .card, :root .is-dark [class*="__card"]{
   background:rgba(255,255,255,.045);
   border-color:rgba(255,255,255,.14);
 }
 
-/* — Formularios ————————————————————————————— */
-input, textarea, select{
+/* — Formularios ————————————————————————————— */ :root input, :root textarea, :root select{
   font-family:var(--font-read);
   font-size:16px;                     /* iOS no hace zoom a partir de 16 */
   background:var(--marfil);
@@ -545,31 +464,23 @@ input, textarea, select{
   min-height:50px;
   inline-size:100%;
   transition:border-color .2s var(--ease-out), box-shadow .2s var(--ease-out);
-}
-textarea{ min-height:130px; line-height:1.6 }
-input:focus-visible, textarea:focus-visible, select:focus-visible{
+} :root textarea{ min-height:130px; line-height:1.6 } :root input:focus-visible, :root textarea:focus-visible, :root select:focus-visible{
   outline:none;
   border-color:var(--chilli);
   box-shadow:0 0 0 3px color-mix(in srgb, var(--rosa) 55%, transparent);
-}
-label{
+} :root label{
   font-family:var(--font-ui);
   font-size:var(--step--2);
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--humo);
-}
-.is-dark input, .is-dark textarea, .is-dark select{
+} :root .is-dark input, :root .is-dark textarea, :root .is-dark select{
   background:rgba(255,255,255,.06);
   color:#FBF3EF;
   border-color:rgba(255,255,255,.22);
-}
-.is-dark label{ color:#C3ADA6 }
+} :root .is-dark label{ color:#C3ADA6 }  :root ::placeholder{ color:var(--niebla); opacity:1 }
 
-::placeholder{ color:var(--niebla); opacity:1 }
-
-/* — Enlaces de texto ——————————————————————————— */
-.prose a, :root p a:not(.btn):not([class*="__card"]){
+/* — Enlaces de texto ——————————————————————————— */ :root .prose a, :root p a:not(.btn):not([class*="__card"]){
   color:inherit;
   text-decoration:none;
   background-image:linear-gradient(var(--chilli), var(--chilli));
@@ -577,18 +488,14 @@ label{
   background-position:0 92%;
   background-size:100% 1.4px;
   transition:background-size .25s var(--ease-out), color .25s var(--ease-out);
-}
-.prose a:hover, :root p a:not(.btn):not([class*="__card"]):hover{
+} :root .prose a:hover, :root p a:not(.btn):not([class*="__card"]):hover{
   color:var(--chilli); background-size:100% 3px;
-}
-.is-dark .prose a, :root .is-dark p a:not(.btn){
+} :root .is-dark .prose a, :root .is-dark p a:not(.btn){
   background-image:linear-gradient(var(--rosa), var(--rosa));
-}
-.is-dark .prose a:hover{ color:var(--rosa) }
+} :root .is-dark .prose a:hover{ color:var(--rosa) }
 
 /* — Estado pendiente ——————————————————————————
-   Lo que sigue en demo o por confirmar tiene que verse de lejos. */
-.pendiente, .por-confirmar, [data-pendiente]{
+   Lo que sigue en demo o por confirmar tiene que verse de lejos. */ :root .pendiente, :root .por-confirmar, :root [data-pendiente]{
   display:inline-flex; align-items:center; gap:.5em;
   font-family:var(--font-ui);
   font-size:var(--step--2);
@@ -600,15 +507,13 @@ label{
   border-radius:2px;
   padding:.34em .7em;
   line-height:1.3;
-}
-.pendiente::before, .por-confirmar::before, [data-pendiente]::before{
+} :root .pendiente::before, :root .por-confirmar::before, :root [data-pendiente]::before{
   content:""; inline-size:6px; block-size:6px; border-radius:50%;
   background:var(--chilli); flex:none;
 }
 
 /* — Hueco de contenido por llegar ————————————————
-   Un espacio que se ve deliberado, no un error de maquetación. */
-.hueco{
+   Un espacio que se ve deliberado, no un error de maquetación. */ :root .hueco{
   display:grid; place-items:center; gap:var(--space-xs);
   min-block-size:clamp(180px, 26vw, 320px);
   background:
@@ -621,56 +526,44 @@ label{
   text-align:center;
   padding:var(--space-l);
   color:#5A3B44;
-}
-.hueco__que{
+} :root .hueco__que{
   font-family:var(--font-ui); font-size:var(--step--1);
   letter-spacing:.16em; text-transform:uppercase;
-}
-.hueco__nota{
+} :root .hueco__nota{
   font-family:var(--font-read); font-size:var(--step--1);
   letter-spacing:0; text-transform:none; color:#6E4A52; max-width:34ch;
 }
 
 /* — Piezas de medios ——————————————————————————
    Ningún iframe suelto ni miniatura borrosa: todo va dentro de una
-   tarjeta con proporción fija, portada nítida y carga diferida.    */
-.pieza{
+   tarjeta con proporción fija, portada nítida y carga diferida.    */ :root .pieza{
   position:relative; display:block;
   background:var(--cafe);
   border-radius:var(--radius);
   overflow:clip;
   aspect-ratio:16 / 9;
   isolation:isolate;
-}
-.pieza--retrato{ aspect-ratio:4 / 5 }
-.pieza--vertical{ aspect-ratio:9 / 16 }
-.pieza--cuadro{ aspect-ratio:1 }
-.pieza img, .pieza video, .pieza iframe{
+} :root .pieza--retrato{ aspect-ratio:4 / 5 } :root .pieza--vertical{ aspect-ratio:9 / 16 } :root .pieza--cuadro{ aspect-ratio:1 } :root .pieza img, :root .pieza video, :root .pieza iframe{
   inline-size:100%; block-size:100%;
   object-fit:cover; display:block; border:0;
-}
-.pieza__velo{
+} :root .pieza__velo{
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(to top,
     rgba(21,14,12,.72) 0%, rgba(21,14,12,.18) 42%, transparent 72%);
-}
-.pieza__pie{
+} :root .pieza__pie{
   position:absolute; inset-inline:0; inset-block-end:0; z-index:2;
   padding:clamp(.9rem, 2vw, 1.4rem);
   color:#FFF;
-}
-.pieza__tit{
+} :root .pieza__tit{
   font-family:var(--font-display); font-weight:700;
   font-size:var(--step-1); line-height:1.14; letter-spacing:-.015em;
   max-width:22ch;
-}
-.pieza__meta{
+} :root .pieza__meta{
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.16em; text-transform:uppercase;
   color:#FFD6DE; margin-top:.35em;
 }
-/* Botón de reproducción */
-.pieza__play{
+/* Botón de reproducción */ :root .pieza__play{
   position:absolute; inset-block-start:50%; inset-inline-start:50%;
   translate:-50% -50%; z-index:2;
   inline-size:64px; block-size:64px; border-radius:50%;
@@ -678,19 +571,15 @@ label{
   background:color-mix(in srgb, var(--chilli) 92%, transparent);
   color:#FFF; border:0; cursor:pointer;
   transition:scale .3s var(--ease-out), background .3s var(--ease-out);
-}
-.pieza__play::before{
+} :root .pieza__play::before{
   content:""; inline-size:0; block-size:0;
   border-block:11px solid transparent;
   border-inline-start:18px solid currentColor;
   margin-inline-start:5px;
-}
-.pieza:hover .pieza__play{ scale:1.08; background:var(--chilli) }
-.pieza__play:focus-visible{ outline:3px solid var(--lemon); outline-offset:4px }
+} :root .pieza:hover .pieza__play{ scale:1.08; background:var(--chilli) } :root .pieza__play:focus-visible{ outline:3px solid var(--lemon); outline-offset:4px }
 
 /* Si la plataforma externa falla, queda la portada local: nunca un
-   cuadro roto. */
-.pieza__caida{
+   cuadro roto. */ :root .pieza__caida{
   position:absolute; inset:0; z-index:1;
   display:grid; place-items:center; gap:.5rem;
   background:var(--ballet); color:#5A3B44; text-align:center;
@@ -699,8 +588,7 @@ label{
   letter-spacing:.14em; text-transform:uppercase;
 }
 
-/* — Pie como contraportada ————————————————————— */
-.site-footer, footer[class*="foot"], .ft{
+/* — Pie como contraportada ————————————————————— */ :root .site-footer, :root footer[class*="foot"], :root .ft{
   background:var(--night);
   color:#FBF3EF;
   --fg:#FBF3EF; --muted:#C3ADA6; --rule:rgba(255,255,255,.18);
@@ -712,8 +600,7 @@ label{
 
 /* Tablet */
 @media (max-width:1023px){
-  :root{ --page:100%; --space-4xl:clamp(3rem, 6vw, 4.5rem) }
-  h1{ max-width:15ch } h2{ max-width:18ch }
+  :root{ --page:100%; --space-4xl:clamp(3rem, 6vw, 4.5rem) }   :root h1{ max-width:15ch } :root h2{ max-width:18ch }
 }
 
 /* Móvil */
@@ -726,16 +613,9 @@ label{
     --step-7:clamp(2.5rem, 12vw, 3.4rem);
     --step-6:clamp(2.2rem, 10.5vw, 3rem);
     --step-5:clamp(1.95rem, 9vw, 2.5rem);
-  }
-  h1, h2, h3, :root .hero__title{ max-width:none }
-  .fragmento{ display:none }
-  .cinta::before{ inline-size:96px; block-size:26px; inset-block-start:-13px }
-  .nota-margen{ rotate:0deg; max-width:none }
-  /* Nada girado en móvil: se sale de la pantalla. */
-  .girada, .girada-der, .girada-mas{ rotate:0deg }
-  blockquote{ max-width:none; font-size:var(--step-1) }
-  :root .btn{ inline-size:100%; justify-content:center }
-  .btn--auto{ inline-size:auto }
+  }   :root h1, :root h2, :root h3, :root .hero__title{ max-width:none }   :root .fragmento{ display:none }   :root .cinta::before{ inline-size:96px; block-size:26px; inset-block-start:-13px }   :root .nota-margen{ rotate:0deg; max-width:none }
+  /* Nada girado en móvil: se sale de la pantalla. */   :root .girada, :root .girada-der, :root .girada-mas{ rotate:0deg }   :root blockquote{ max-width:none; font-size:var(--step-1) }
+  :root .btn{ inline-size:100%; justify-content:center }   :root .btn--auto{ inline-size:auto }
 }
 
 /* Pantallas muy pequeñas */
@@ -744,34 +624,24 @@ label{
   :root .btn{ padding:.85em 1.1em; font-size:var(--step--2) }
 }
 
-/* Nada se sale nunca de la pantalla. */
-img, video, iframe, svg, table, pre{ max-inline-size:100% }
-body{ overflow-x:clip }
+/* Nada se sale nunca de la pantalla. */ :root img, :root video, :root iframe, :root svg, :root table, :root pre{ max-inline-size:100% } :root body{ overflow-x:clip }
 
 
-/* ═══ 8 · ACCESIBILIDAD Y MOVIMIENTO ═══════════════════════════════ */
-
-:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible{
+/* ═══ 8 · ACCESIBILIDAD Y MOVIMIENTO ═══════════════════════════════ */  :root :where(a, :root button, :root input, :root textarea, :root select, :root summary, :root [tabindex]):focus-visible{
   outline:3px solid var(--chilli);
   outline-offset:3px;
   border-radius:2px;
-}
-.is-dark :where(a, button, input, textarea, select):focus-visible, .is-im  :where(a, button, input, textarea, select):focus-visible{
+} :root .is-dark :where(a, :root button, :root input, :root textarea, :root select):focus-visible, :root .is-im  :where(a, :root button, :root input, :root textarea, :root select):focus-visible{
   outline-color:var(--rosa);
-}
-
-.saltar, .skip{
+}  :root .saltar, :root .skip{
   position:absolute; inset-inline-start:-9999px;
   background:var(--chilli); color:var(--marfil);
   padding:.85rem 1.25rem; z-index:9999;
   font-family:var(--font-ui); font-size:var(--step--1);
   letter-spacing:.12em; text-transform:uppercase;
-}
-.saltar:focus, .skip:focus{ inset-inline-start:1rem; inset-block-start:1rem }
+} :root .saltar:focus, :root .skip:focus{ inset-inline-start:1rem; inset-block-start:1rem }
 
-/* Entrada suave de las piezas. Sin desplazamiento lateral. */
-.entra{ opacity:0; translate:0 18px; transition:opacity .7s var(--ease-out), translate .7s var(--ease-out) }
-.entra.a-la-vista{ opacity:1; translate:0 0 }
+/* Entrada suave de las piezas. Sin desplazamiento lateral. */ :root .entra{ opacity:0; translate:0 18px; transition:opacity .7s var(--ease-out), translate .7s var(--ease-out) } :root .entra.a-la-vista{ opacity:1; translate:0 0 }
 
 @media (prefers-reduced-motion:reduce){
   *, *::before, *::after{
@@ -779,17 +649,11 @@ body{ overflow-x:clip }
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
     scroll-behavior:auto !important;
-  }
-  .entra{ opacity:1; translate:none }
-  .subrayado{ background-size:100% 100% }
-  .circulado::after{ opacity:1; scale:1 }
-  .tachado::after{ scale:1 1 }
-  .girada, .girada-der, .girada-mas{ rotate:0deg }
+  }   :root .entra{ opacity:1; translate:none }   :root .subrayado{ background-size:100% 100% }   :root .circulado::after{ opacity:1; scale:1 }   :root .tachado::after{ scale:1 1 }   :root .girada, :root .girada-der, :root .girada-mas{ rotate:0deg }
 }
 
 @media print{
-  :root .site-header, :root .site-footer, :root .btn, .pieza__play{ display:none }
-  body{ background:#fff; color:#000 }
+  :root .site-header, :root .site-footer, :root .btn, :root .pieza__play{ display:none }   :root body{ background:#fff; color:#000 }
 }
 
 
@@ -799,28 +663,21 @@ body{ overflow-x:clip }
 
 /* — INICIO · portada ————————————————————————————
    El nombre en dos líneas, deliberadamente. No es un título que se
-   parte solo: cada línea está escrita aparte. */
-.portada__titulo{
+   parte solo: cada línea está escrita aparte. */ :root .portada__titulo{
   display:grid;
   gap:0;
   line-height:.86;
   letter-spacing:-.045em;
   font-size:clamp(3.2rem, 14vw, 9rem);
   max-width:none;
-}
-.portada__l2{ padding-inline-start:.42em }         /* la segunda, desplazada */
-
-.portada__frase{
+} :root .portada__l2{ padding-inline-start:.42em }         /* la segunda, desplazada */  :root .portada__frase{
   font-family:var(--font-quote);
   font-style:italic;
   font-weight:400;
   font-size:clamp(1.3rem, 3.2vw, 2.1rem);
   letter-spacing:-.01em;
   margin-top:.5em;
-}
-.portada__punto{ color:var(--rosa); font-style:normal }
-
-.portada__firma{
+} :root .portada__punto{ color:var(--rosa); font-style:normal }  :root .portada__firma{
   position:absolute;
   inset-block-end:clamp(1.5rem, 4vh, 3rem);
   inset-inline-end:clamp(1.25rem, 5vw, 4rem);
@@ -830,65 +687,39 @@ body{ overflow-x:clip }
   font-size:clamp(1.6rem, 3.4vw, 2.6rem);
   rotate:-6deg;
   pointer-events:none;
-}
-.portada__fondo{
+} :root .portada__fondo{
   inset-block-end:-.12em;
   inset-inline-start:-.04em;
   color:var(--marfil);
   opacity:.10;
   z-index:1;
 }
-@media (max-width:719px){
-  .portada__l2{ padding-inline-start:.22em }
-  .portada__firma{ font-size:1.4rem; inset-block-end:5.5rem }
+@media (max-width:719px){   :root .portada__l2{ padding-inline-start:.22em }   :root .portada__firma{ font-size:1.4rem; inset-block-end:5.5rem }
 }
 
 
 /* — PODCAST ————————————————————————————————————
    Seis piezas en este orden: título, adelanto, T1, botón, T2, T3.
    La página tenía huecos enormes entre bloques idénticos; aquí el
-   ritmo es corto y cada pieza cambia de peso. */
-
-.pod-abre{ position:relative; padding-block:clamp(3rem, 8vw, 6.5rem) var(--space-3xl); overflow:clip }
-.pod-abre__fondo{ inset-block-start:-.06em; inset-inline-end:-.03em; opacity:.06 }
-.pod-abre__grid{
+   ritmo es corto y cada pieza cambia de peso. */  :root .pod-abre{ position:relative; padding-block:clamp(3rem, 8vw, 6.5rem) var(--space-3xl); overflow:clip } :root .pod-abre__fondo{ inset-block-start:-.06em; inset-inline-end:-.03em; opacity:.06 } :root .pod-abre__grid{
   position:relative; z-index:2;
   display:grid; gap:clamp(2rem, 5vw, 4.5rem);
   grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);
   align-items:center;
-}
-.pod-abre__h{
+} :root .pod-abre__h{
   display:grid; gap:0; line-height:.88;
   font-size:clamp(2.9rem, 10vw, 6.4rem);
   letter-spacing:-.045em; max-width:none;
-}
-.pod-abre__l2{ padding-inline-start:1.4em; color:var(--chilli) }
-.pod-abre__lede{ margin-top:var(--space-m); font-size:var(--step-1); max-width:34ch }
-.pod-abre__nota{ margin-top:var(--space-m) }
-.pod-abre__portada{ display:grid; place-items:center }
-
-.pod-teaser__cab{ margin-bottom:var(--space-l) }
-.pod-teaser__marco{ background:var(--ballet-claro) }
-.pod-teaser__marco .hueco{
+} :root .pod-abre__l2{ padding-inline-start:1.4em; color:var(--chilli) } :root .pod-abre__lede{ margin-top:var(--space-m); font-size:var(--step-1); max-width:34ch } :root .pod-abre__nota{ margin-top:var(--space-m) } :root .pod-abre__portada{ display:grid; place-items:center }  :root .pod-teaser__cab{ margin-bottom:var(--space-l) } :root .pod-teaser__marco{ background:var(--ballet-claro) } :root .pod-teaser__marco .hueco{
   position:absolute; inset:0; border:0; border-radius:0;
   min-block-size:0;
 }
 
-/* Las temporadas: filas, :root no tarjetas sueltas flotando. */
-.pod-temps .shell{ display:grid; gap:0 }
-.temp{
+/* Las temporadas: filas, :root no tarjetas sueltas flotando. */ :root .pod-temps .shell{ display:grid; gap:0 } :root .temp{
   display:grid; gap:var(--space-s);
   padding-block:clamp(2rem, 4vw, 3rem);
   border-top:1px solid var(--rule);
-}
-.temp:first-of-type{ border-top:2px solid var(--tinta) }
-.temp__cab{ display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--space-m) }
-.temp__h{ font-size:var(--step-3); max-width:22ch; margin:0 }
-.temp__body{ max-width:52ch; color:var(--humo) }
-.temp__cta{ margin-top:var(--space-2xs) }
-.temp__estado{ margin:0 }
-
-.pod-todos{
+} :root .temp:first-of-type{ border-top:2px solid var(--tinta) } :root .temp__cab{ display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--space-m) } :root .temp__h{ font-size:var(--step-3); max-width:22ch; margin:0 } :root .temp__body{ max-width:52ch; color:var(--humo) } :root .temp__cta{ margin-top:var(--space-2xs) } :root .temp__estado{ margin:0 }  :root .pod-todos{
   display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-m);
   padding-block:clamp(1.75rem, 3.5vw, 2.5rem);
   border-top:1px solid var(--rule);
@@ -896,77 +727,45 @@ body{ overflow-x:clip }
     linear-gradient(90deg, color-mix(in srgb, var(--ballet) 55%, transparent), transparent 62%);
   padding-inline:clamp(1rem, 2.5vw, 2rem);
   margin-inline:calc(clamp(1rem, 2.5vw, 2rem) * -1);
-}
-.pod-todos__nota{ margin:0; color:var(--humo); font-size:var(--step--1) }
+} :root .pod-todos__nota{ margin:0; color:var(--humo); font-size:var(--step--1) }
 
-/* Temporada 3: la pieza que debe verse desde lejos. */
-.pod-t3{
+/* Temporada 3: la pieza que debe verse desde lejos. */ :root .pod-t3{
   position:relative; overflow:clip;
   padding-block:clamp(3.5rem, 8vw, 6.5rem);
   margin-block:clamp(2rem, 4vw, 3.5rem);
-}
-.pod-t3__fondo{
+} :root .pod-t3__fondo{
   inset-block-start:50%; inset-inline-end:2%; translate:0 -50%;
   font-size:clamp(12rem, 34vw, 30rem); opacity:.13; color:var(--chilli);
-}
-.pod-t3__grid{ position:relative; z-index:2; display:grid; gap:var(--space-m); justify-items:start }
-.pod-t3__folio{ margin:0 }
-.pod-t3__h{
+} :root .pod-t3__grid{ position:relative; z-index:2; display:grid; gap:var(--space-m); justify-items:start } :root .pod-t3__folio{ margin:0 } :root .pod-t3__h{
   display:grid; gap:0; margin:0;
   font-size:clamp(2.6rem, 9vw, 5.4rem); line-height:.9; letter-spacing:-.04em;
   max-width:none;
-}
-.pod-t3__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic }
-.pod-t3__lede{ font-size:var(--step-2); max-width:26ch; margin:0 }
-.pod-t3__datos{ display:grid; gap:var(--space-xs); margin:var(--space-s) 0 0; padding:0; list-style:none }
-.pod-t3__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-s) }
-.pod-t3__et{
+} :root .pod-t3__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic } :root .pod-t3__lede{ font-size:var(--step-2); max-width:26ch; margin:0 } :root .pod-t3__datos{ display:grid; gap:var(--space-xs); margin:var(--space-s) 0 0; padding:0; list-style:none } :root .pod-t3__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-s) } :root .pod-t3__et{
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.18em; text-transform:uppercase; color:#6B5A2A;
   min-inline-size:6.5em;
-}
-.pod-t3__val{ font-weight:700 }
-.pod-t3__firma{ margin-top:var(--space-s) }
-.pod-t3 .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }
-
-.pod-rio__grid{
+} :root .pod-t3__val{ font-weight:700 } :root .pod-t3__firma{ margin-top:var(--space-s) } :root .pod-t3 .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }  :root .pod-rio__grid{
   display:grid; gap:clamp(1.5rem, 4vw, 3.5rem);
   grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr);
   align-items:start;
-}
-.pod-rio__h{ font-size:var(--step-2); margin:0 }
-.pod-rio__texto p{ max-width:56ch }
-.pod-rio__enlaces{
+} :root .pod-rio__h{ font-size:var(--step-2); margin:0 } :root .pod-rio__texto p{ max-width:56ch } :root .pod-rio__enlaces{
   display:flex; flex-wrap:wrap; align-items:center; gap:.75rem;
   margin-top:var(--space-s);
 }
 
-@media (max-width:899px){
-  .pod-abre__grid, .pod-rio__grid{ grid-template-columns:1fr }
-  .pod-abre__portada{ order:-1 }
-  .pod-abre__l2{ padding-inline-start:.7em }
-  .pod-t3__l2{ padding-inline-start:.4em }
-  .temp__h{ max-width:none }
+@media (max-width:899px){   :root .pod-abre__grid, :root .pod-rio__grid{ grid-template-columns:1fr }   :root .pod-abre__portada{ order:-1 }   :root .pod-abre__l2{ padding-inline-start:.7em }   :root .pod-t3__l2{ padding-inline-start:.4em }   :root .temp__h{ max-width:none }
 }
-@media (max-width:719px){
-  .pod-todos{ margin-inline:0; padding-inline:0; background:none }
-  .pod-t3__et{ min-inline-size:0 }
-  .pod-abre{ padding-block:2rem 3rem }
+@media (max-width:719px){   :root .pod-todos{ margin-inline:0; padding-inline:0; background:none }   :root .pod-t3__et{ min-inline-size:0 }   :root .pod-abre{ padding-block:2rem 3rem }
 }
 
 
 /* — CONFERENCIAS ————————————————————————————————
    El encabezado dejaba media pantalla en blanco antes de la foto, y
-   en móvil era peor. Aquí el titular y la entradilla van juntos. */
-
-.conf-abre{ padding-block:clamp(2.5rem, 6vw, 4.5rem) 0; position:relative }
-.conf-abre .hero__inner{ padding-block:0 clamp(1.75rem, 4vw, 3rem) }
-.conf-abre__h{
+   en móvil era peor. Aquí el titular y la entradilla van juntos. */  :root .conf-abre{ padding-block:clamp(2.5rem, 6vw, 4.5rem) 0; position:relative } :root .conf-abre .hero__inner{ padding-block:0 clamp(1.75rem, 4vw, 3rem) } :root .conf-abre__h{
   display:grid; gap:0; max-width:none;
   font-size:clamp(2.8rem, 11vw, 6.6rem); line-height:.88; letter-spacing:-.045em;
   margin-block:.1em .35em;
-}
-.conf-abre__l2{ padding-inline-start:1.1em; color:var(--rosa); font-style:italic }
+} :root .conf-abre__l2{ padding-inline-start:1.1em; color:var(--rosa); font-style:italic }
 :root .conf-abre .hero__grid{
   display:grid; gap:clamp(1.5rem, 4vw, 3rem);
   grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr);
@@ -975,32 +774,22 @@ body{ overflow-x:clip }
 :root .conf-abre .hero__lead{ max-width:46ch; margin:0 }
 :root .conf-abre .hero__strip{ margin-top:clamp(1.5rem, 4vw, 2.75rem) }
 
-/* Mírala en acción: rosa fuerte, cursiva y una sola pieza principal. */
-.conf-accion__h{ font-style:normal }
-.conf-accion__h em{ color:var(--chilli); font-style:italic }
-.conf-accion__lede{ max-width:52ch; margin-block:var(--space-s) var(--space-l) }
-.conf-accion__principal{ background:var(--ballet-claro); margin-bottom:var(--space-xl) }
-.conf-accion__principal .hueco{
+/* Mírala en acción: rosa fuerte, cursiva y una sola pieza principal. */ :root .conf-accion__h{ font-style:normal } :root .conf-accion__h em{ color:var(--chilli); font-style:italic } :root .conf-accion__lede{ max-width:52ch; margin-block:var(--space-s) var(--space-l) } :root .conf-accion__principal{ background:var(--ballet-claro); margin-bottom:var(--space-xl) } :root .conf-accion__principal .hueco{
   position:absolute; inset:0; border:0; border-radius:0; min-block-size:0;
   background:
     repeating-linear-gradient(-45deg, rgba(170,0,3,.16) 0 9px, transparent 9px 18px),
     var(--ballet-claro);
-}
-.conf-accion__sub{ margin-block:0 var(--space-m) }
-:root .conf-accion .vid__cap{ color:#5A3B44 }
-.conf-paises{
+} :root .conf-accion__sub{ margin-block:0 var(--space-m) }
+:root .conf-accion .vid__cap{ color:#5A3B44 } :root .conf-paises{
   display:inline-block; font-family:var(--font-ui);
   font-size:var(--step--2); letter-spacing:.16em; text-transform:uppercase;
   color:var(--chilli); margin-bottom:.4em;
 }
 
 @media (max-width:899px){
-  :root .conf-abre .hero__grid{ grid-template-columns:1fr }
-  .conf-abre__l2{ padding-inline-start:.5em }
+  :root .conf-abre .hero__grid{ grid-template-columns:1fr }   :root .conf-abre__l2{ padding-inline-start:.5em }
 }
-@media (max-width:719px){
-  .conf-abre{ padding-block:1.5rem 0 }
-  .conf-abre__h{ margin-block:.05em .3em }
+@media (max-width:719px){   :root .conf-abre{ padding-block:1.5rem 0 }   :root .conf-abre__h{ margin-block:.05em .3em }
   :root .conf-abre .hero__strip figure{ --ratio:16 / 10 !important }
 }
 
@@ -1026,10 +815,7 @@ body{ overflow-x:clip }
 :root .hero__body[data-astro-cid-2vg4cjqq]{ padding-block:var(--space-2xl) clamp(1.75rem, 4vh, 3rem) }
 
 /* 2 · Techo para los medios verticales. El encuadre sube porque la
-       cara está siempre en el tercio superior. */
-.vid--feature .vid__frame{ max-block-size:min(58vh, 460px) }
-.vid--feature .vid__el,
-.vid--feature .vid__fallback img{ object-position:50% 30% }
+       cara está siempre en el tercio superior. */ :root .vid--feature .vid__frame{ max-block-size:min(58vh, 460px) } :root .vid--feature .vid__el, :root .vid--feature .vid__fallback img{ object-position:50% 30% }
 
 /* 3 · Ninguna columna alineada al fondo cuando la de al lado es más
        alta: eso es exactamente lo que abría el hueco. */
@@ -1074,77 +860,49 @@ body{ overflow-x:clip }
 :root .speak__grid{
   grid-template-columns:minmax(0, 1fr) minmax(0, 300px);
   align-items:center;
-}
-.speak__col{ display:grid; align-content:center }
+} :root .speak__col{ display:grid; align-content:center }
 :root .speak__evidence{ max-inline-size:300px; margin-inline-start:auto }
 
 @media (max-width:899px){
   :root .speak__grid{ grid-template-columns:1fr }
-  :root .speak__evidence{ margin-inline:0; max-inline-size:min(300px, 100%) }
-  .vid--feature .vid__frame{ max-block-size:min(52vh, 400px) }
+  :root .speak__evidence{ margin-inline:0; max-inline-size:min(300px, 100%) }   :root .vid--feature .vid__frame{ max-block-size:min(52vh, 400px) }
   :root .hero[data-astro-cid-j7pv25f6],
   :root .hero[data-astro-cid-2vg4cjqq]{ min-height:0 }
 }
 
 
-/* — MICHELLE · «Su historia» ————————————————————— */
-.hist-foto{ margin:var(--space-l) 0 0; min-block-size:clamp(200px, 24vw, 300px) }
-.hist-aviso{ margin-top:var(--space-s) }
+/* — MICHELLE · «Su historia» ————————————————————— */ :root .hist-foto{ margin:var(--space-l) 0 0; min-block-size:clamp(200px, 24vw, 300px) } :root .hist-aviso{ margin-top:var(--space-s) }
 
-/* — MATRIMONIO ———————————————————————————————— */
-.mat-foto{ margin:0 0 var(--space-l); min-block-size:clamp(190px, 22vw, 280px) }
+/* — MATRIMONIO ———————————————————————————————— */ :root .mat-foto{ margin:0 0 var(--space-l); min-block-size:clamp(190px, 22vw, 280px) }
 
-/* Los diez días: la pieza que se anuncia con el QR. */
-.diez{ position:relative; overflow:clip }
-.diez__fondo{
+/* Los diez días: la pieza que se anuncia con el QR. */ :root .diez{ position:relative; overflow:clip } :root .diez__fondo{
   inset-block-start:50%; inset-inline-end:1%; translate:0 -50%;
   font-size:clamp(11rem, 30vw, 26rem); opacity:.12; color:var(--chilli);
-}
-.diez__grid{
+} :root .diez__grid{
   position:relative; z-index:2;
   display:grid; gap:clamp(2rem, 4vw, 3.5rem);
   grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
   align-items:start;
-}
-.diez__h{
+} :root .diez__h{
   display:grid; gap:0; margin:0 0 var(--space-m);
   font-size:clamp(2.4rem, 8vw, 4.8rem); line-height:.9; letter-spacing:-.04em;
   max-width:none;
-}
-.diez__l2{ padding-inline-start:1.1em; color:var(--chilli); font-style:italic }
-.diez__lede{ font-size:var(--step-1); max-width:44ch }
-.diez__datos{ display:grid; gap:var(--space-xs); margin:var(--space-l) 0 0; padding:0; list-style:none }
-.diez__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem var(--space-s) }
-.diez__et{
+} :root .diez__l2{ padding-inline-start:1.1em; color:var(--chilli); font-style:italic } :root .diez__lede{ font-size:var(--step-1); max-width:44ch } :root .diez__datos{ display:grid; gap:var(--space-xs); margin:var(--space-l) 0 0; padding:0; list-style:none } :root .diez__datos li{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem var(--space-s) } :root .diez__et{
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.18em; text-transform:uppercase; color:#6B5A2A;
   min-inline-size:6em;
-}
-.diez__val{ font-weight:700 }
-.diez__nota{ margin-top:var(--space-m) }
-.diez .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }
-
-.diez__lado{ display:grid; gap:var(--space-l) }
-.diez__form{
+} :root .diez__val{ font-weight:700 } :root .diez__nota{ margin-top:var(--space-m) } :root .diez .pendiente{ background:var(--marfil); border-color:var(--lemon-borde) }  :root .diez__lado{ display:grid; gap:var(--space-l) } :root .diez__form{
   display:grid; gap:var(--space-s);
   background:var(--marfil);
   border:1px solid rgba(26,18,16,.14);
   border-radius:var(--radius);
   padding:clamp(1.25rem, 3vw, 2rem);
-}
-.diez__form-h{
+} :root .diez__form-h{
   font-family:var(--font-display); font-weight:700;
   font-size:var(--step-2); line-height:1.1; margin:0 0 var(--space-2xs);
-}
-.diez__form .field{ display:grid; gap:.35rem }
-.diez__legal{ color:var(--humo); margin:0 }
-.diez__qr{ margin:0; display:grid; gap:.5rem }
-.hueco--qr{ min-block-size:0; aspect-ratio:1; max-inline-size:230px }
+} :root .diez__form .field{ display:grid; gap:.35rem } :root .diez__legal{ color:var(--humo); margin:0 } :root .diez__qr{ margin:0; display:grid; gap:.5rem } :root .hueco--qr{ min-block-size:0; aspect-ratio:1; max-inline-size:230px }
 
-@media (max-width:899px){
-  .diez__grid{ grid-template-columns:1fr }
-  .diez__l2{ padding-inline-start:.4em }
-  .diez__et{ min-inline-size:0 }
+@media (max-width:899px){   :root .diez__grid{ grid-template-columns:1fr }   :root .diez__l2{ padding-inline-start:.4em }   :root .diez__et{ min-inline-size:0 }
 }
 
 
@@ -1182,7 +940,7 @@ body{ overflow-x:clip }
 :root .demo strong, :root .demo b{ color:var(--chilli) }
 
 /* Precio simulado: que se lea como simulado. */
-:root .pdp__price, :root .price, [class*="__price"]{
+:root .pdp__price, :root .price, :root [class*="__price"]{
   font-family:var(--font-display); font-weight:700;
   color:var(--tinta);
 }
@@ -1192,21 +950,19 @@ body{ overflow-x:clip }
    Cada artículo con la misma proporción, el mismo tratamiento de
    papel y el mismo peso tipográfico. */
 
-:root .post__media, :root .art__media, .blog-portada{
+:root .post__media, :root .art__media, :root .blog-portada{
   aspect-ratio:3 / 2; overflow:clip; background:var(--ballet-claro);
   border-radius:var(--radius);
 }
-:root .post__media img, :root .art__media img, .blog-portada img{
+:root .post__media img, :root .art__media img, :root .blog-portada img{
   inline-size:100%; block-size:100%; object-fit:cover;
-}
-.blog-video{ margin-block:var(--space-xl) }
+} :root .blog-video{ margin-block:var(--space-xl) }
 
 
 /* — IMAGE METHOD ————————————————————————————————
    Marca aparte: negro, blanco y olivo. Sólo se le presta la
    tipografía y los huecos marcados, para que se note que es de la
-   misma casa sin dejar de ser otra cosa. */
-.im-foto{
+   misma casa sin dejar de ser otra cosa. */ :root .im-foto{
   margin:0 0 var(--space-xl);
   min-block-size:clamp(200px, 26vw, 340px);
   background:
@@ -1214,10 +970,7 @@ body{ overflow-x:clip }
     rgba(255,255,255,.04);
   border-color:var(--im-moss);
   color:#D8DCC0;
-}
-.im-foto .hueco__que{ color:#E8EBD8 }
-.im-foto .hueco__nota{ color:#B9BE9C }
-.im-url{ margin-top:var(--space-s) }
+} :root .im-foto .hueco__que{ color:#E8EBD8 } :root .im-foto .hueco__nota{ color:#B9BE9C } :root .im-url{ margin-top:var(--space-s) }
 :root .is-im .pendiente{
   background:rgba(255,243,178,.12); color:var(--lemon);
   border-color:rgba(255,243,178,.42);
@@ -1227,43 +980,26 @@ body{ overflow-x:clip }
 
 /* ═══ 11 · LAS FOTOGRAFÍAS NUEVAS ══════════════════════════════════ */
 
-/* Matrimonio · el retrato de los dos, sujeto con cinta. */
-.mat-retrato{ position:relative; margin:0 0 var(--space-xl) }
-.mat-retrato .pic{ border-radius:var(--radius); overflow:clip }
-.mat-retrato__pie{ margin-top:var(--space-s); color:var(--humo); max-width:34ch }
+/* Matrimonio · el retrato de los dos, sujeto con cinta. */ :root .mat-retrato{ position:relative; margin:0 0 var(--space-xl) } :root .mat-retrato .pic{ border-radius:var(--radius); overflow:clip } :root .mat-retrato__pie{ margin-top:var(--space-s); color:var(--humo); max-width:34ch }
 
-/* Conferencias · el escenario lleno, a todo lo ancho del pliego. */
-.conf-escena{ margin:0 0 var(--space-xl) }
-.conf-escena .pic{ border-radius:var(--radius); overflow:clip }
-.conf-escena__pie{
+/* Conferencias · el escenario lleno, a todo lo ancho del pliego. */ :root .conf-escena{ margin:0 0 var(--space-xl) } :root .conf-escena .pic{ border-radius:var(--radius); overflow:clip } :root .conf-escena__pie{
   display:flex; flex-wrap:wrap; align-items:baseline;
   gap:var(--space-s) var(--space-m); margin-top:var(--space-s);
-}
-.conf-escena__nota{ color:#5A3B44; font-size:var(--step--1) }
+} :root .conf-escena__nota{ color:#5A3B44; font-size:var(--step--1) }
 
-/* Podcast · el set de grabación. */
-.pod-set{ margin:0 }
-.pod-set .pic{ border-radius:var(--radius); overflow:clip }
-.pod-set__pie{
+/* Podcast · el set de grabación. */ :root .pod-set{ margin:0 } :root .pod-set .pic{ border-radius:var(--radius); overflow:clip } :root .pod-set__pie{
   display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-s);
   margin-top:var(--space-s); color:var(--humo); font-size:var(--step--1);
 }
 
-/* La Biblia y Nosotras · Michelle con su Biblia, girada sobre el texto. */
-.lbyn-retrato{
+/* La Biblia y Nosotras · Michelle con su Biblia, girada sobre el texto. */ :root .lbyn-retrato{
   position:relative; float:inline-end;
   inline-size:min(38%, 340px); margin:0 0 var(--space-l) var(--space-xl);
-}
-.lbyn-retrato .pic{ border-radius:var(--radius); overflow:clip }
+} :root .lbyn-retrato .pic{ border-radius:var(--radius); overflow:clip }
 
-/* Image Method · retrato provisional, con su nota. */
-.im-retrato{ margin:0 0 var(--space-xl) }
-.im-retrato .pic{ border-radius:var(--radius); overflow:clip }
-.im-retrato__pie{ margin-top:var(--space-s); color:var(--im-silver) }
+/* Image Method · retrato provisional, con su nota. */ :root .im-retrato{ margin:0 0 var(--space-xl) } :root .im-retrato .pic{ border-radius:var(--radius); overflow:clip } :root .im-retrato__pie{ margin-top:var(--space-s); color:var(--im-silver) }
 
-@media (max-width:719px){
-  .lbyn-retrato{ float:none; inline-size:100%; margin:0 0 var(--space-l) }
-  .conf-escena, .mat-retrato, .im-retrato{ margin-bottom:var(--space-l) }
+@media (max-width:719px){   :root .lbyn-retrato{ float:none; inline-size:100%; margin:0 0 var(--space-l) }   :root .conf-escena, :root .mat-retrato, :root .im-retrato{ margin-bottom:var(--space-l) }
 }
 
 
@@ -1274,92 +1010,63 @@ body{ overflow-x:clip }
    pop-up de bienvenida es la misma invitación, dicha al entrar.
 
    El copy dejó de ser genérico. No dice «suscríbete»: dice qué va a
-   llegar y quién lo escribe.                                        */
-
-.boletin{
+   llegar y quién lo escribe.                                        */  :root .boletin{
   position:relative; overflow:clip;
   padding-block:clamp(3rem, 7vw, 5.5rem);
   margin-block-start:clamp(2rem, 4vw, 3.5rem);
-}
-.boletin__fondo{
+} :root .boletin__fondo{
   inset-block-end:-.18em; inset-inline-start:-.02em;
   font-size:clamp(9rem, 26vw, 22rem); opacity:.13; color:var(--chilli);
-}
-.boletin__grid{
+} :root .boletin__grid{
   position:relative; z-index:2;
   display:grid; gap:clamp(2rem, 4.5vw, 4rem);
   grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);
   align-items:center;
-}
-.boletin__h{
+} :root .boletin__h{
   display:grid; gap:0; margin:0 0 var(--space-m); max-width:none;
   font-size:clamp(2.4rem, 8vw, 4.6rem); line-height:.9; letter-spacing:-.042em;
-}
-.boletin__l2{ padding-inline-start:1.05em; color:var(--chilli); font-style:italic }
-.boletin__lede{ font-size:var(--step-1); max-width:38ch; margin:0 }
+} :root .boletin__l2{ padding-inline-start:1.05em; color:var(--chilli); font-style:italic } :root .boletin__lede{ font-size:var(--step-1); max-width:38ch; margin:0 }
 
-/* Los tres motivos, numerados como en una revista. */
-.boletin__que{
+/* Los tres motivos, numerados como en una revista. */ :root .boletin__que{
   display:grid; gap:.55rem; margin:var(--space-l) 0 0; padding:0; list-style:none;
-}
-.boletin__que li{
+} :root .boletin__que li{
   display:flex; align-items:baseline; gap:.85rem;
   font-size:var(--step-0); line-height:1.45;
   padding-block:.45rem;
   border-top:1px solid rgba(26,18,16,.2);
-}
-.boletin__que li:last-child{ border-bottom:1px solid rgba(26,18,16,.2) }
-.boletin__n{
+} :root .boletin__que li:last-child{ border-bottom:1px solid rgba(26,18,16,.2) } :root .boletin__n{
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.16em; color:var(--chilli); flex:none;
-}
-
-.boletin__lado{ display:grid; gap:var(--space-m); justify-items:start }
-.boletin__form{
+}  :root .boletin__lado{ display:grid; gap:var(--space-m); justify-items:start } :root .boletin__form{
   display:grid; gap:.65rem; inline-size:100%;
   background:var(--marfil);
   border-radius:var(--radius);
   padding:clamp(1.15rem, 2.6vw, 1.75rem);
   box-shadow:0 18px 50px -30px rgba(26,18,16,.5);
-}
-.boletin__form input{ min-height:50px }
-.boletin__form .btn{ inline-size:100%; justify-content:center }
-.boletin__msg{ margin:0; min-block-size:1.1em; color:var(--chilli) }
-.boletin__legal{ margin:0; color:var(--humo); font-size:var(--step--2) }
-.boletin__firma{ font-size:var(--step-2); margin:0 }
+} :root .boletin__form input{ min-height:50px } :root .boletin__form .btn{ inline-size:100%; justify-content:center } :root .boletin__msg{ margin:0; min-block-size:1.1em; color:var(--chilli) } :root .boletin__legal{ margin:0; color:var(--humo); font-size:var(--step--2) } :root .boletin__firma{ font-size:var(--step-2); margin:0 }
 
-@media (max-width:899px){
-  .boletin__grid{ grid-template-columns:1fr }
-  .boletin__l2{ padding-inline-start:.4em }
-  .boletin__lado{ justify-items:stretch }
+@media (max-width:899px){   :root .boletin__grid{ grid-template-columns:1fr }   :root .boletin__l2{ padding-inline-start:.4em }   :root .boletin__lado{ justify-items:stretch }
 }
 
 /* El pie ya no lleva formulario: sólo apunta al bloque. Así deja de
    competir con «Una misma convicción», que es la firma de cierre. */
-:root .ft__apunta{ display:grid; gap:.6rem; justify-items:start; align-content:center }
-.ft__apunta-t{
+:root .ft__apunta{ display:grid; gap:.6rem; justify-items:start; align-content:center } :root .ft__apunta-t{
   font-family:var(--font-display); font-weight:700;
   font-size:var(--step-2); line-height:1.1; margin:0;
-}
-.ft__apunta-c{ margin:0; color:#C3ADA6; max-width:34ch; font-size:var(--step--1) }
+} :root .ft__apunta-c{ margin:0; color:#C3ADA6; max-width:34ch; font-size:var(--step--1) }
 :root .ft__apunta .btn{ margin-top:.35rem }
 
 
 /* ═══ 13 · LA BIENVENIDA ═══════════════════════════════════════════
    La misma invitación, dicha al entrar. Rosa, con la fotografía a un
-   lado. No es un banner: es una tarjeta. */
-
-.bienve{
+   lado. No es un banner: es una tarjeta. */  :root .bienve{
   position:fixed; inset:0; z-index:999;
   display:grid; place-items:center;
   padding:clamp(1rem, 3vw, 2.5rem);
   background:rgba(26,18,16,.42);
   opacity:0; visibility:hidden;
   transition:opacity .45s var(--ease-out), visibility .45s;
-}
-.bienve[data-abierto]{ opacity:1; visibility:visible }
-
-.bienve__caja{
+} :root .bienve[data-abierto]{ opacity:1; visibility:visible }  :root .bienve__caja{
   position:relative;
   inline-size:min(100%, 700px);
   max-block-size:calc(100dvh - 2rem);
@@ -1371,88 +1078,314 @@ body{ overflow-x:clip }
   box-shadow:0 34px 100px -34px rgba(26,18,16,.7);
   translate:0 20px; scale:.98;
   transition:translate .5s var(--ease-out), scale .5s var(--ease-out);
-}
-.bienve[data-abierto] .bienve__caja{ translate:0 0; scale:1 }
+} :root .bienve[data-abierto] .bienve__caja{ translate:0 0; scale:1 }
 
-/* El lado de la fotografía, con una mancha de tinta detrás. */
-.bienve__foto{
+/* El lado de la fotografía, con una mancha de tinta detrás. */ :root .bienve__foto{
   position:relative; overflow:clip;
   background:linear-gradient(160deg, var(--ballet), var(--rosa) 70%);
   display:grid; place-items:center; padding:var(--space-s);
   min-block-size:180px;
-}
-.bienve__mancha{
+} :root .bienve__mancha{
   position:absolute; inset-block-end:-22%; inset-inline-start:-18%;
   inline-size:150%; aspect-ratio:1;
   background:var(--chilli); opacity:.14;
   border-radius:48% 52% 42% 58% / 55% 45% 55% 45%;
-}
-.bienve__hueco{
+} :root .bienve__hueco{
   position:relative; z-index:1;
   background:none; border:1.5px dashed rgba(170,0,3,.55);
   min-block-size:0; block-size:100%; inline-size:100%;
   color:#5A3B44;
-}
-
-.bienve__texto{
+}  :root .bienve__texto{
   padding:clamp(1.4rem, 3.4vw, 2.25rem);
   display:grid; align-content:center; gap:.7rem;
-}
-.bienve__et{
+} :root .bienve__et{
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.2em; text-transform:uppercase; color:var(--chilli); margin:0;
-}
-.bienve__h{
+} :root .bienve__h{
   display:grid; gap:0; margin:0; max-width:none;
   font-family:var(--font-display); font-weight:700;
   font-size:clamp(1.7rem, 4.4vw, 2.6rem); line-height:.94; letter-spacing:-.032em;
-}
-.bienve__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic }
-.bienve__copy{ margin:0; font-size:var(--step--1); max-width:32ch }
-
-.bienve__que{ display:grid; gap:.3rem; margin:.3rem 0 .2rem; padding:0; list-style:none }
-.bienve__que li{
+} :root .bienve__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic } :root .bienve__copy{ margin:0; font-size:var(--step--1); max-width:32ch }  :root .bienve__que{ display:grid; gap:.3rem; margin:.3rem 0 .2rem; padding:0; list-style:none } :root .bienve__que li{
   position:relative; padding-inline-start:1.15em;
   font-size:var(--step--1); line-height:1.45;
-}
-.bienve__que li::before{
+} :root .bienve__que li::before{
   content:""; position:absolute; inset-block-start:.62em; inset-inline-start:0;
   inline-size:6px; block-size:6px; border-radius:50%; background:var(--chilli);
-}
-
-.bienve__form{ display:grid; gap:.5rem; margin-top:.35rem }
-.bienve__form input{ min-height:48px; background:var(--marfil) }
-.bienve__form .btn{ justify-content:center }
-.bienve__msg{ margin:0; min-block-size:1.1em; font-size:var(--step--2); color:var(--chilli) }
-
-.bienve__pie{
+}  :root .bienve__form{ display:grid; gap:.5rem; margin-top:.35rem } :root .bienve__form input{ min-height:48px; background:var(--marfil) } :root .bienve__form .btn{ justify-content:center } :root .bienve__msg{ margin:0; min-block-size:1.1em; font-size:var(--step--2); color:var(--chilli) }  :root .bienve__pie{
   display:flex; flex-wrap:wrap; align-items:baseline;
   justify-content:space-between; gap:.6rem;
-}
-.bienve__no{
+} :root .bienve__no{
   background:none; border:0; padding:.25rem 0; cursor:pointer;
   font-family:var(--font-ui); font-size:var(--step--2);
   letter-spacing:.13em; text-transform:uppercase; color:#5A3B44;
   text-decoration:underline; text-underline-offset:3px;
-}
-.bienve__no:hover{ color:var(--chilli) }
-.bienve__firma{ margin:0; font-size:var(--step-1) }
-
-.bienve__cerrar{
+} :root .bienve__no:hover{ color:var(--chilli) } :root .bienve__firma{ margin:0; font-size:var(--step-1) }  :root .bienve__cerrar{
   position:absolute; inset-block-start:.55rem; inset-inline-end:.55rem; z-index:3;
   inline-size:38px; block-size:38px; border-radius:50%;
   display:grid; place-items:center;
   background:var(--marfil); color:var(--tinta);
   border:1px solid rgba(26,18,16,.16); cursor:pointer;
   font-size:1.15rem; line-height:1;
-}
-.bienve__cerrar:hover{ background:var(--chilli); color:var(--marfil); border-color:var(--chilli) }
+} :root .bienve__cerrar:hover{ background:var(--chilli); color:var(--marfil); border-color:var(--chilli) }
 
-@media (max-width:720px){
-  .bienve__caja{ grid-template-columns:1fr }
-  .bienve__foto{ min-block-size:120px }
-  .bienve__l2{ padding-inline-start:.35em }
+@media (max-width:720px){   :root .bienve__caja{ grid-template-columns:1fr }   :root .bienve__foto{ min-block-size:120px }   :root .bienve__l2{ padding-inline-start:.35em }
 }
-@media (prefers-reduced-motion:reduce){
-  .bienve, .bienve__caja{ transition:none }
+@media (prefers-reduced-motion:reduce){   :root .bienve, :root .bienve__caja{ transition:none }
 }
+
+
+/* ═══ 14 · LAS FOTOGRAFÍAS Y LOS RECORTES ══════════════════════════
+   Regla de la casa: cada fotografía tiene un oficio y no se repite en
+   otra sección. Los recortes transparentes no son fotos: son piezas
+   de collage, y por eso van pocos y bien puestos.                   */
+
+
+/* ── El recorte, como pieza ───────────────────────────────────── */ :root .calco{ display:block; pointer-events:none; user-select:none } :root .calco img{
+  display:block; inline-size:100%; block-size:auto;
+  filter:drop-shadow(0 22px 34px rgba(26,18,16,.26));
+}
+/* En móvil los recortes tapan texto. Se retiran salvo aviso. */
+@media (max-width:719px){   :root .calco{ display:none }   :root .calco--movil{ display:block }
+}
+
+
+/* ── INICIO · «Una mujer, varios llamados» ─────────────────────
+   Va justo después de la portada, que no se toca. Cinco piezas, una
+   por llamado, y ninguna se repite más abajo. */ :root .llamados{
+  position:relative;
+  padding-block:clamp(2.5rem, 6vw, 5rem);
+  background:var(--crema);
+  overflow:clip;
+} :root .llamados__h{ font-size:var(--step-3); margin:0 0 clamp(1.5rem, 3.5vw, 2.5rem) } :root .llamados__rejilla{
+  display:grid; gap:clamp(1rem, 2.2vw, 1.75rem);
+  grid-template-columns:repeat(6, 1fr);
+  margin:0; padding:0; list-style:none;
+}
+/* Un ritmo de revista: la familia manda, el resto la acompaña. */ :root .llamado--familia{ grid-column:span 2; grid-row:span 2 } :root .llamado--ensena{ grid-column:span 4 } :root .llamado--escenario{ grid-column:span 2 } :root .llamado--podcast{ grid-column:span 2 } :root .llamado--escribe{ grid-column:span 6 }  :root .llamado__enlace{
+  position:relative; display:block; block-size:100%;
+  border-radius:var(--radius); overflow:clip;
+  text-decoration:none; color:#FFF;
+  background:var(--cafe);
+} :root .llamado__enlace .pic{ block-size:100% } :root .llamado__enlace::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to top,
+    rgba(21,14,12,.78) 0%, rgba(21,14,12,.16) 46%, transparent 74%);
+} :root .llamado__pie{
+  position:absolute; inset-inline:0; inset-block-end:0; z-index:2;
+  display:grid; gap:.2rem;
+  padding:clamp(.85rem, 2vw, 1.35rem);
+} :root .llamado__et{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.18em; text-transform:uppercase; color:var(--rosa);
+} :root .llamado__t{
+  font-family:var(--font-display); font-weight:700;
+  font-size:var(--step-1); line-height:1.1; letter-spacing:-.02em;
+} :root .llamado__enlace:hover .pic img{ scale:1.04 } :root .llamado__enlace .pic img{ transition:scale .7s var(--ease-out) } :root .llamado__enlace:focus-visible{ outline:3px solid var(--chilli); outline-offset:3px }  :root .llamados__calco{
+  position:absolute; z-index:3;
+  inline-size:clamp(150px, 20vw, 280px);
+  inset-block-end:-1.5rem; inset-inline-end:clamp(.5rem, 3vw, 3rem);
+  rotate:3deg;
+}
+
+@media (max-width:1023px){   :root .llamados__rejilla{ grid-template-columns:repeat(4, 1fr) }   :root .llamado--familia{ grid-column:span 2; grid-row:span 2 }   :root .llamado--ensena, :root .llamado--escribe{ grid-column:span 2 }   :root .llamado--escenario, :root .llamado--podcast{ grid-column:span 2 }   :root .llamados__calco{ display:none }
+}
+@media (max-width:719px){   :root .llamados__rejilla{ grid-template-columns:1fr }   :root .llamado{ grid-column:span 1 !important; grid-row:span 1 !important }
+}
+
+/* El recorte sobre el bloque oscuro de conferencias del inicio. */ :root .speak__calco{
+  position:absolute; z-index:3;
+  inline-size:clamp(140px, 17vw, 240px);
+  inset-block-end:0; inset-inline-start:clamp(.5rem, 4vw, 4rem);
+  rotate:-3deg;
+}
+:root .speak{ position:relative; overflow:clip }
+
+
+/* ── MICHELLE · familia, retrato y puente ──────────────────────── */ :root .hist-familia{ margin:var(--space-l) 0 0 } :root .hist-familia .pic{ border-radius:var(--radius); overflow:clip } :root .hist-familia__pie{ margin-top:var(--space-s); color:var(--humo); max-width:44ch }  :root .puente-lbyn{
+  position:relative; overflow:clip;
+  padding-block:clamp(2.5rem, 6vw, 4.5rem);
+} :root .puente-lbyn__grid{
+  position:relative; z-index:2;
+  display:grid; gap:clamp(1.75rem, 4vw, 3.5rem);
+  grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items:center;
+} :root .puente-lbyn__media .pic{ border-radius:var(--radius); overflow:clip } :root .puente-lbyn__h{
+  display:grid; gap:0; margin:.1em 0 .45em; max-width:none;
+  font-size:clamp(2rem, 5.5vw, 3.4rem); line-height:.94; letter-spacing:-.035em;
+} :root .puente-lbyn__l2{ padding-inline-start:.9em; color:var(--chilli); font-style:italic } :root .puente-lbyn__lede{ max-width:38ch; margin:0 0 var(--space-m) } :root .puente-lbyn__calco{
+  position:absolute; z-index:1;
+  inline-size:clamp(160px, 18vw, 250px);
+  inset-block-end:-2rem; inset-inline-end:-1rem;
+  rotate:5deg; opacity:.92;
+}  :root .bienve__calco{ inline-size:min(100%, 190px); margin-inline:auto } :root .bienve__calco img{ filter:drop-shadow(0 14px 22px rgba(26,18,16,.28)) }
+@media (max-width:719px){ :root .bienve__calco{ display:block } }
+
+
+/* ── CONFERENCIAS · la galería de escenarios ───────────────────── */ :root .conf-galeria{
+  display:grid; gap:clamp(.85rem, 2vw, 1.4rem);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  margin-block:var(--space-m) var(--space-l);
+} :root .conf-galeria__pieza{ margin:0 } :root .conf-galeria__pieza .pic{ border-radius:var(--radius); overflow:clip } :root .conf-galeria__pie{
+  margin-top:.5rem;
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.14em; text-transform:uppercase; color:#5A3B44;
+} :root .conf-accion__calco{
+  position:absolute; z-index:1;
+  inline-size:clamp(160px, 19vw, 280px);
+  inset-block-start:-1rem; inset-inline-end:clamp(.5rem, 3vw, 3rem);
+  rotate:4deg; opacity:.9;
+}
+:root .conf-accion{ position:relative; overflow:clip }
+
+@media (max-width:899px){   :root .conf-galeria{ grid-template-columns:repeat(2, minmax(0, 1fr)) }   :root .puente-lbyn__grid{ grid-template-columns:1fr }   :root .puente-lbyn__l2{ padding-inline-start:.4em }
+}
+@media (max-width:719px){   :root .conf-galeria{ grid-template-columns:1fr }
+}
+
+
+/* ── PODCAST ───────────────────────────────────────────────────── */ :root .pod-otra{
+  margin:0 0 var(--space-l);
+  max-inline-size:520px;
+} :root .pod-otra .pic{ border-radius:var(--radius); overflow:clip } :root .pod-otra figcaption{ margin-top:.5rem; color:var(--humo) }
+
+
+/* ── LA BIBLIA Y NOSOTRAS · collage ────────────────────────────── */ :root .lbyn-collage{
+  position:relative;
+  display:grid; gap:clamp(.85rem, 2vw, 1.5rem);
+  grid-template-columns:repeat(6, 1fr);
+  margin-block:var(--space-l) var(--space-xl);
+} :root .lbyn-collage figure{ margin:0 } :root .lbyn-collage .pic{ border-radius:var(--radius); overflow:clip } :root .lbyn-collage__a{ grid-column:span 4 } :root .lbyn-collage__b{ grid-column:span 2; align-self:end } :root .lbyn-collage__c{ grid-column:span 3 } :root .lbyn-collage__calco{
+  position:absolute; z-index:2;
+  inline-size:clamp(170px, 21vw, 300px);
+  inset-block-end:-1rem; inset-inline-end:0;
+  rotate:-4deg;
+}
+@media (max-width:899px){   :root .lbyn-collage{ grid-template-columns:repeat(4, 1fr) }   :root .lbyn-collage__a{ grid-column:span 4 }   :root .lbyn-collage__b, :root .lbyn-collage__c{ grid-column:span 2 }
+}
+@media (max-width:719px){   :root .lbyn-collage{ grid-template-columns:1fr }   :root .lbyn-collage__a, :root .lbyn-collage__b, :root .lbyn-collage__c{ grid-column:span 1 }
+}
+
+
+/* ── TIENDA · el banner de producto ────────────────────────────── */ :root .tienda-banner{
+  position:relative; overflow:clip;
+  padding-block:clamp(2.5rem, 6vw, 4.5rem);
+  margin-block:clamp(1.5rem, 3vw, 2.5rem);
+} :root .tienda-banner__grid{
+  display:grid; gap:clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  align-items:center;
+} :root .tienda-banner__h{
+  display:grid; gap:0; margin:.1em 0 .4em; max-width:none;
+  font-size:clamp(2rem, 6vw, 3.6rem); line-height:.94; letter-spacing:-.04em;
+} :root .tienda-banner__l2{ padding-inline-start:.8em; color:var(--chilli); font-style:italic } :root .tienda-banner__lede{ margin:0 0 var(--space-m); max-width:32ch } :root .tienda-banner__piezas{ position:relative; min-block-size:clamp(200px, 26vw, 320px) } :root .tienda-banner__gorra{
+  position:absolute; z-index:2;
+  inline-size:min(62%, 300px);
+  inset-block-start:0; inset-inline-start:0;
+  rotate:-6deg;
+} :root .tienda-banner__tote{
+  position:absolute; z-index:1; margin:0;
+  inline-size:min(58%, 280px);
+  inset-block-end:0; inset-inline-end:0;
+  rotate:4deg;
+} :root .tienda-banner__tote .pic{ border-radius:var(--radius); overflow:clip }
+@media (max-width:899px){   :root .tienda-banner__grid{ grid-template-columns:1fr }   :root .tienda-banner__l2{ padding-inline-start:.35em }
+}
+@media (max-width:719px){   :root .tienda-banner__piezas{ min-block-size:240px }   :root .tienda-banner__gorra{ display:block; inline-size:56%; rotate:-5deg }   :root .tienda-banner__tote{ inline-size:52% }
+}
+
+
+/* ═══ 15 · LO QUE SE VEÍA MAL EN PANTALLA ══════════════════════════
+   Revisado sobre el sitio publicado, midiendo cada elemento. Cuatro
+   defectos reales, y esto los corrige.
+
+   1 · EL GRANDE, y la causa de casi todo lo demás.
+       Mis clases nuevas (.conf-abre__h, .portada__titulo…) viven en
+       elementos que TAMBIÉN llevan una clase de Astro (.hero__title).
+       Astro la escribe con atributo de ámbito, que pesa más, así que
+       ganaba su tamaño: el titular de Conferencias salía a 240 px en
+       lugar de 105. De ahí los títulos gigantes, los cortes por la
+       máscara de animación y los huecos.
+       Arreglado antes de este bloque: todas mis reglas llevan «:root»
+       delante, que iguala el peso y gana por orden de carga.
+
+   2 · Las palabras decorativas de fondo se salían de su sección y
+       algunas quedaban encima de los botones.
+   3 · La firma de la portada caía sobre el indicador «Desliza».
+   4 · El sello de la portada del podcast tapaba su propio texto.    */
+
+
+/* ── 2 · Las palabras de fondo, en su sitio y detrás ───────────── */
+
+:root .fragmento{
+  z-index:0;                 /* nunca por delante del contenido */
+  max-inline-size:100%;
+  pointer-events:none;
+}
+/* El contenido de esas secciones, por delante. */
+:root .boletin__grid, :root .diez__grid, :root .pod-t3__grid,
+:root .pod-abre__grid, :root .llamados .wrap, :root .llamados .shell{
+  position:relative; z-index:2;
+}
+
+/* «Abrí» en la portada duplicaba la frase que ya se lee al lado y
+   además caía sobre los dos botones. Fuera: la portada no pierde
+   nada y gana aire. */
+:root .portada__fondo{ display:none }
+
+/* «Hola» se salía 63 px por abajo del bloque rosa. Se sube y se
+   apaga un punto: es textura, no un titular. */
+:root .boletin__fondo{
+  inset-block-end:auto; inset-block-start:50%;
+  translate:0 -50%;
+  font-size:clamp(7rem, 18vw, 15rem);
+  opacity:.09;
+}
+
+/* «10» tapaba el botón de apartar lugar. Se va al margen. */
+:root .diez__fondo{
+  inset-inline-end:-.06em;
+  font-size:clamp(8rem, 20vw, 17rem);
+  opacity:.10;
+}
+:root .pod-t3__fondo{ opacity:.10 }
+:root .pod-abre__fondo{
+  inset-block-start:auto; inset-block-end:-.1em;
+  font-size:clamp(6rem, 15vw, 12rem); opacity:.05;
+}
+
+
+/* ── 3 · La firma de la portada, lejos del «Desliza» ───────────── */
+:root .portada__firma{
+  inset-block-end:auto;
+  inset-block-start:clamp(5.5rem, 12vh, 8rem);
+  inset-inline-end:clamp(1.25rem, 5vw, 4rem);
+  font-size:clamp(1.3rem, 2.4vw, 2rem);
+  rotate:-5deg;
+}
+@media (max-width:719px){
+  :root .portada__firma{ display:none }   /* en móvil no cabe sin estorbar */
+}
+
+
+/* ── 4 · El sello de la portada del podcast ────────────────────── */
+:root .cover__mark{ z-index:0; opacity:.5 }
+:root .cover__kicker, :root .cover__title{ position:relative; z-index:2 }
+
+
+/* ── 5 · Y una red de seguridad para los titulares ─────────────
+   La animación de máscara recorta lo que sobresalga. Si un titular
+   crece más que su caja —por una traducción larga, por una tipografía
+   que tarde en cargar— se vería cortado. Con esto, nunca. */
+:root [data-mask]{ overflow:clip; overflow-clip-margin:.35em }
+:root h1, :root h2, :root h3{ overflow-wrap:break-word }
+
+
+/* ── Las bandas que se sacaron de las rejillas ──────────────────
+   Tres piezas estaban metidas como hijo de más dentro de rejillas
+   de dos columnas de Astro. Eso descuadraba la fila entera y dejaba
+   media página vacía. Ahora cada una tiene su propio bloque. */
+:root .mat-banda .mat-retrato,
+:root .lbyn-banda .lbyn-collage,
+:root .im-banda .im-retrato{ margin-block:0 }
+:root .mat-banda .mat-retrato{ max-inline-size:min(100%, 760px) }
+:root .im-banda .im-retrato{ max-inline-size:min(100%, 820px) }

@@ -1,0 +1,118 @@
+════════════════════════════════════════════════════════
+  CÓMO SUBIRLO  ·  Michelle Ruiz
+════════════════════════════════════════════════════════
+
+BUENA NOTICIA: esta carpeta YA ES tu repositorio.
+
+  github.com/riosdigitali-create/PASMICH   ·   rama main
+
+No hace falta arrastrar nada ni usar la carpeta PARA-GITHUB.
+Desde aquí mismo:
+
+    git add -A
+    git commit -m "Fotografías nuevas y collage editorial"
+    git push
+
+Son 32 MB en 270 archivos. Ninguno se acerca al límite de
+100 MB de GitHub.
+
+
+LO QUE NO SUBE, Y ESTÁ BIEN ASÍ
+──────────────────────────────────────────────────────
+
+El .gitignore protege cuatro carpetas:
+
+  fotos pas mich/      1.5 GB de originales, con un video de
+                       720 MB. Si esto se subiera, GitHub
+                       rechazaría el push completo.
+  _originales-fotos/   PNG de una tanda anterior.
+  _revision/           hojas de contacto.
+  _contactos/          hojas de contacto.
+
+Todas se quedan en tu disco como respaldo. Lo que el sitio
+usa son las versiones optimizadas de images/ y video/.
+
+
+DESPUÉS DE SUBIR
+──────────────────────────────────────────────────────
+
+Abre el sitio con Ctrl+F5 la primera vez. El navegador
+guarda el CSS viejo y si no lo fuerzas verás el diseño
+anterior.
+
+
+LAS FOTOGRAFÍAS, Y DÓNDE QUEDÓ CADA UNA
+──────────────────────────────────────────────────────
+
+De 45 archivos de origen salieron 27 piezas colocadas.
+Cada una tiene un oficio y no se repite en otra sección.
+
+  INICIO — la portada NO se tocó.
+    Debajo, «Una mujer, varios llamados»: cinco piezas que
+    llevan a familia, Biblia, escenario, podcast y blog.
+    Un recorte de Michelle asoma en la esquina.
+
+  MICHELLE
+    Su historia      familia completa al atardecer
+    Biografía        retrato de blanco en el campo
+    El pilar         la familia saltando en la playa
+    Puente a LBYN    ella con su Biblia + recorte
+
+  MATRIMONIO
+    Sólo pareja, sin escenario. Se cambió la foto que se
+    repetía con el blog por una de los hijos.
+
+  CONFERENCIAS
+    Encabezado       «Un corazón sano», a todo lo ancho
+    Mírala en acción el auditorio lleno
+    Galería          seis escenarios distintos
+    Recorte sobre el rosa
+
+  PODCAST
+    Efrén y Michelle frente al micrófono, como pieza
+    principal, y una segunda junto a las temporadas.
+
+  LA BIBLIA Y NOSOTRAS
+    Collage de tres piezas —Biblia en el césped, journaling,
+    ella escribiendo— con un recorte encima.
+
+  IMAGE METHOD
+    Un solo retrato sobrio en la terraza. Sin escenario y
+    sin Biblia, como pide su identidad.
+
+  TIENDA
+    Banner amarillo con la gorra recortada y la bolsa. Sin
+    personas como producto.
+
+  BLOG
+    Una portada propia por artículo.
+
+  POP-UP DEL BOLETÍN
+    El recorte de Michelle tapándose con la Biblia.
+
+
+DECISIONES QUE CONVIENE QUE SEPAS
+──────────────────────────────────────────────────────
+
+· Los recortes transparentes venían con mucho lienzo vacío
+  —uno aprovechaba sólo el 15%—. Se recortaron a su
+  contenido para que sirvan como piezas de collage.
+
+· En móvil los recortes se ocultan: tapaban texto. La única
+  excepción es el del pop-up, que ahí sí cabe.
+
+· Los tres videos de la carpeta son los mismos que ya
+  estaban publicados. No hizo falta reprocesarlos.
+
+· Sigue pendiente y marcado en amarillo: el video teaser
+  del podcast, una predicación completa en video, el video
+  de lanzamiento del sitio y la foto ejecutiva de estudio
+  para Image Method.
+
+
+ESTADO
+──────────────────────────────────────────────────────
+  39 páginas · 0 HTML mal cerrado · 0 recursos rotos ·
+  0 anclas rotas · todas las imágenes con texto
+  alternativo y carga diferida · una sola imagen de carga
+  inmediata en el inicio.
