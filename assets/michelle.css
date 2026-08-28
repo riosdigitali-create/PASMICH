@@ -3032,3 +3032,11 @@ html{ scroll-behavior:smooth }
 :root .amor-feature__firma{font-family:'Gotham APT',Arial,sans-serif}
 :root .amor-feature__acciones .btn{font-family:'Gotham APT',Arial,sans-serif;background:#f4b900;color:#082635;border-color:#f4b900}
 @media (max-width:560px){:root .amor-feature__puntos{grid-template-columns:1fr}:root .amor-feature__puntos li:last-child{grid-column:auto}}
+
+/* Limpieza editorial global: no mostrar marcos de contenido pendiente o vacío. */
+:root .hueco{display:none!important}
+:root .pod-teaser__hueco{display:none!important}
+:root .diez__qr:has(.hueco),
+:root .conf-accion__principal:has(.hueco){display:none!important}
+:root .pdp__gallery:has(.ph),
+:root .rel__media:has(.ph){display:none!important}
