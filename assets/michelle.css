@@ -3045,3 +3045,19 @@ html{ scroll-behavior:smooth }
 :root .pod-teaser,
 :root .event,
 :root .film__note{display:none!important}
+
+/* Reemplazo del registro antiguo y simplificación de la página LBYN. */
+:root .diez{display:none!important}
+:root .shop{display:none!important}
+
+/* En los carruseles sociales solo mostramos piezas que tienen reel local;
+   las fotos estáticas quedan fuera para evitar duplicados. */
+:root .sfc:not(:has(.sfc__clip)){display:none!important}
+:root .sfc__clip{display:block;object-fit:cover}
+
+@media (max-width:899px){
+  :root .hd__panel{inset-inline:0!important;width:100%!important;max-width:100vw!important;overflow-y:auto}
+  :root .hd__panel nav{width:100%;padding-inline:1.25rem}
+  :root .hd__panel ul{width:100%}
+  :root .amor-feature--matrimonio{display:block!important}
+}
