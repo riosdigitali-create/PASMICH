@@ -2623,3 +2623,392 @@ html{ scroll-behavior:smooth }
   :root .im-marca__foto img{ aspect-ratio:3 / 2; object-position:50% 26% }
   :root .im-marca__enlace{ inline-size:100%; justify-content:center }
 }
+
+/* ==========================================================================
+   18 · REESTRUCTURA EDITORIAL 2026
+   Portadas con aire, medios protagonistas y tipografía limpia.
+   ========================================================================== */
+
+/* Ningún título lleva sombra, tampoco sus spans internos. */
+:root h1, :root h2, :root h3,
+:root h1 *, :root h2 *, :root h3 *,
+:root .hero__title, :root .hero__title *,
+:root .hero__line, :root .hero__line *{
+  text-shadow:none !important;
+  filter:none !important;
+}
+
+/* Inicio · vuelve la fotografía de Michelle leyendo. */
+:root .hero[data-astro-cid-j7pv25f6]{
+  min-block-size:min(780px, calc(100svh - var(--header-h)));
+  display:grid;
+  align-items:end;
+  overflow:clip;
+  background:var(--cafe);
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__media{
+  display:block;
+  position:absolute;
+  inset:0;
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__img,
+:root .hero[data-astro-cid-j7pv25f6] .hero__img picture,
+:root .hero[data-astro-cid-j7pv25f6] .hero__img img{ inline-size:100%; block-size:100% }
+:root .hero[data-astro-cid-j7pv25f6] .hero__img img{
+  object-fit:cover;
+  object-position:50% 43%;
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__veil{
+  display:block;
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(17,12,10,.72) 0%, rgba(17,12,10,.38) 43%, rgba(17,12,10,.08) 72%),
+             linear-gradient(0deg, rgba(17,12,10,.44), transparent 48%);
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__body{
+  inline-size:min(100% - var(--gutter) * 2, var(--page));
+  padding-block:clamp(3.25rem, 8vh, 6.5rem);
+  color:#fff;
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__kicker,
+:root .hero[data-astro-cid-j7pv25f6] .hero__line{ color:#fff }
+:root .hero[data-astro-cid-j7pv25f6] .hero__title{
+  max-inline-size:7ch;
+  font-size:clamp(4.3rem, 10vw, 9rem);
+  line-height:.82;
+  letter-spacing:-.055em;
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__cta{ margin-top:clamp(1.5rem, 3vw, 2.5rem) }
+:root .hero[data-astro-cid-j7pv25f6] .hero__ghost{ --btn-fg:#fff; border-color:rgba(255,255,255,.56) }
+:root .hero[data-astro-cid-j7pv25f6] .hero__scroll{ color:#fff }
+
+/* Inicio · La Biblia y Nosotras cambia de cortina oscura a composición
+   editorial clara, con el video enmarcado en su propia columna. */
+:root .lbyn[data-astro-cid-j7pv25f6]{
+  --bg:#f2eee8;
+  --fg:var(--tinta);
+  --muted:var(--humo);
+  background:var(--bg);
+  color:var(--fg);
+  padding-block:clamp(4.5rem, 9vw, 8.5rem);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video{
+  width:min(100% - var(--gutter) * 2, var(--page));
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(2.5rem, 7vw, 7rem);
+  align-items:center;
+  min-block-size:0;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient{
+  grid-column:2;
+  grid-row:1;
+  aspect-ratio:16 / 11;
+  overflow:clip;
+  box-shadow:24px 24px 0 #e7ded3;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient video,
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient img{
+  object-fit:cover;
+  object-position:50% 45%;
+  filter:none;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__veil{ display:none }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__over{
+  grid-column:1;
+  grid-row:1;
+  width:auto;
+  margin:0;
+  padding:0;
+  position:relative;
+  inset:auto;
+  color:var(--tinta);
+  align-content:center;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .kicker{ color:var(--chilli) }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__title{
+  max-inline-size:8ch;
+  font-size:clamp(3.2rem, 6vw, 6.5rem);
+  line-height:.9;
+  letter-spacing:-.05em;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__line{
+  color:var(--tinta);
+  max-inline-size:31ch;
+  margin-block:clamp(1.3rem, 3vw, 2.2rem);
+  font-size:clamp(1rem, 1.3vw, 1.25rem);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__cta{ gap:.75rem; align-items:center }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__ghost{ --btn-fg:var(--tinta); border-color:rgba(26,18,16,.28) }
+
+/* Página La Biblia y Nosotras · texto y película ya no comparten capa. */
+:root .hero[data-astro-cid-2vg4cjqq]{
+  --bg:#fbf8f4;
+  --fg:var(--tinta);
+  --muted:var(--humo);
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(2.5rem, 6vw, 6rem);
+  align-items:center;
+  min-block-size:0;
+  padding:clamp(3rem, 7vw, 6.5rem) var(--gutter);
+  background:var(--bg);
+  color:var(--fg);
+  overflow:hidden;
+}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__video{
+  grid-column:2;
+  grid-row:1;
+  position:relative;
+  inset:auto;
+  min-inline-size:0;
+}
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira{
+  aspect-ratio:4 / 3;
+  overflow:clip;
+  box-shadow:24px 24px 0 #efe3dc;
+}
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira .vid__el,
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira .vid__fallback img{
+  object-fit:cover;
+  object-position:50% 42%;
+  filter:saturate(.9) contrast(.98) brightness(1.04);
+}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__veil{ display:none }
+:root .hero[data-astro-cid-2vg4cjqq] .hero__body{
+  grid-column:1;
+  grid-row:1;
+  width:auto;
+  margin:0;
+  padding:0;
+  color:var(--tinta);
+  display:grid;
+  gap:1.25rem;
+  align-content:center;
+}
+:root .hero[data-astro-cid-2vg4cjqq] .kicker{ color:var(--chilli); margin:0 }
+:root .hero[data-astro-cid-2vg4cjqq] .hero__title{
+  max-inline-size:9ch;
+  margin:0;
+  font-size:clamp(3.3rem, 6.2vw, 6.7rem);
+  line-height:.9;
+  letter-spacing:-.05em;
+  color:var(--tinta);
+}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__line{
+  max-inline-size:32ch;
+  margin:0;
+  color:var(--tinta);
+  font-size:clamp(1rem, 1.3vw, 1.25rem);
+}
+:root .hero[data-astro-cid-2vg4cjqq] .lbyn-oficial{ order:4; margin:0 }
+
+/* Podcast · A prueba de todo como apartado de marca, no formulario. */
+:root .amor-feature{
+  background:#f3ddb9;
+  color:var(--tinta);
+  padding-block:clamp(4rem, 9vw, 8.5rem);
+  overflow:hidden;
+}
+:root .amor-feature::before{
+  content:"";
+  position:absolute;
+  inline-size:clamp(250px, 38vw, 620px);
+  aspect-ratio:1;
+  border:1px solid rgba(182,25,22,.22);
+  border-radius:50%;
+  inset-inline-end:-10%;
+  inset-block-start:-28%;
+}
+:root .amor-feature__grid{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:clamp(3rem, 8vw, 8rem);
+  align-items:center;
+}
+:root .amor-feature__libro{
+  margin:0;
+  justify-self:center;
+  position:relative;
+  rotate:-3deg;
+}
+:root .amor-feature__libro::after{
+  content:"";
+  position:absolute;
+  inset:8% -8% -8% 8%;
+  border:1px solid rgba(26,18,16,.3);
+  z-index:-1;
+}
+:root .amor-feature__libro img{ inline-size:min(100%, 330px); block-size:auto }
+:root .amor-feature__copy{ position:relative; display:grid; justify-items:start }
+:root .amor-feature__numero{
+  position:absolute;
+  inset-inline-end:0;
+  inset-block-start:-1.2em;
+  font-family:var(--font-display);
+  font-size:clamp(5rem, 13vw, 12rem);
+  line-height:1;
+  color:rgba(182,25,22,.1);
+}
+:root .amor-feature__titulo{
+  position:relative;
+  display:grid;
+  margin:0 0 var(--space-m);
+  font-size:clamp(3rem, 7vw, 7rem);
+  line-height:.84;
+  letter-spacing:-.055em;
+}
+:root .amor-feature__titulo em{
+  color:var(--chilli);
+  font-family:var(--font-display);
+  font-weight:400;
+  padding-inline-start:.45em;
+}
+:root .amor-feature__lede{
+  max-inline-size:40ch;
+  font-family:var(--font-read);
+  font-size:clamp(1rem, 1.35vw, 1.25rem);
+  line-height:1.7;
+}
+:root .amor-feature__firma{
+  margin-top:var(--space-m);
+  font-family:var(--font-ui);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+:root .amor-feature__acciones{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1.2rem;
+  margin-top:var(--space-l);
+}
+
+/* Más lento para que cada palabra se pueda leer. */
+:root .intro__marquee .marquee__track{ animation-duration:110s }
+
+@media (max-width:899px){
+  :root .hero[data-astro-cid-j7pv25f6]{ min-block-size:680px }
+  :root .hero[data-astro-cid-j7pv25f6] .hero__title{ font-size:clamp(4rem, 17vw, 7rem) }
+  :root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video,
+  :root .hero[data-astro-cid-2vg4cjqq],
+  :root .amor-feature__grid{ grid-template-columns:1fr }
+  :root .lbyn[data-astro-cid-j7pv25f6] .lbyn__over,
+  :root .hero[data-astro-cid-2vg4cjqq] .hero__body{ grid-column:1; grid-row:1 }
+  :root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient,
+  :root .hero[data-astro-cid-2vg4cjqq] .hero__video{ grid-column:1; grid-row:2 }
+  :root .hero[data-astro-cid-2vg4cjqq]{ padding-block:clamp(3.5rem, 10vw, 6rem) }
+  :root .amor-feature__libro img{ inline-size:min(58vw, 300px) }
+  :root .amor-feature__numero{ inset-block-start:-.7em }
+}
+
+@media (max-width:560px){
+  :root .hero[data-astro-cid-j7pv25f6]{ min-block-size:620px }
+  :root .hero[data-astro-cid-j7pv25f6] .hero__img img{ object-position:58% 50% }
+  :root .hero[data-astro-cid-j7pv25f6] .hero__veil{ background:linear-gradient(0deg, rgba(17,12,10,.78), rgba(17,12,10,.08) 72%) }
+  :root .hero[data-astro-cid-j7pv25f6] .hero__body{ padding-block:3rem }
+  :root .hero[data-astro-cid-j7pv25f6] .hero__title{ font-size:clamp(3.8rem, 20vw, 5.6rem) }
+  :root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient,
+  :root .hero[data-astro-cid-2vg4cjqq] .vid--gira{ box-shadow:12px 12px 0 #e7ded3 }
+  :root .amor-feature__titulo{ font-size:clamp(2.8rem, 16vw, 4.4rem) }
+  :root .amor-feature__titulo em{ padding-inline-start:.12em }
+}
+
+/* Los videos ambientales necesitan una caja explícita: sin ella el medio
+   colapsa a cero alto cuando se separa del texto en la nueva retícula. */
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient,
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira{
+  display:block;
+  min-block-size:clamp(280px, 38vw, 560px);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient .vid__fallback,
+:root .lbyn[data-astro-cid-j7pv25f6] .vid--ambient .vid__el,
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira .vid__fallback,
+:root .hero[data-astro-cid-2vg4cjqq] .vid--gira .vid__el{
+  inline-size:100%;
+  block-size:100%;
+}
+
+/* Tienda · vitrina en pausa. Los productos se ven, pero ninguna compra o
+   ficha se puede activar hasta que la tienda final esté lista. */
+:root body:has(.head[data-astro-cid-ollxda4f]) .head{
+  padding-block:clamp(4rem, 10vw, 9rem) clamp(2.5rem, 5vw, 4rem);
+  background:#e7e5e2;
+}
+:root body:has(.head[data-astro-cid-ollxda4f]) .head__title{ color:#343331; max-inline-size:12ch }
+:root body:has(.head[data-astro-cid-ollxda4f]) .head__title::after{
+  content:"Próximamente";
+  display:block;
+  margin-top:1.2rem;
+  font-family:var(--font-ui);
+  font-size:clamp(.72rem, 1vw, .9rem);
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#77736f;
+}
+:root body:has(.head[data-astro-cid-ollxda4f]) .head__lede{ color:#77736f; max-inline-size:40ch }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kits,
+:root body:has(.head[data-astro-cid-ollxda4f]) .store-banda,
+:root body:has(.head[data-astro-cid-ollxda4f]) .comprar,
+:root body:has(.head[data-astro-cid-ollxda4f]) .info{ background:#e7e5e2; color:#343331 }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kits__head{ align-items:end; border-bottom:1px solid #c8c5c1; padding-bottom:var(--space-m) }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kits__note,
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__meaning,
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__includes,
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__price,
+:root body:has(.head[data-astro-cid-ollxda4f]) .store-cta{ display:none }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kits__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.25rem, 4vw, 4rem) }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__link{ pointer-events:none; cursor:default }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__media img,
+:root body:has(.head[data-astro-cid-ollxda4f]) .store-banda__pic img{ filter:grayscale(1) contrast(.86); opacity:.74 }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__title{ color:#343331; font-size:clamp(1.25rem, 2.4vw, 2.2rem) }
+:root body:has(.head[data-astro-cid-ollxda4f]) .kit__kicker{ color:#77736f }
+:root body:has(.head[data-astro-cid-ollxda4f]) .comprar,
+:root body:has(.head[data-astro-cid-ollxda4f]) .info{ display:none }
+:root body:has(.head[data-astro-cid-ollxda4f]) .store-banda{ padding-block:var(--space-l) var(--space-2xl) }
+:root body:has(.head[data-astro-cid-ollxda4f]) .store-banda__pie{ color:#77736f; text-align:center }
+
+@media (max-width:560px){
+  :root body:has(.head[data-astro-cid-ollxda4f]) .kits__grid{ grid-template-columns:1fr }
+  :root .hero[data-astro-cid-2vg4cjqq] .hero__title{ font-size:clamp(3rem, 14vw, 5rem) }
+}
+
+/* La pieza de registro comparte el lenguaje de la página destino:
+   azul profundo, amarillo de llamada y sans geométrica. */
+:root .amor-feature{
+  background:#082635;
+  color:#fff;
+}
+:root{
+  --amor-navy:#082635;
+  --amor-yellow:#f4b900;
+}
+@font-face{font-family:Gotham APT;src:url('../fonts/Gotham-Book.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Abril APT;src:url('../fonts/abril-display-italic.otf') format('opentype');font-style:italic;font-display:swap}
+:root .amor-feature__copy,
+:root .amor-feature__acciones .btn,
+:root .amor-feature .kicker{ font-family:'Gotham APT', var(--font-ui), sans-serif }
+:root .amor-feature__libro img{
+  display:block;
+  inline-size:min(100%, 330px);
+  max-block-size:440px;
+  object-fit:contain;
+  filter:drop-shadow(0 24px 22px rgba(0,0,0,.25));
+}
+:root .amor-feature__titulo em{ font-family:'Abril APT', var(--font-display), serif; font-style:italic; text-transform:none; letter-spacing:-.04em }
+:root .amor-feature__titulo{ text-transform:none }
+:root .amor-feature::before{ border-color:rgba(244,185,0,.28) }
+:root .amor-feature .kicker{ color:#f4b900 }
+:root .amor-feature__titulo{ font-family:var(--font-ui); font-weight:800; letter-spacing:-.06em; text-transform:uppercase }
+:root .amor-feature__titulo em{ color:#f4b900; font-family:var(--font-ui); font-style:normal; font-weight:800 }
+:root .amor-feature__lede{ color:rgba(255,255,255,.8); font-family:var(--font-ui); max-inline-size:42ch }
+:root .amor-feature__firma{ color:rgba(255,255,255,.62); font-family:var(--font-ui) }
+:root .amor-feature__numero{ color:rgba(244,185,0,.12); font-family:var(--font-ui); font-weight:800 }
+:root .amor-feature__libro::after{ border-color:rgba(244,185,0,.45) }
+:root .amor-feature__acciones .btn{ --btn-bg:#f4b900; --btn-fg:#082635; border-color:#f4b900; font-family:var(--font-ui); font-weight:800 }
+:root .amor-feature__acciones .btn:hover{ --btn-bg:#fff; --btn-fg:#082635; border-color:#fff }
+:root .amor-feature__acciones .link-arrow{ color:#fff; border-color:rgba(255,255,255,.45) }

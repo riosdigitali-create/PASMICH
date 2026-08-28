@@ -188,122 +188,24 @@
     </div>
   </section>
 
-  <!-- ══ REGISTRO · AMOR A PRUEBA DE TODO ═════════════════════ -->
-  <section class="pod-t3 pod-t3--registro es-lemon grano rasgado" id="registro-amor" aria-labelledby="registro-amor-t">
-    <span class="fragmento pod-t3__fondo" aria-hidden="true">Amor</span>
-    <div class="shell pod-t3__grid">
-      <div class="pod-t3__contenido">
-        <p class="folio pod-t3__folio">Registro para matrimonios</p>
-        <h2 class="pod-t3__h" id="registro-amor-t">
-          <span class="pod-t3__l1">Amor a</span><span class="pod-t3__l2 circulado">prueba de todo</span>
-        </h2>
-        <p class="pod-t3__lede">
-          Un espacio con Efrén y Michelle para parejas que quieren fortalecer su matrimonio con conversaciones reales, herramientas prácticas y fe.
-        </p>
-        <ul class="pod-t3__datos" role="list">
-          <li><span class="pod-t3__et">Modalidad</span><span class="pod-t3__val">En línea</span></li>
-          <li><span class="pod-t3__et">Costo</span><span class="pod-t3__val">Sin costo</span></li>
-          <li><span class="pod-t3__et">Cupo</span><span class="pod-t3__val">Limitado</span></li>
-        </ul>
-        <p class="nota-margen pod-t3__nota">Registra a la pareja con un solo correo. Ahí recibirán las fechas y el acceso.</p>
+  <!-- ══ AMOR A PRUEBA DE TODO · pieza editorial ═══════════════ -->
+  <section class="amor-feature" id="amor-a-prueba-de-todo" aria-labelledby="amor-feature-t">
+    <div class="shell amor-feature__grid">
+      <figure class="amor-feature__libro" data-reveal>
+        <img src="../images/amor-a-prueba-logo.png" alt="Amor a prueba de todo, construido con herramientas." width="1725" height="2700" loading="lazy" decoding="async">
+      </figure>
+      <div class="amor-feature__copy">
+        <p class="kicker">Del podcast al libro</p>
+        <p class="amor-feature__numero" aria-hidden="true">01</p>
+        <h2 class="amor-feature__titulo" id="amor-feature-t"><span>Amor a</span><em>prueba de todo</em></h2>
+        <p class="amor-feature__lede">Una conversación honesta sobre lo que sostiene a un matrimonio cuando la vida deja de ser sencilla.</p>
+        <p class="amor-feature__firma">Efrén + Michelle Ruiz</p>
+        <div class="amor-feature__acciones">
+          <a class="btn" href="https://a-prueba-de-todo.riosdigitali.workers.dev/" target="_blank" rel="noopener">Registro</a>
+        </div>
       </div>
-
-      <form class="diez__form pod-registro__form" data-amor-registro novalidate>
-        <p class="diez__form-h">Registrar nuestra pareja</p>
-        <p class="diez__form-sub meta">Completen sus datos para recibir la información.</p>
-        <div class="field">
-          <label for="amor-nombres">Sus nombres <span class="field__req" aria-hidden="true">*</span></label>
-          <input id="amor-nombres" name="nombres" type="text" autocomplete="name" required aria-required="true" aria-describedby="amor-nombres-err">
-          <p class="field__err" id="amor-nombres-err" hidden>Escriban los nombres de ambos.</p>
-        </div>
-        <div class="field">
-          <label for="amor-mail">Correo <span class="field__req" aria-hidden="true">*</span></label>
-          <input id="amor-mail" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" aria-describedby="amor-mail-err amor-registro-msg">
-          <p class="field__err" id="amor-mail-err" hidden>Revisen el correo: parece que le falta algo.</p>
-        </div>
-        <div class="field">
-          <label for="amor-tel">WhatsApp <span class="field__opt">opcional</span></label>
-          <input id="amor-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="amor-tel-err">
-          <p class="field__err" id="amor-tel-err" hidden>Ese número no parece completo. Déjenlo vacío si prefieren.</p>
-        </div>
-        <div class="registro-trampa" aria-hidden="true">
-          <label for="amor-website">Sitio web</label>
-          <input id="amor-website" name="website" type="text" tabindex="-1" autocomplete="off">
-        </div>
-        <button class="btn diez__enviar" type="submit"><span class="diez__enviar-txt">Completar registro</span></button>
-        <p class="diez__msg meta" id="amor-registro-msg" role="status" aria-live="polite"></p>
-        <p class="diez__legal meta">Usaremos estos datos únicamente para comunicarnos sobre Amor a prueba de todo.</p>
-      </form>
     </div>
   </section>
-
-  <script type="module">
-    document.querySelectorAll('[data-amor-registro]').forEach(form => {
-      const msg = form.querySelector('.diez__msg');
-      const boton = form.querySelector('button[type="submit"]');
-      const rotulo = form.querySelector('.diez__enviar-txt');
-      const campos = [...form.querySelectorAll('input:not([name="website"])')];
-      const errorDe = input => form.querySelector(`#${input.id}-err`);
-
-      function marcar(input, mal) {
-        const error = errorDe(input);
-        input.setAttribute('aria-invalid', mal ? 'true' : 'false');
-        input.classList.toggle('is-mal', mal);
-        if (error) error.hidden = !mal;
-        return !mal;
-      }
-
-      function validar(input) {
-        const valor = input.value.trim();
-        if (input.required && !valor) return marcar(input, true);
-        if (input.type === 'email' && valor && !input.checkValidity()) return marcar(input, true);
-        if (input.type === 'tel' && valor && valor.replace(/\D/g, '').length < 8) return marcar(input, true);
-        return marcar(input, false);
-      }
-
-      campos.forEach(input => {
-        input.addEventListener('blur', () => validar(input));
-        input.addEventListener('input', () => {
-          if (input.classList.contains('is-mal')) validar(input);
-        });
-      });
-
-      form.addEventListener('submit', async event => {
-        event.preventDefault();
-        msg.className = 'diez__msg meta';
-        if (!campos.map(validar).every(Boolean)) {
-          msg.classList.add('diez__msg--mal');
-          msg.textContent = 'Faltan datos: revisen los campos marcados.';
-          form.querySelector('.is-mal')?.focus();
-          return;
-        }
-
-        boton.disabled = true;
-        form.classList.add('esta-enviando');
-        rotulo.textContent = 'Registrando…';
-        try {
-          const datos = Object.fromEntries(new FormData(form));
-          const response = await fetch('../api/registrations', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ campaign: 'amor-a-prueba-de-todo', names: datos.nombres, email: datos.email, phone: datos.telefono, website: datos.website })
-          });
-          const result = await response.json().catch(() => ({}));
-          if (!response.ok) throw new Error(result?.error?.message || 'No pudimos completar el registro.');
-          form.reset();
-          msg.classList.add('diez__msg--exito');
-          msg.textContent = 'Listo. Su registro quedó guardado; recibirán la información en el correo indicado.';
-        } catch (error) {
-          msg.classList.add('diez__msg--mal');
-          msg.textContent = error.message || 'No pudimos completar el registro. Intenten nuevamente.';
-        } finally {
-          boton.disabled = false;
-          form.classList.remove('esta-enviando');
-          rotulo.textContent = 'Completar registro';
-        }
-      });
-    });
-  </script>
 
   <!-- ══ Y lo que no es el podcast ════════════════════════════════
        Las predicaciones son otra cosa y viven en otro sitio.     -->
