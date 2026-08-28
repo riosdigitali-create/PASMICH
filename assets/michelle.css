@@ -3061,3 +3061,25 @@ html{ scroll-behavior:smooth }
   :root .hd__panel ul{width:100%}
   :root .amor-feature--matrimonio{display:block!important}
 }
+
+/* Matrimonio · identidad APT aislada de los estilos generales del sitio. */
+:root .amor-feature--matrimonio{background-color:#005e98!important;color:#fff!important}
+:root .amor-feature--matrimonio .amor-feature__grid{grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);align-items:center}
+:root .amor-feature--matrimonio .amor-feature__libro{display:grid!important;place-items:center;min-height:420px;border:1px solid rgba(255,255,255,.3);background:rgba(8,38,53,.2);clip-path:polygon(0 0,91% 0,100% 9%,100% 100%,0 100%)}
+:root .amor-feature--matrimonio .amor-feature__libro img{display:block!important;width:min(88%,360px)!important;max-height:480px!important;object-fit:contain!important;filter:drop-shadow(0 22px 20px rgba(0,0,0,.25))!important}
+:root .amor-feature--matrimonio .kicker{font-family:'Gotham APT',Arial,sans-serif!important;color:#f4b900!important}
+:root .amor-feature--matrimonio .amor-feature__titulo{font-family:'Gotham APT',Arial,sans-serif!important;font-weight:400!important;text-transform:none!important}
+:root .amor-feature--matrimonio .amor-feature__titulo em{font-family:'Abril APT',Georgia,serif!important;font-style:italic!important;font-weight:400!important;color:#f4b900!important;text-transform:none!important}
+:root .amor-feature--matrimonio .amor-feature__lede,
+:root .amor-feature--matrimonio .amor-feature__firma{font-family:'Gotham APT',Arial,sans-serif!important}
+:root .amor-feature--matrimonio .amor-feature__acciones .btn{background:#f4b900!important;color:#082635!important;border-color:#f4b900!important;font-family:'Gotham APT',Arial,sans-serif!important;font-weight:800!important}
+@media (max-width:760px){:root .amor-feature--matrimonio .amor-feature__grid{grid-template-columns:1fr}:root .amor-feature--matrimonio .amor-feature__libro{min-height:300px}}
+
+/* LBYN · lanzamiento actualizado: fuera videos antiguos, evento y catálogo. */
+:root .hero[data-astro-cid-2vg4cjqq] .hero__video,
+:root .film,
+:root .community,
+:root .event,
+:root .shop{display:none!important}
+:root .hero[data-astro-cid-2vg4cjqq]{display:block!important;min-height:auto!important}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__body{width:min(100%,1100px)!important;margin-inline:auto!important;padding:clamp(4rem,9vw,8rem) var(--gutter)!important}
