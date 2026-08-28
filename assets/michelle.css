@@ -729,7 +729,7 @@ html{ scroll-behavior:smooth }
   margin-inline:calc(clamp(1rem, 2.5vw, 2rem) * -1);
 } :root .pod-todos__nota{ margin:0; color:var(--humo); font-size:var(--step--1) }
 
-/* Temporada 3: la pieza que debe verse desde lejos. */ :root .pod-t3{
+/* Registro de Amor a prueba de todo: la pieza que debe verse desde lejos. */ :root .pod-t3{
   position:relative; overflow:clip;
   padding-block:clamp(3.5rem, 8vw, 6.5rem);
   margin-block:clamp(2rem, 4vw, 3.5rem);
@@ -756,6 +756,93 @@ html{ scroll-behavior:smooth }
 @media (max-width:899px){   :root .pod-abre__grid, :root .pod-rio__grid{ grid-template-columns:1fr }   :root .pod-abre__portada{ order:-1 }   :root .pod-abre__l2{ padding-inline-start:.7em }   :root .pod-t3__l2{ padding-inline-start:.4em }   :root .temp__h{ max-width:none }
 }
 @media (max-width:719px){   :root .pod-todos{ margin-inline:0; padding-inline:0; background:none }   :root .pod-t3__et{ min-inline-size:0 }   :root .pod-abre{ padding-block:2rem 3rem }
+}
+
+:root .pod-t3--registro .pod-t3__fondo{
+  inset-inline-end:-4%; font-size:clamp(9rem, 24vw, 21rem); opacity:.08;
+}
+
+:root .pod-t3--registro .pod-t3__grid{
+  grid-template-columns:minmax(0, 1.05fr) minmax(320px, .8fr);
+  gap:clamp(2rem, 5vw, 5rem); align-items:start; justify-items:stretch;
+}
+:root .pod-t3__contenido{ display:grid; gap:var(--space-m); justify-items:start }
+:root .pod-t3--registro .pod-t3__h{ font-size:clamp(2.7rem, 7vw, 5.2rem) }
+:root .pod-t3--registro .pod-t3__l2{ padding-inline-start:.35em }
+:root .pod-t3--registro .pod-t3__lede{ font-size:var(--step-1); max-width:42ch }
+:root .pod-t3__nota{ margin:var(--space-xs) 0 0; max-width:45ch }
+:root .pod-registro__form{ inline-size:100%; box-shadow:0 18px 45px rgba(84,58,13,.12) }
+:root .registro-trampa{ position:absolute; inline-size:1px; block-size:1px; overflow:hidden; clip-path:inset(50%) }
+:root .diez__msg--exito{
+  background:#edf7e9; border:1px solid #9fbd93; border-left:4px solid #47743a;
+  border-radius:var(--radius); padding:.7rem .85rem; color:#284b20; line-height:1.5;
+}
+
+@media (max-width:899px){
+  :root .pod-t3--registro .pod-t3__grid{ grid-template-columns:1fr }
+  :root .pod-t3--registro .pod-t3__l2{ padding-inline-start:.15em }
+}
+
+/* Portada de Inicio sin fotografía: apertura editorial clara. */
+:root .hero[data-astro-cid-j7pv25f6]{
+  min-height:clamp(520px, 72svh, 760px); color:var(--tinta);
+  background:linear-gradient(135deg, var(--marfil) 0 58%, var(--ballet-claro) 58% 100%);
+}
+:root .hero[data-astro-cid-j7pv25f6] .hero__media{ display:none }
+:root .hero[data-astro-cid-j7pv25f6] .hero__body{ padding-block:clamp(4rem, 10vh, 7rem) }
+:root .hero[data-astro-cid-j7pv25f6] .hero__kicker{ color:var(--humo); text-shadow:none }
+:root .hero[data-astro-cid-j7pv25f6] .hero__line{ color:var(--tinta); text-shadow:none }
+:root .hero[data-astro-cid-j7pv25f6] .hero__ghost{ --btn-fg:var(--tinta); border-color:rgba(26,18,16,.28) }
+:root .hero[data-astro-cid-j7pv25f6] .hero__ghost:hover{ --btn-fg:var(--tinta); border-color:var(--tinta) }
+:root .hero[data-astro-cid-j7pv25f6] .btn--light{ --btn-bg:var(--tinta); --btn-fg:var(--marfil) }
+:root .hero[data-astro-cid-j7pv25f6] .hero__scroll{ color:var(--humo) }
+
+/* Sin palabras o números fantasma detrás de los títulos. */
+:root .fragmento{ display:none !important }
+:root h1, :root h2, :root h3, :root .hero__title, :root .hero__line{ text-shadow:none !important }
+
+/* Inicio · La Biblia y Nosotras, ahora claro y con aire. */
+:root .lbyn[data-astro-cid-j7pv25f6]{
+  padding-block:clamp(3rem, 7vw, 6rem); color:var(--tinta); background:var(--marfil);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video{
+  min-block-size:0; width:min(100% - var(--gutter) * 2, var(--page)); margin-inline:auto;
+  display:grid; grid-template-columns:minmax(0, .82fr) minmax(420px, 1.18fr);
+  gap:clamp(2rem, 6vw, 6rem); align-items:center;
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video .vid--ambient{
+  position:relative; inset:auto; grid-column:2; grid-row:1;
+  aspect-ratio:16 / 10; min-block-size:0; overflow:hidden; border-radius:var(--radius);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__veil{ display:none }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__over{
+  width:auto; margin:0; grid-column:1; grid-row:1;
+  align-self:center; padding-block:var(--space-l); color:var(--tinta);
+}
+:root .lbyn[data-astro-cid-j7pv25f6] .kicker{ color:var(--chilli) }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__title{ font-size:clamp(2.7rem, 5.2vw, 5.5rem) }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__line{ color:var(--humo) }
+:root .lbyn[data-astro-cid-j7pv25f6] .lbyn__ghost{ --btn-fg:var(--tinta); border-color:rgba(26,18,16,.25) }
+
+/* Portada de La Biblia y Nosotras: jerarquía limpia y sin notas internas. */
+:root .hero[data-astro-cid-2vg4cjqq] .hero__body{
+  display:flex; flex-direction:column; align-items:flex-start;
+  gap:clamp(.8rem, 1.6vw, 1.35rem); padding-block:clamp(3rem, 8vh, 6rem);
+}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__title{
+  font-size:clamp(3.2rem, 6.3vw, 6.8rem); line-height:.94;
+  max-inline-size:13ch; margin:0;
+}
+:root .hero[data-astro-cid-2vg4cjqq] .hero__line{
+  order:3; max-inline-size:34ch; margin:0; font-size:clamp(1.05rem, 1.5vw, 1.35rem);
+}
+:root .hero[data-astro-cid-2vg4cjqq] .lbyn-oficial{ order:4; margin-top:var(--space-xs) }
+:root .lbyn-oficial__nota{ display:none }
+
+@media (max-width:899px){
+  :root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video{ grid-template-columns:1fr }
+  :root .lbyn[data-astro-cid-j7pv25f6] .lbyn__over{ grid-column:1; grid-row:1 }
+  :root .lbyn[data-astro-cid-j7pv25f6] .lbyn__video .vid--ambient{ grid-column:1; grid-row:2 }
 }
 
 
@@ -1445,4 +1532,1094 @@ html{ scroll-behavior:smooth }
     grid-auto-rows:clamp(180px, 46vw, 260px);
   }
   :root .llamado--familia{ grid-row:span 1 }
+}
+
+
+/* ═══ 16 · RONDA DE REVISIÓN — AGOSTO 2026 ═════════════════════════
+   Correcciones pedidas en la revisión grabada del sitio.
+   Todo lo de aquí abajo es de esta ronda; nada de arriba se tocó.  */
+
+/* — 16.1 · EL HUECO ROSA DE LAS FOTOGRAFÍAS ————————————————
+   Diagnóstico: cada figura .pic reserva su alto con aspect-ratio y
+   pinta el fondo lino; dentro, <picture> es un elemento en línea, así
+   que el block-size:100% del <img> no encontraba contra qué medirse y
+   caía a auto. La fotografía se dibujaba con su proporción natural
+   —casi siempre 16:9— dentro de una caja 4/5, y lo que sobraba era
+   esa franja rosa que parecía un error de carga.
+   Se veía en Michelle, Inicio, Matrimonio, Conferencias, La Biblia y
+   Nosotras, Tienda y Blog. Con dar altura al <picture> se corrige en
+   todas de una vez, sin tocar una sola proporción del diseño.        */
+:root .pic > picture,
+:root .pic > a > picture{
+  display:block;
+  inline-size:100%;
+  block-size:100%;
+}
+:root .pic img{
+  display:block;
+  inline-size:100%;
+  block-size:100%;
+  object-fit:cover;
+  object-position:var(--pos, 50% 50%);
+}
+/* Los marcos sin proporción declarada no deben estirar la imagen. */
+:root .pic:not([style*="--ratio"]) img{ block-size:auto; object-fit:contain }
+
+/* — 16.2 · INICIO · el bloque del libro ————————————————————
+   La foto lateral era Michelle en una terraza con un café: bonita,
+   pero no decía «Amor a prueba de todo». Ahora está el matrimonio
+   del que salió el libro, y la nota admite que falta la portada. */
+:root .marriage__media-pie{
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:.5rem .75rem;
+  margin-top:var(--space-s); margin-bottom:0;
+  color:var(--humo);
+  font-size:var(--step--1); line-height:1.5;
+  max-width:52ch;
+}
+:root .marriage__media-pie .pendiente{ flex:none }
+
+/* — 16.3 · MICHELLE · el equipo ————————————————————————————
+   Entra Isma y la nota de Javi deja de hablar sólo de plumones. La
+   rejilla es auto-fit: con siete integrantes se acomoda sola. Sólo
+   hacía falta fijar el aviso de que aún no hay retratos.            */
+:root .team__aviso{
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:.5rem .75rem;
+  margin-top:var(--space-s); margin-bottom:0;
+  color:var(--humo); font-size:var(--step--1); line-height:1.5;
+  max-width:60ch;
+}
+:root .team__aviso .pendiente{ flex:none }
+:root .member__note{ max-width:34ch }
+
+/* — 16.4 · MATRIMONIO · «Diez días juntos» ————————————————
+   El cupo pasó a 500 parejas y, sobre todo, dejó de poder leerse como
+   un evento presencial: dos sellos bajo el titular, el «dónde» con su
+   aclaración y el lede diciéndolo en la primera línea.               */
+:root .diez__virtual{
+  display:flex; flex-wrap:wrap; gap:.5rem;
+  margin:var(--space-s) 0 var(--space-m);
+}
+:root .diez__sello{
+  display:inline-flex; align-items:center; gap:.45em;
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.1em; text-transform:uppercase; line-height:1.3;
+  padding:.5em .85em; border-radius:999px;
+  background:var(--chilli); color:#FFF;
+}
+:root .diez__sello--zoom{
+  background:var(--marfil); color:var(--chilli);
+  border:1.5px solid var(--chilli);
+}
+:root .diez__sello svg{ flex:none }
+:root .diez__lede strong{ color:var(--tinta); font-weight:700 }
+:root .diez__aclara{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.08em; text-transform:uppercase; color:var(--humo);
+}
+:root .diez__form-sub{ margin:-.35rem 0 .25rem; color:var(--humo) }
+
+/* Los estados del registro: obligatorio, error, carga y resultado.  */
+:root .field__req{ color:var(--chilli) }
+:root .field__opt{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.08em; text-transform:uppercase; color:var(--humo);
+  margin-inline-start:.4em;
+}
+:root .field__err{
+  margin:.15rem 0 0; color:var(--chilli);
+  font-size:var(--step--1); line-height:1.4;
+}
+:root input.is-mal, :root textarea.is-mal{
+  border-color:var(--chilli);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--chilli) 18%, transparent);
+}
+:root .esta-enviando .diez__enviar{ opacity:.7; cursor:progress }
+:root .diez__enviar[disabled]{ cursor:progress }
+:root .diez__msg{ margin:0 }
+:root .diez__msg:empty{ display:none }
+:root .diez__msg--mal{ color:var(--chilli); font-weight:700 }
+:root .diez__msg--pendiente{
+  background:var(--lemon); border:1px solid var(--lemon-borde);
+  border-left:4px solid var(--chilli);
+  border-radius:var(--radius);
+  padding:.7rem .85rem; color:#5A4418; line-height:1.5;
+}
+:root .diez__msg--pendiente strong{ color:#4A2A08 }
+:root .diez__msg--pendiente a{ color:var(--chilli) }
+
+/* — 16.5 · LA BIBLIA Y NOSOTRAS · la portada ————————————————
+   Antes la portada era un primer plano de Michelle: el rostro ocupaba
+   el ancho entero y el titular caía justo encima. Ahora corre el
+   material de la gira —mujeres, mesas, salón lleno—, reencuadrado a
+   16:9 desde el reel vertical de Diego. Es un recorte provisional y
+   lo dice la etiqueta; el corte horizontal definitivo sigue pendiente.
+
+   El video no lleva audio, se repite, no entra al orden de tabulación
+   y se detiene solo si la persona pidió reducir movimiento o está en
+   móvil: eso ya lo resuelve el guion de [data-ambient] de la página.
+   Si el video no carga, queda la fotografía del mismo encuadre.      */
+:root .vid--gira .vid__el,
+:root .vid--gira .vid__fallback img{ object-position:50% 58% }
+
+/* El metraje de la gira está rodado a contraluz y sale muy claro: en
+   crudo, el titular blanco desaparecía. Se le baja un punto la luz y
+   se sube el contraste, lo justo para que el texto se sostenga sin
+   que la escena se vea apagada.                                     */
+:root .vid--gira .vid__el,
+:root .vid--gira .vid__fallback img{
+  filter:brightness(.94) contrast(1.05) saturate(1.02);
+}
+
+/* El velo, reforzado. Antes bajaba a .25 justo en la franja donde
+   cae el titular, y sobre metraje a contraluz el blanco se perdía:
+   medido, el contraste bajaba a 1.6:1 en los fotogramas más claros.
+   Con este perfil el peor fotograma queda por encima de 4.5:1.      */
+:root .hero[data-astro-cid-2vg4cjqq] .hero__veil{
+  background:
+    linear-gradient(180deg,
+      rgba(8,6,5,.44) 0%,
+      rgba(8,6,5,.34) 20%,
+      rgba(8,6,5,.62) 42%,
+      rgba(8,6,5,.80) 66%,
+      rgba(8,6,5,.92) 100%);
+}
+:root .hero__title,
+:root .hero__line{ text-shadow:0 1px 22px rgba(10,8,7,.6) }
+:root .lbyn-oficial__nota{ color:rgba(255,255,255,.9) }
+
+/* — 16.6 · PÓDCAST · el adelanto de la temporada tres ————————
+   La sección «El adelanto» mostraba una fotografía del set en el sitio
+   donde va el video: parecía un reproductor que no arranca. Ahora hay
+   un hueco declarado —el reproductor completo espera en un <template>
+   listo para sustituirlo— y la fotografía quedó abajo, dicha como lo
+   que es. La etiqueta de pendiente se queda hasta que llegue el
+   archivo de Diego.                                                  */
+:root .pod-teaser__hueco{
+  inline-size:100%;
+  min-block-size:clamp(240px, 26vw, 380px);
+  align-content:center; gap:var(--space-s);
+  margin-block:var(--space-m) var(--space-l);
+  text-align:center;
+  padding:var(--space-l);
+}
+:root .pod-teaser__hueco .hueco__que{ font-size:var(--step-1) }
+:root .pod-teaser__hueco .hueco__nota{ max-width:44ch }
+
+:root .pod-teaser__player{ margin:var(--space-m) 0 var(--space-l) }
+:root .pod-teaser__video{
+  inline-size:100%; block-size:auto; display:block;
+  aspect-ratio:16 / 9; background:var(--cafe);
+  border-radius:var(--radius);
+}
+:root .pod-teaser__pie{ margin-top:var(--space-s); color:var(--humo) }
+
+/* — 16.7 · IMAGE METHOD · el material fotográfico ————————————
+   La banda de apertura llevaba a Michelle en una terraza con un café:
+   una fotografía personal, repetida de otra página, que no decía nada
+   de una asesoría de imagen y comunicación. En su lugar van dos piezas
+   de trabajo real —el recorte de traje negro en sala y la ponencia en
+   atril— que sí hablan del oficio. La foto ejecutiva de estudio sigue
+   marcada como pendiente: no se inventó ninguna.                     */
+:root .im-par{
+  display:grid;
+  grid-template-columns:minmax(0, .84fr) minmax(0, 1.16fr);
+  gap:clamp(1.5rem, 4vw, 3.5rem);
+  align-items:end;
+}
+:root .im-par__recorte,
+:root .im-par__foto{ margin:0; min-inline-size:0 }
+:root .im-par__recorte .calco img{
+  inline-size:100%; block-size:auto;
+  filter:drop-shadow(0 26px 40px rgba(0,0,0,.55));
+}
+:root .im-par__foto .pic{ border-radius:var(--radius); overflow:clip }
+:root .im-par__pie{ margin-top:var(--space-s); color:var(--im-silver); max-width:36ch }
+:root .im-banda__nota{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.5rem .75rem;
+  margin-top:var(--space-l); color:var(--im-silver);
+  font-size:var(--step--1); line-height:1.5; max-width:64ch;
+}
+:root .im-banda__nota .pendiente{ flex:none }
+
+@media (max-width:899px){
+  :root .im-par{ grid-template-columns:1fr; gap:var(--space-l) }
+  :root .im-par__recorte{ max-inline-size:min(70%, 320px); margin-inline:auto }
+}
+
+/* La etiqueta de pendiente sobre fondo oscuro. El .soon ya tenía su
+   versión; .pendiente se había quedado sin ella y quemaba. */
+:root .is-dark .pendiente,
+:root .is-im .pendiente,
+:root .hero .pendiente{
+  background:rgba(255,243,178,.16);
+  color:var(--lemon);
+  border-color:rgba(255,243,178,.42);
+}
+
+/* — 16.8 · EL VELO QUE NUNCA SE PINTÓ ——————————————————————
+   Diagnóstico: en las portadas con video ambiental, el <video> lleva
+   z-index:1 y .hero__veil se había quedado en auto. Como el .vid no
+   abre contexto de apilamiento propio, el video subía por encima del
+   velo y lo tapaba entero: pintarlo de rojo sólido no cambiaba un
+   solo píxel. Por eso el titular blanco caía directo sobre metraje a
+   contraluz —1,6:1 medido— y se leía a duras penas.
+   Con el velo en z-index 2 y el texto en 3, el degradado vuelve a
+   hacer su trabajo y el contraste sube por encima de 4,5:1.          */
+:root .hero__veil{ z-index:2 }
+:root .hero__body{ position:relative; z-index:3 }
+
+/* — 16.9 · CONFERENCIAS · el grupo «Modalidad» ————————————————
+   El rótulo era un <label for="f-modalidad"> que no apuntaba a ningún
+   elemento —no existe ese id— y el role="radiogroup" se quedaba sin
+   nombre accesible. Ahora el rótulo es un <span> con id propio y el
+   grupo lo referencia. Se le da el mismo aspecto que a los demás.   */
+:root .field__rotulo{
+  display:block;
+  font-family:var(--font-ui);
+  font-size:var(--step--2);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--humo);
+  margin-block-end:.35rem;
+}
+
+/* — 16.10 · LOS CAMPOS QUE FALTAN, SEÑALADOS ————————————————
+   Conferencias y contacto decían «faltan algunos datos obligatorios»
+   sin marcar cuáles. La clase .ya-se-intento se pone en el primer
+   envío: a partir de ahí el campo vacío se ve, no se adivina.       */
+:root form.ya-se-intento :invalid{
+  border-color:var(--chilli);
+  box-shadow:0 0 0 2px color-mix(in srgb, var(--chilli) 18%, transparent);
+}
+:root form.ya-se-intento .radios:has(:invalid){
+  outline:2px solid color-mix(in srgb, var(--chilli) 45%, transparent);
+  outline-offset:4px; border-radius:4px;
+}
+
+/* — 16.11 · CHECKOUT · el paso de envío sin conectar ——————————
+   /api/shipping-quote no existe todavía, así que la cotización nunca
+   volvía: el panel se quedaba en «Cotizando…» y el botón de pago,
+   deshabilitado, sin decir por qué. No se simula una tarifa ni se
+   deja pasar al pago; se explica el tope y se ofrece salida.        */
+:root .rates__sin{
+  display:grid; gap:var(--space-xs);
+  background:var(--ballet-claro);
+  border:1px solid var(--rosa);
+  border-left:4px solid var(--chilli);
+  border-radius:var(--radius);
+  padding:clamp(.9rem, 2vw, 1.35rem);
+  color:#5A3B44;
+}
+:root .rates__sin p{ margin:0; max-width:60ch }
+:root .rates__sin code{
+  font-size:.92em; background:var(--marfil);
+  border:1px solid rgba(26,18,16,.14); border-radius:3px; padding:.1em .35em;
+}
+
+/* ========================================================================
+   Ajustes de agosto 2026 · huecos, fotos que tapaban texto y portadas reales
+   ======================================================================== */
+
+/* Matrimonio · portada real del libro, con la sombra blush que ya tenía. */
+:root .book__foto{ margin:0; max-inline-size:340px }
+:root .book__foto img{
+  display:block; inline-size:100%; block-size:auto; border-radius:2px;
+  box-shadow:22px 22px 0 -6px var(--blush), 0 18px 42px -20px rgba(0,0,0,.5);
+}
+@media (max-width:900px){
+  :root .book__foto{ max-inline-size:min(62vw, 300px); margin-inline:auto }
+}
+
+/* Matrimonio · el retrato deja de estar solo: dos columnas reales. */
+:root .mat-banda__grid{
+  display:grid;
+  grid-template-columns:minmax(0,5fr) minmax(0,6fr);
+  gap:clamp(2rem, 5vw, 4.5rem);
+  align-items:center;
+}
+:root .mat-banda__grid .mat-retrato{ margin-block-end:0 }
+:root .mat-banda__texto .kicker{ margin-block-end:var(--space-xs) }
+:root .mat-banda__texto .body{ max-inline-size:46ch }
+@media (max-width:900px){
+  :root .mat-banda__grid{ grid-template-columns:1fr; gap:var(--space-l) }
+}
+
+/* Inicio · fuera el recorte de Michelle: caía encima de las tarjetas y
+   les comía el título. Las tarjetas se ven mejor solas. */
+:root .llamados__calco{ display:none }
+
+/* Podcast · la portada del hero ya no es tipografía dibujada: es la foto
+   del podcast, cuadrada y con la misma cinta de siempre. */
+:root .pod-portada{ margin:0; max-inline-size:380px; position:relative }
+:root .pod-portada img{
+  display:block; inline-size:100%; block-size:auto; aspect-ratio:1;
+  object-fit:cover; border-radius:2px;
+  box-shadow:0 22px 48px -22px rgba(0,0,0,.55);
+}
+@media (max-width:899px){
+  :root .pod-portada{ max-inline-size:min(72vw, 340px) }
+}
+
+/* Podcast · la foto del set ocupaba media fila y dejaba el resto en
+   blanco. Ahora va a todo el ancho, con su pie debajo. */
+:root .pod-set{ inline-size:100%; max-inline-size:none; margin-block-start:var(--space-l) }
+:root .pod-set .pic{ inline-size:100% }
+
+/* La Biblia y Nosotras · el collage no tenía jerarquía: tres fotos del
+   mismo tamaño, cortadas, y media fila vacía. Ahora manda una foto
+   principal y las otras dos van debajo, a mitades exactas. */
+:root .lbyn-collage__c{
+  grid-column:span 6; order:-1;
+  margin-block-end:clamp(.4rem, 1.2vw, .9rem);
+}
+:root .lbyn-collage__c .pic{ aspect-ratio:21 / 9 }
+:root .lbyn-collage__a,
+:root .lbyn-collage__b{ grid-column:span 3; align-self:stretch }
+:root .lbyn-collage__a .pic,
+:root .lbyn-collage__b .pic{ aspect-ratio:3 / 2 }
+:root .lbyn-collage__pie{
+  grid-column:1 / -1;
+  margin-block-start:var(--space-s);
+  color:var(--humo); font-size:var(--step--1);
+  max-inline-size:56ch;
+}
+/* el recorte caía sobre las fotos: se fue al manifiesto, donde había
+   una columna vacía esperándolo */
+
+@media (max-width:899px){
+  :root .lbyn-collage__c{ grid-column:1 / -1 }
+  :root .lbyn-collage__a, :root .lbyn-collage__b{ grid-column:span 2 }
+  :root .lbyn-collage__c .pic{ aspect-ratio:16 / 9 }
+}
+@media (max-width:719px){
+  :root .lbyn-collage__c, :root .lbyn-collage__a, :root .lbyn-collage__b{ grid-column:1 / -1 }
+  :root .lbyn-collage__c .pic{ aspect-ratio:4 / 3 }
+  :root .lbyn-collage__a .pic, :root .lbyn-collage__b .pic{ aspect-ratio:4 / 3 }
+}
+
+/* Afinados finales de la revisión de agosto 2026. */
+
+/* El collage pasó de div a figure: sin el margen que trae el navegador. */
+:root .lbyn-collage{ margin-inline:0 }
+/* La principal va derecha; las dos de abajo conservan su inclinación. */
+:root .lbyn-collage__c.girada{ rotate:0deg }
+
+/* La Biblia y Nosotras · el manifiesto tenía la columna izquierda vacía;
+   ahí va el recorte de Michelle con su Biblia y las flores. */
+:root .manifest__lado{
+  display:grid; align-content:start; gap:var(--space-m);
+}
+:root .manifest__recorte{
+  position:relative; isolation:isolate;
+  display:block; inline-size:min(100%, 260px);
+  rotate:-2deg;
+}
+/* el medio círculo: la base termina justo donde se corta la foto y la
+   cúpula sube por detrás; la cabeza y las flores quedan fuera del color */
+:root .manifest__recorte::before{
+  content:""; position:absolute; z-index:-1;
+  inset-inline:-9%;
+  inset-block:13% 0;
+  background:var(--ballet);
+  border-radius:999px 999px 0 0;
+}
+:root .manifest__recorte img{
+  position:relative;
+  display:block; inline-size:100%; block-size:auto;
+  filter:drop-shadow(0 16px 26px rgba(0,0,0,.16));
+}
+@media (max-width:899px){
+  :root .manifest__lado{
+    grid-template-columns:auto minmax(0,1fr);
+    align-items:center; gap:var(--space-l);
+  }
+  :root .manifest__recorte{ inline-size:min(46vw, 200px); order:-1 }
+}
+@media (max-width:519px){
+  :root .manifest__recorte{ display:none }
+}
+
+/* La Biblia y Nosotras · el video de la portada se recortaba tanto que
+   sólo se veía el suéter. Encuadre un poco más alto y menos apretado. */
+:root .vid--gira .vid__el,
+:root .vid--gira .vid__fallback img{ object-position:50% 42% }
+
+/* ==========================================================================
+   Contenido incrustado real (YouTube, Spotify)
+   Marco editorial: nada de iframe pegado. Portada con foto de verdad,
+   el reproductor entra encima cuando se pide, y si la plataforma falla
+   queda una tarjeta con el enlace, nunca un hueco blanco.
+   ========================================================================== */
+:root .embed{
+  position:relative;
+  border-radius:var(--radius);
+  overflow:clip;
+  background:var(--cafe);
+  aspect-ratio:var(--embed-ar, 16 / 9);
+}
+:root .embed--alto{ aspect-ratio:auto; block-size:352px; background:transparent }
+
+:root .embed__marco{ position:absolute; inset:0 }
+:root .embed__marco iframe{
+  inline-size:100%; block-size:100%; border:0; display:block;
+}
+
+/* La portada: foto real + botón. Se va cuando el reproductor carga. */
+:root .embed__portada{
+  position:absolute; inset:0; z-index:2;
+  display:grid; place-items:center;
+  inline-size:100%; padding:0; border:0; cursor:pointer;
+  background:none; color:#FFF; text-align:center;
+  transition:opacity .5s var(--ease-out), visibility .5s;
+}
+:root .embed__portada img{
+  position:absolute; inset:0; z-index:0;
+  inline-size:100%; block-size:100%; object-fit:cover;
+}
+:root .embed__portada::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to top, rgba(21,14,12,.72), rgba(21,14,12,.18) 60%, rgba(21,14,12,.34));
+}
+:root .embed__portada-txt{
+  position:relative; z-index:2;
+  display:grid; justify-items:center; gap:.7rem;
+}
+:root .embed__glifo{
+  display:grid; place-items:center;
+  inline-size:clamp(56px, 7vw, 74px); aspect-ratio:1;
+  border-radius:50%;
+  background:var(--chilli); color:#FFF;
+  box-shadow:0 14px 34px -12px rgba(0,0,0,.7);
+  transition:scale .4s var(--ease-out);
+}
+:root .embed__portada:hover .embed__glifo,
+:root .embed__portada:focus-visible .embed__glifo{ scale:1.07 }
+:root .embed__rotulo{
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.16em; text-transform:uppercase;
+}
+:root .embed__portada:focus-visible{ outline:3px solid var(--rosa); outline-offset:-4px }
+
+/* Estados */
+:root .embed.is-loaded .embed__portada,
+:root .embed.is-unavailable .embed__portada{ opacity:0; visibility:hidden }
+
+:root .embed__cargando{
+  position:absolute; inset:0; z-index:3;
+  display:none; place-items:center;
+  background:rgba(21,14,12,.55);
+  color:#F6ECE4; font-family:var(--font-ui);
+  font-size:var(--step--1); letter-spacing:.14em; text-transform:uppercase;
+}
+:root .embed.is-loading .embed__cargando{ display:grid }
+
+/* Si la plataforma no responde: tarjeta editorial, no un error técnico. */
+:root .embed__respaldo{
+  position:absolute; inset:0; z-index:4;
+  display:none; align-content:center; justify-items:start;
+  gap:var(--space-s);
+  padding:clamp(1.4rem, 4vw, 2.6rem);
+  background:var(--cafe); color:#F6ECE4;
+}
+:root .embed.is-unavailable .embed__respaldo{ display:grid }
+:root .embed__respaldo p{ margin:0; max-inline-size:44ch; color:#E7D9D2 }
+
+/* ── El bloque del podcast ─────────────────────────────────────────── */
+:root .escucha{ padding-block:clamp(2.5rem, 6vw, 4.5rem) }
+:root .escucha__cab{ margin-block-end:var(--space-l) }
+:root .escucha__grid{
+  display:grid; gap:clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns:minmax(0, 1.55fr) minmax(0, 1fr);
+  align-items:start;
+}
+:root .escucha__pieza{ display:grid; gap:var(--space-s) }
+:root .escucha__et{
+  display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.16em; text-transform:uppercase; color:var(--humo);
+}
+:root .escucha__et a{ color:var(--chilli); text-underline-offset:.25em }
+:root .escucha__nota{ color:var(--humo); font-size:var(--step--1); margin:0 }
+
+@media (max-width:899px){
+  :root .escucha__grid{ grid-template-columns:1fr }
+  :root .embed--alto{ block-size:232px }
+}
+
+/* Matrimonio · «Favoritos de Michelle»: la selección real de Amazon. */
+:root .favoritos__grid{
+  display:grid; gap:clamp(1.8rem, 5vw, 4rem);
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  align-items:center;
+}
+:root .favoritos__texto{ display:grid; justify-items:start; gap:var(--space-s) }
+:root .favoritos__body{ max-inline-size:44ch }
+:root .favoritos__legal{ color:var(--humo); font-size:var(--step--1); margin:0 }
+:root .favoritos__foto{ margin:0 }
+:root .favoritos__foto img{
+  display:block; inline-size:100%; block-size:auto;
+  border-radius:var(--radius);
+}
+@media (max-width:899px){
+  :root .favoritos__grid{ grid-template-columns:1fr }
+}
+
+/* ==========================================================================
+   Blog en vivo · entradas reales traídas de bymichelleruiz.com
+   ========================================================================== */
+:root .bviv__cab{
+  display:grid; gap:var(--space-m);
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  align-items:end;
+  margin-block-end:var(--space-l);
+}
+:root .bviv__lead{ margin:0; color:var(--humo); max-inline-size:46ch }
+:root .bviv__lead a{ color:var(--chilli) }
+
+:root .bviv__grid{
+  display:grid; gap:clamp(1.1rem, 2.5vw, 2rem);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  margin:0; padding:0; list-style:none;
+}
+:root .bviv__item{ margin:0 }
+:root .bviv__link{
+  display:grid; gap:var(--space-s);
+  text-decoration:none; color:inherit; block-size:100%;
+}
+:root .bviv__media{
+  border-radius:var(--radius); overflow:clip;
+  aspect-ratio:4 / 5; background:var(--ballet-claro);
+}
+:root .bviv__media img{
+  inline-size:100%; block-size:100%; object-fit:cover; display:block;
+  transition:scale .7s var(--ease-out);
+}
+:root .bviv__link:hover .bviv__media img{ scale:1.04 }
+:root .bviv__link:focus-visible{ outline:3px solid var(--chilli); outline-offset:4px }
+:root .bviv__pie{ display:grid; gap:.35rem }
+:root .bviv__fecha{
+  margin:0; color:var(--humo);
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.14em; text-transform:uppercase;
+}
+:root .bviv__t{
+  margin:0; font-family:var(--font-display);
+  font-size:var(--step-1); line-height:1.14;
+}
+:root .bviv__link:hover .bviv__t{ color:var(--chilli) }
+:root .bviv__resumen{ margin:0; color:var(--humo); font-size:var(--step--1) }
+
+/* Esqueleto muy sutil mientras llega el feed. */
+:root .bviv__hueso{
+  border-radius:var(--radius);
+  aspect-ratio:4 / 5;
+  background:linear-gradient(100deg, var(--ballet-claro) 30%, #FFF4F6 50%, var(--ballet-claro) 70%);
+  background-size:220% 100%;
+  animation:bviv-latido 1.9s ease-in-out infinite;
+}
+@keyframes bviv-latido{ to{ background-position:-120% 0 } }
+@media (prefers-reduced-motion:reduce){ :root .bviv__hueso{ animation:none } }
+
+:root .bviv__cargando,
+:root .bviv__respaldo{ display:none }
+:root .bviv.is-loading .bviv__cargando{ display:block; margin-block-start:var(--space-m); color:var(--humo) }
+:root .bviv.is-unavailable .bviv__grid,
+:root .bviv.is-unavailable .bviv__mas{ display:none }
+:root .bviv.is-unavailable .bviv__respaldo{
+  display:grid; justify-items:start; gap:var(--space-s);
+  padding:clamp(1.5rem, 4vw, 2.5rem);
+  border-radius:var(--radius);
+  background:var(--ballet-claro);
+}
+:root .bviv__mas{ margin-block-start:var(--space-l) }
+
+@media (max-width:899px){
+  :root .bviv__cab{ grid-template-columns:1fr }
+  :root .bviv__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)) }
+}
+@media (max-width:559px){
+  :root .bviv__grid{ grid-template-columns:1fr }
+  :root .bviv__media{ aspect-ratio:16 / 10 }
+}
+
+/* Blog · encabezado de las entradas propias del sitio, que van después
+   de las que llegan de bymichelleruiz.com. */
+:root .list__h{ margin:.2rem 0 var(--space-l) }
+
+/* La tarjeta ahora es un botón: abre la entrada aquí, no manda a otro sitio. */
+:root .bviv__link{
+  appearance:none; border:0; background:none; padding:0;
+  font:inherit; color:inherit; text-align:start; cursor:pointer;
+  inline-size:100%;
+}
+:root .bviv__leer{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; text-transform:uppercase; color:var(--chilli);
+  margin-block-start:.2rem;
+}
+:root .bviv__link:hover .bviv__leer{ text-decoration:underline; text-underline-offset:.3em }
+
+/* ==========================================================================
+   El lector: la entrada completa, dentro de la página
+   ========================================================================== */
+:root.blector-abierto{ overflow:hidden }
+
+:root .blector{
+  position:fixed; inset:0; z-index:120;
+  display:grid; place-items:center;
+  padding:clamp(.75rem, 3vw, 2.5rem);
+}
+:root .blector[hidden]{ display:none }
+
+:root .blector__velo{
+  position:absolute; inset:0;
+  background:rgba(21,14,12,.62);
+  backdrop-filter:blur(3px);
+  animation:blector-vela .35s var(--ease-out) both;
+}
+@keyframes blector-vela{ from{ opacity:0 } }
+
+:root .blector__hoja{
+  position:relative;
+  inline-size:min(100%, 720px);
+  max-block-size:min(92vh, 1000px);
+  overflow:auto; overscroll-behavior:contain;
+  padding:clamp(2rem, 5vw, 3.4rem);
+  border-radius:var(--radius);
+  background:var(--crema);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.55);
+  animation:blector-sube .45s var(--ease-out) both;
+}
+@keyframes blector-sube{ from{ opacity:0; translate:0 18px } }
+@media (prefers-reduced-motion:reduce){
+  :root .blector__velo, :root .blector__hoja{ animation:none }
+}
+:root .blector__hoja:focus{ outline:none }
+
+:root .blector__cerrar{
+  position:sticky; inset-block-start:0; float:inline-end;
+  z-index:2;
+  display:grid; place-items:center;
+  inline-size:40px; aspect-ratio:1;
+  border:0; border-radius:50%; cursor:pointer;
+  background:var(--ballet-claro); color:var(--cafe);
+  transition:background .25s var(--ease-out);
+}
+:root .blector__cerrar:hover{ background:var(--ballet) }
+:root .blector__cerrar:focus-visible{ outline:3px solid var(--chilli); outline-offset:2px }
+
+:root .blector__fecha{
+  margin:0 0 .4rem; color:var(--humo);
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; text-transform:uppercase;
+}
+:root .blector__t{
+  margin:0 0 var(--space-m);
+  font-family:var(--font-display);
+  font-size:clamp(1.7rem, 4.2vw, 2.6rem); line-height:1.08;
+  max-inline-size:22ch;
+}
+
+/* El texto que llega de Blogger, vestido con la tipografía de la casa. */
+:root .blector__texto{ color:var(--cafe) }
+:root .blector__texto p{ margin:0 0 1.05em; line-height:1.7 }
+:root .blector__texto h1, :root .blector__texto h2,
+:root .blector__texto h3, :root .blector__texto h4{
+  font-family:var(--font-display); line-height:1.16;
+  margin:1.8em 0 .5em; font-size:var(--step-1);
+}
+:root .blector__texto img{
+  display:block; inline-size:100%; block-size:auto;
+  margin:1.6em 0; border-radius:var(--radius);
+}
+:root .blector__texto a{ color:var(--chilli) }
+:root .blector__texto ul, :root .blector__texto ol{ margin:0 0 1.05em 1.2em }
+:root .blector__texto li{ margin-block-end:.4em }
+:root .blector__texto blockquote{
+  margin:1.6em 0; padding-inline-start:1.1em;
+  border-inline-start:3px solid var(--rosa);
+  font-style:italic; color:var(--humo);
+}
+:root .blector__texto hr{
+  border:0; border-block-start:1px solid var(--ballet);
+  margin:2em 0;
+}
+
+:root .blector__pie{
+  margin-block-start:var(--space-l);
+  padding-block-start:var(--space-m);
+  border-block-start:1px solid var(--ballet);
+  color:var(--humo); font-size:var(--step--1);
+}
+:root .blector__pie a{ color:var(--chilli) }
+
+@media (max-width:559px){
+  :root .blector{ padding:0 }
+  :root .blector__hoja{
+    max-block-size:100vh; block-size:100vh;
+    border-radius:0;
+  }
+}
+
+/* Sus entradas están maquetadas con <div> y <br> (venían de Word).
+   Se les da el mismo aire que a un párrafo para que se lean bien. */
+:root .blector__texto div{ margin:0 0 1.05em; line-height:1.7 }
+:root .blector__texto div:empty{ display:none }
+:root .blector__texto b, :root .blector__texto strong{ color:var(--cafe) }
+
+/* Blog · la apertura: donde estaba el cuadro rosa del video pendiente
+   ahora va una foto de ella escribiendo. */
+:root .blog-abre__foto{ margin:var(--space-l) 0 0 }
+:root .blog-abre__foto img{
+  display:block; inline-size:100%; block-size:auto;
+  border-radius:var(--radius);
+  aspect-ratio:21 / 9; object-fit:cover; object-position:50% 42%;
+}
+@media (max-width:899px){
+  :root .blog-abre__foto img{ aspect-ratio:16 / 10 }
+}
+@media (max-width:559px){
+  :root .blog-abre__foto img{ aspect-ratio:4 / 3 }
+}
+
+/* ==========================================================================
+   Tienda · el instructivo para comprar
+   ========================================================================== */
+:root .comprar__cab{ margin-block-end:var(--space-l) }
+:root .comprar__pasos{
+  display:grid; gap:clamp(1.2rem, 3vw, 2.2rem);
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  margin:0; padding:0; list-style:none; counter-reset:none;
+}
+:root .paso{
+  display:grid; align-content:start; gap:.5rem;
+  padding-block-start:var(--space-s);
+  border-block-start:2px solid var(--ballet);
+}
+:root .paso__n{
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.18em; color:var(--chilli);
+}
+:root .paso__t{
+  margin:0; font-family:var(--font-display);
+  font-size:var(--step-1); line-height:1.14;
+}
+:root .paso__b{ margin:0; color:var(--humo); font-size:var(--step--1); line-height:1.65 }
+
+:root .comprar__fuera{
+  margin-block-start:var(--space-l);
+  color:var(--humo); max-inline-size:60ch;
+}
+:root .comprar__fuera a{ color:var(--chilli) }
+
+@media (max-width:1023px){
+  :root .comprar__pasos{ grid-template-columns:repeat(2, minmax(0, 1fr)) }
+}
+@media (max-width:559px){
+  :root .comprar__pasos{ grid-template-columns:1fr }
+}
+
+/* ==========================================================================
+   Ofrendar · la pantalla del QR de la arena
+   Se abre en el teléfono, en medio de una reunión, con poca luz y prisa:
+   un paso a la vez, botones grandes y el pulgar llega a todo.
+   ========================================================================== */
+:root .ofr{
+  display:grid; align-items:center;
+  min-block-size:calc(100svh - 88px);
+  padding-block:clamp(1.5rem, 6vw, 4rem);
+  background:var(--crema);
+}
+:root .ofr__hoja{
+  display:grid; justify-items:center; gap:var(--space-m);
+  text-align:center; max-inline-size:560px;
+}
+:root .ofr__kicker{ margin:0 }
+:root .ofr__h{
+  margin:0; font-family:var(--font-display);
+  font-size:clamp(2rem, 7.5vw, 3.2rem); line-height:1.04;
+}
+
+/* Los tres puntos del recorrido. */
+:root .ofr__barra{
+  display:flex; gap:.5rem; align-items:center;
+  margin:.2rem 0 0; padding:0; list-style:none;
+}
+:root .ofr__punto{
+  display:grid; gap:.4rem; justify-items:center;
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--humo);
+}
+:root .ofr__punto::before{
+  content:""; inline-size:34px; block-size:3px; border-radius:2px;
+  background:var(--ballet);
+}
+:root .ofr__punto.is-aqui{ color:var(--chilli) }
+:root .ofr__punto.is-aqui::before,
+:root .ofr__punto.is-hecho::before{ background:var(--chilli) }
+:root .ofr__punto[hidden]{ display:none }
+
+/* Un paso a la vez. */
+:root .ofr__paso{
+  display:grid; justify-items:center; gap:var(--space-m);
+  inline-size:100%;
+}
+:root .ofr__paso[hidden]{ display:none }
+:root .ofr__paso:focus{ outline:none }
+
+/* Campos */
+:root .ofr__campo{ display:grid; gap:.5rem; inline-size:100%; text-align:start }
+:root .ofr__label{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; text-transform:uppercase; color:var(--humo);
+}
+:root .ofr__label em{ font-style:normal; opacity:.65; text-transform:none; letter-spacing:.04em }
+:root .ofr__label--suelto{ margin:0; justify-self:start }
+:root .ofr__input{
+  inline-size:100%; padding:.9rem 1rem;
+  font:inherit; font-size:var(--step-0); color:var(--cafe);
+  background:#FFF; border:1px solid var(--ballet);
+  border-radius:calc(var(--radius) / 1.6);
+}
+:root .ofr__input::placeholder{ color:#B9A69F }
+:root .ofr__input:focus-visible{ outline:3px solid var(--rosa); outline-offset:1px; border-color:var(--rosa) }
+:root .ofr__area{ resize:vertical; min-block-size:110px; line-height:1.6 }
+
+/* Montos */
+:root .ofr__montos{
+  display:grid; gap:clamp(.6rem, 2vw, .9rem);
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  inline-size:100%; margin:0; padding:0; list-style:none;
+}
+:root .ofr__monto{
+  inline-size:100%;
+  display:grid; align-content:center; justify-items:center; gap:.15rem;
+  min-block-size:clamp(78px, 20vw, 100px);
+  padding:var(--space-s);
+  border:2px solid var(--ballet); border-radius:var(--radius);
+  background:#FFF; color:var(--cafe); cursor:pointer;
+  font:inherit;
+  transition:border-color .2s var(--ease-out), background .2s var(--ease-out), translate .2s var(--ease-out);
+}
+:root .ofr__monto:hover{ border-color:var(--rosa); translate:0 -2px }
+:root .ofr__monto.is-elegido{
+  background:var(--chilli); border-color:var(--chilli); color:#FFF;
+}
+:root .ofr__monto:focus-visible{ outline:3px solid var(--chilli); outline-offset:2px }
+:root .ofr__cifra{
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem, 5.5vw, 1.9rem); line-height:1.05;
+}
+:root .ofr__moneda{
+  font-family:var(--font-ui); font-size:var(--step--2);
+  letter-spacing:.16em; opacity:.75;
+}
+:root .ofr__libre{ margin:0; inline-size:100% }
+:root .ofr__libre[hidden]{ display:none }
+:root .ofr__monto--libre{ min-block-size:64px }
+:root .ofr__monto--libre .ofr__cifra{ font-size:var(--step-0) }
+:root .ofr__monto--libre .ofr__moneda{ text-transform:none; letter-spacing:.04em }
+
+/* Botones del recorrido */
+:root .ofr__seguir, :root .ofr__pagar{ inline-size:100%; justify-content:center }
+:root .ofr__seguir[disabled]{ opacity:.4; cursor:not-allowed }
+:root .ofr__acciones{ display:grid; gap:.6rem; inline-size:100%; justify-items:center }
+:root .ofr__acciones .btn{ inline-size:100%; justify-content:center }
+:root .ofr__texto-btn{
+  border:0; background:none; padding:.4rem; cursor:pointer;
+  font-family:var(--font-ui); font-size:var(--step--1);
+  color:var(--humo); text-decoration:underline; text-underline-offset:.3em;
+}
+:root .ofr__texto-btn:hover{ color:var(--chilli) }
+:root .ofr__atras{ justify-self:center }
+
+:root .ofr__resumen{
+  margin:0; padding:.6rem 1.1rem;
+  border-radius:100px; background:var(--ballet-claro);
+  font-family:var(--font-ui); font-size:var(--step--1);
+  letter-spacing:.1em; color:var(--cafe);
+}
+
+/* Métodos de pago: se anuncian, no se dibujan. Los dibuja Stripe. */
+:root .ofr__metodos{
+  display:grid; gap:.5rem; inline-size:100%;
+  margin:0; padding:0; list-style:none;
+}
+:root .ofr__metodo{
+  display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+  padding:.85rem 1rem;
+  border:1px solid var(--ballet); border-radius:calc(var(--radius) / 1.6);
+  background:#FFF; text-align:start;
+}
+:root .ofr__metodo-n{ font-family:var(--font-display); font-size:var(--step-0) }
+:root .ofr__metodo-b{ font-size:var(--step--2); color:var(--humo) }
+:root .ofr__metodos-nota{ margin:0; color:var(--humo); font-size:var(--step--2) }
+
+/* Espera */
+:root .ofr__espera{
+  display:grid; gap:.5rem; inline-size:100%;
+  padding:clamp(1.4rem, 5vw, 2.2rem);
+  border-radius:var(--radius); background:var(--ballet-claro);
+}
+:root .ofr__espera[hidden]{ display:none }
+:root .ofr__espera-t{
+  margin:0; font-family:var(--font-display);
+  font-size:var(--step-1); line-height:1.2;
+}
+:root .ofr__espera-b{ margin:0; color:var(--humo); font-size:var(--step--1) }
+
+:root .ofr__seguro{
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  flex-wrap:wrap; margin:var(--space-s) 0 0;
+  color:var(--humo); font-size:var(--step--2); max-inline-size:40ch;
+}
+:root .ofr__seguro svg{ flex:none; color:var(--chilli) }
+
+@media (max-width:399px){
+  :root .ofr__montos{ grid-template-columns:1fr }
+  :root .ofr__punto span{ display:none }
+}
+
+/* Al volver la tarjeta un <button>, el título y el resumen heredaron la
+   tipografía de botón del sitio y salían en mayúsculas. Se fija aquí. */
+:root .bviv__link,
+:root .bviv__t,
+:root .bviv__resumen{
+  text-transform:none; letter-spacing:normal;
+}
+:root .bviv__t{ font-family:var(--font-display); font-weight:400 }
+:root .bviv__resumen{ font-family:var(--font-ui); line-height:1.6 }
+:root .bviv__leer{ text-transform:uppercase; letter-spacing:.16em }
+
+/* ==========================================================================
+   THE IMAGE METHOD · identidad propia
+   --------------------------------------------------------------------------
+   Tomada del sitio real (image-method-v2): tipografía Jost 200/300/400,
+   fondo blanco, tinta casi negra, acento olivo, esquinas rectas y filetes
+   de 1px. Aquí el sitio cambia de universo a propósito — es otra marca.
+   ========================================================================== */
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:200; font-display:swap;
+  src:url("../fonts/Jost-200.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:300; font-display:swap;
+  src:url("../fonts/Jost-300.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:400; font-display:swap;
+  src:url("../fonts/Jost-400.woff2") format("woff2");
+}
+
+:root .im-marca{
+  --im-tinta:#0B0B0B;
+  --im-blanco:#FFF;
+  --im-olivo:#81873D;
+  --im-olivo-txt:#6B7132;
+  --im-gris:#6E6E6C;
+  --im-linea:rgba(0,0,0,.16);
+  --im-tipo:"Jost","Century Gothic","Futura","Avenir Next",ui-sans-serif,system-ui,sans-serif;
+
+  background:var(--im-blanco);
+  color:var(--im-tinta);
+  font-family:var(--im-tipo);
+  font-weight:300;
+  line-height:1.62;
+  letter-spacing:.006em;
+  padding-block:clamp(3rem, 9vw, 7rem);
+}
+:root .im-marca *{ border-radius:0 }
+
+:root .im-marca__grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, .72fr);
+  gap:clamp(2rem, 6vw, 5rem);
+  align-items:center;
+}
+
+:root .im-marca__micro{
+  margin:0 0 clamp(1.4rem, 4vw, 2.4rem);
+  font-size:.6875rem; font-weight:400;
+  letter-spacing:.24em; text-transform:uppercase;
+  color:var(--im-gris);
+}
+
+/* La escalera de los tres niveles, como en su portada. */
+:root .im-marca__h{
+  margin:0;
+  font-weight:200;
+  font-size:clamp(2.6rem, 8.4vw, 5.6rem);
+  line-height:.86;
+  letter-spacing:-.018em;
+}
+:root .im-marca__h b{ display:block; font-weight:200 }
+:root .im-marca__h b:nth-child(2){ padding-inline-start:.30em }
+:root .im-marca__h b:nth-child(3){ padding-inline-start:.60em }
+:root .im-marca__h-cola{
+  display:block; margin-block-start:.18em;
+  font-size:.34em; font-weight:400;
+  letter-spacing:.2em; color:var(--im-olivo-txt);
+}
+:root .im-marca__h-cola sup{ font-size:.5em; vertical-align:super }
+
+:root .im-marca__lema{
+  margin:clamp(1.4rem, 4vw, 2.2rem) 0 0;
+  max-inline-size:30ch;
+  font-size:clamp(1rem, 1.5vw, 1.3rem);
+  color:var(--im-gris);
+}
+:root .im-marca__lema em{ font-style:normal; color:var(--im-tinta) }
+
+/* Discover · Define · Design */
+:root .im-marca__proceso{
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:clamp(.9rem, 3vw, 2.2rem);
+  margin:clamp(1.6rem, 4vw, 2.4rem) 0;
+  padding:0; list-style:none;
+  font-weight:200; text-transform:uppercase;
+  font-size:clamp(1.05rem, 2.6vw, 1.9rem);
+  letter-spacing:-.01em;
+}
+:root .im-marca__proceso li{ color:var(--im-tinta) }
+:root .im-marca__proceso li:nth-child(1){ opacity:.42 }
+:root .im-marca__proceso li:nth-child(2){ opacity:.68 }
+
+:root .im-marca__copy{
+  margin:0; max-inline-size:52ch;
+  font-size:1rem; color:var(--im-gris);
+}
+
+:root .im-marca__enlace{
+  display:inline-flex; align-items:center; gap:.7rem;
+  margin-block-start:clamp(1.6rem, 4vw, 2.4rem);
+  padding:1.05em 1.9em;
+  border:1px solid currentColor;
+  color:var(--im-tinta); text-decoration:none;
+  font-size:.6875rem; font-weight:400;
+  letter-spacing:.2em; text-transform:uppercase;
+  transition:background .3s ease, color .3s ease;
+}
+:root .im-marca__enlace:hover{ background:var(--im-tinta); color:var(--im-blanco) }
+:root .im-marca__enlace:focus-visible{ outline:2px solid var(--im-olivo); outline-offset:3px }
+
+:root .im-marca__foto{ margin:0; position:relative }
+:root .im-marca__foto img{
+  display:block; inline-size:100%; block-size:auto;
+  aspect-ratio:4 / 5; object-fit:cover; object-position:50% 30%;
+}
+/* El bloque olivo que firma la marca. */
+:root .im-marca__foto::before{
+  content:""; position:absolute; z-index:1;
+  inset-block-start:-1px; inset-inline-start:-1px;
+  inline-size:38%; block-size:26%;
+  background:var(--im-olivo);
+}
+
+@media (max-width:899px){
+  :root .im-marca__grid{ grid-template-columns:1fr; gap:clamp(1.8rem, 6vw, 2.6rem) }
+  :root .im-marca__foto{ order:-1 }
+  :root .im-marca__foto img{ aspect-ratio:3 / 2; object-position:50% 26% }
+  :root .im-marca__enlace{ inline-size:100%; justify-content:center }
 }
