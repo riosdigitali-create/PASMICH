@@ -3012,3 +3012,23 @@ html{ scroll-behavior:smooth }
 :root .amor-feature__acciones .btn{ --btn-bg:#f4b900; --btn-fg:#082635; border-color:#f4b900; font-family:var(--font-ui); font-weight:800 }
 :root .amor-feature__acciones .btn:hover{ --btn-bg:#fff; --btn-fg:#082635; border-color:#fff }
 :root .amor-feature__acciones .link-arrow{ color:#fff; border-color:rgba(255,255,255,.45) }
+
+/* A prueba de todo · aplicación fiel de la carpeta de identidad (solo este bloque). */
+:root .amor-feature{
+  position:relative;
+  isolation:isolate;
+  background-color:#082635;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+:root .amor-feature::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 12% 18%,rgba(0,94,152,.42),transparent 38%),linear-gradient(120deg,transparent 58%,rgba(244,185,0,.08));}
+:root .amor-feature__titulo{font-family:'Gotham APT',Arial,sans-serif;font-weight:400;letter-spacing:-.055em;line-height:.86}
+:root .amor-feature__titulo em{font-family:'Abril APT',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.035em;color:#f4b900}
+:root .amor-feature__lede{font-family:'Gotham APT',Arial,sans-serif;font-size:clamp(1.05rem,1.55vw,1.35rem);line-height:1.55;color:rgba(255,255,255,.86);max-inline-size:38ch}
+:root .amor-feature__puntos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem 1.25rem;max-inline-size:38rem;margin:1.5rem 0 0;padding:0;list-style:none;font-family:'Gotham APT',Arial,sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+:root .amor-feature__puntos li{display:flex;gap:.7rem;align-items:baseline;border-top:1px solid rgba(255,255,255,.18);padding-top:.55rem}
+:root .amor-feature__puntos li:last-child{grid-column:1 / -1}
+:root .amor-feature__puntos b{color:#f4b900;font-size:.7rem}
+:root .amor-feature__firma{font-family:'Gotham APT',Arial,sans-serif}
+:root .amor-feature__acciones .btn{font-family:'Gotham APT',Arial,sans-serif;background:#f4b900;color:#082635;border-color:#f4b900}
+@media (max-width:560px){:root .amor-feature__puntos{grid-template-columns:1fr}:root .amor-feature__puntos li:last-child{grid-column:auto}}
