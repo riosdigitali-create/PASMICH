@@ -3040,3 +3040,8 @@ html{ scroll-behavior:smooth }
 :root .conf-accion__principal:has(.hueco){display:none!important}
 :root .pdp__gallery:has(.ph),
 :root .rel__media:has(.ph){display:none!important}
+
+/* Retirar piezas que ya no corresponden al lanzamiento actual. */
+:root .pod-teaser,
+:root .event,
+:root .film__note{display:none!important}
